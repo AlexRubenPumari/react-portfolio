@@ -11,3 +11,33 @@ export const MODES = {
   DARK: 1,
   AUTO: 3,
 }
+export const COLOR_SCHEME = [
+  '--c-primary-01',
+  '--c-primary-02',
+  '--c-primary-03',
+  '--c-primary-01-o',
+  '--c-secondary-01',
+  '--c-secondary-02',
+  '--c-secondary-03',
+  '--c-secondary-01-o',
+]
+export const LIGHT_MODE_SCHEME = [
+  '--black-90',
+  '--black-70',
+  '--black-50',
+  '--black-90-6o',
+  '--white-90',
+  '--white-70',
+  '--white-50',
+  '--white-90-6o',
+]
+export const DARK_MODE_SCHEME = [
+  '--white-90',
+  '--white-70',
+  '--white-50',
+  '--white-90-6o',
+  '--black-90',
+  '--black-70',
+  '--black-50',
+  '--black-90-6o',
+]

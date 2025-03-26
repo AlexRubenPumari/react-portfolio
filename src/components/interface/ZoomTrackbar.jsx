@@ -16,7 +16,7 @@ export default function ZoomTrackbar({ initialValue, min, max }) {
         callback={setValue}
       />
       <Trackbar
-        className='dSensitive'
+        className='dResponsive'
         value={value}
         changeValue={setValue}
         min={min}

@@ -15,7 +15,7 @@ export default function Pagination({
         ◀
       </button>
       <span>
-        <span className='dSensitive'>{`${label} `}</span>
+        <span className='dResponsive'>{`${label} `}</span>
         {`${current + 1} de ${max + 1}`}
       </span>
       <button

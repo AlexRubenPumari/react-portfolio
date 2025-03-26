@@ -31,23 +31,31 @@
   --white-90: hsl(210, 14%, 95%);
   --white-70: hsl(213, 9%, 79%);
   --white-50: hsl(215, 5%, 57%);
+  --white-90-6o: hsl(210, 14%, 95%, .6);
+  --black-90: hsl(0, 0%, 9%);
+  --black-70: hsl(0, 0%, 21%);
+  --black-50: hsl(0, 0%, 41%);
+  --black-90-6o: hsla(0, 0%, 9%, 0.6);
+  
   --violet-50: hsl(260, 94%, 58%);
   --violet-40: hsl(260, 94%, 48%);
-  --black-90: hsl(0, 0%, 9%);
-  --black-90-6o: hsla(0, 0%, 9%, 0.6);
   --yellow-70: hsl(60, 90%, 75%);
   --yellow-40: hsl(51, 90%, 45%);
 
+
   --c-primary-01: var(--black-90);
+  --c-primary-02: var(--black-70);
+  --c-primary-03: var(--black-50);
   --c-primary-01-o: var(--black-90-6o);
   --c-secondary-01: var(--white-90);
   --c-secondary-02: var(--white-70);
   --c-secondary-03: var(--white-50);
+  --c-secondary-01-o: var(--white-90-6o);
 
   --font-primary: Verdana;
   --font-secondary: Helvetica, Arial, sans-serif;
 }
-
+$border: 1px solid var(--c-secondary-03);
 %flex-center {
   display: flex;
   justify-content: center;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { MODES } from '../../config/constants'
+import { changeDisplayMode } from '../../logic/styles'
 import IconDarkMode from '../../assets/svg/icons/IconDarkMode'
 import IconMoon from '../../assets/svg/icons/IconMoon'
 import IconSun from '../../assets/svg/icons/IconSun'
@@ -10,16 +11,13 @@ export default function DarkModeButton() {
   const [mode, setMode] = useState(AUTO)
   useEffect(() => {
     if (mode === DARK) {
-      // setDarkMode()
-      alert('Dark')
+      changeDisplayMode(DARK)
     }
     if (mode === LIGHT) {
-      // setLightMode()
-      alert('Light')
+      changeDisplayMode(LIGHT)
     }
     if (mode === AUTO) {
-      // setDarkMode()
-      alert('Auto')
+      changeDisplayMode(AUTO)
     }
   }, [mode])
   return (
