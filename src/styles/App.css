@@ -230,7 +230,7 @@ body {
   background-color: var(--c-secondary-01);
   user-select: none;
 }
-.Footer__left, .Footer__rigth {
+.Footer__rigth {
   display: flex;
   align-items: center;
   gap: var(--u-m);
@@ -274,6 +274,12 @@ body {
 .Trackbar__container {
   display: flex;
   align-items: center;
+}
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--u-m);
 }
 
 .DropMenu {

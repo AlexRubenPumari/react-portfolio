@@ -9,7 +9,7 @@
   z-index: 1;
   background-color: var(--c-secondary-01);
   user-select: none;
-  &__left, &__rigth {
+  &__rigth {
     display: flex;
     align-items: center;
     gap: var(--u-m);
