@@ -239,7 +239,7 @@ body {
 .Trackbar {
   display: flex;
   align-items: center;
-  gap: var(--u-sm);
+  position: relative;
 }
 .Trackbar__input {
   appearance: none;
@@ -267,13 +267,26 @@ body {
   background-color: var(--yellow-70);
   border: 1px solid var(--yellow-40);
 }
-.Trackbar__label {
-  width: var(--u-4xl);
-  text-align: center;
+.Trackbar::before {
+  width: 1px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  content: "";
+  transform: translate(-50%, -50%);
+  background-color: var(--c-secondary-03);
 }
-.Trackbar__container {
+
+.ZoomTrackbar {
   display: flex;
   align-items: center;
+  gap: var(--u-sm);
+}
+.ZoomTrackbar__label {
+  width: var(--u-4xl);
+  text-align: center;
 }
 
 .Pagination {
@@ -295,8 +308,6 @@ body {
   border: 1px solid var(--c-secondary-03);
   border-radius: var(--rounded-xs);
   position: absolute;
-  top: 120%;
-  right: 0;
   background-color: var(--c-secondary-01);
   box-shadow: 0 0 10px 0px var(--c-primary-01-o);
 }
@@ -351,6 +362,15 @@ body {
   box-shadow: 0px 0px 15px 0px var(--c-primary-01-o);
 }
 
+@media (max-width: 600px) {
+  .dSensitive {
+    display: none;
+  }
+  .Page {
+    width: 95%;
+    font-size: min(2.2vw, 1em);
+  }
+}
 @media (hover: hover) {
   .IButton:hover {
     background-color: var(--yellow-70);

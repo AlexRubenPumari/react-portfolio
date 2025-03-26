@@ -4,6 +4,7 @@
 @use './Footer';
 // components
 @use './Trackbar' as t;
+@use './ZoomTrackbar';
 @use './Pagination';
 @use './DropMenu';
 @use './buttons';
@@ -24,6 +25,15 @@
   font-size: min(1.85vw, 1em);
   background-color: var(--c-secondary-01);
   box-shadow: 0px 0px 15px 0px var(--c-primary-01-o);
+}
+@media (max-width: 600px) {
+  .dSensitive {
+    display: none;
+  }
+  .Page {
+    width: 95%;
+    font-size: min(2.2vw, 1em);
+  }
 }
 @media (hover: hover) {
   .IButton {

@@ -28,6 +28,7 @@ export default function DarkModeButton() {
       values={[DARK, LIGHT, AUTO]}
       currentValue={mode}
       icon={<IconManager currentMode={mode} />}
+      direction='bottom right'
       callback={setMode}
     />
   )

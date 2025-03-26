@@ -1,0 +1,10 @@
+.ZoomTrackbar {
+  display: flex;
+  align-items: center;
+  gap: var(--u-sm);
+
+  &__label {
+    width: var(--u-4xl);
+    text-align: center;
+  }
+}
