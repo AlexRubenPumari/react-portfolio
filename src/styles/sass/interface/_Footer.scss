@@ -1,0 +1,17 @@
+@use '../config';
+
+.Footer {
+  @extend %flex-between;
+  height: 4vh;
+  border-top: 1px solid var(--c-secondary-03);
+  padding: 0 1em;
+  position: relative;
+  z-index: 1;
+  background-color: var(--c-secondary-01);
+  user-select: none;
+  &__left, &__rigth {
+    display: flex;
+    align-items: center;
+    gap: var(--u-m);
+  }
+}

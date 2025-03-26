@@ -1,0 +1,41 @@
+@mixin emphasized-thumb-styles {
+  background-color: var(--yellow-70);
+  border: 1px solid var(--yellow-40);
+}
+.Trackbar {
+  @mixin thumb-styles {
+    width: 0.625em;
+    height: 1.125em;
+    background: var(--c-secondary-03);
+    cursor: pointer;
+  }
+  display: flex;
+  align-items: center;
+  gap: var(--u-sm);
+  &__input {
+    appearance: none;
+    height: 1px;
+    background: var(--c-secondary-03);
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      @include thumb-styles();
+      &:active {
+        @include emphasized-thumb-styles();
+      }
+    }
+    &::-moz-range-thumb {
+      @include thumb-styles();
+      &:active {
+        @include emphasized-thumb-styles();
+      }
+    }
+  }
+  &__label {
+    width: var(--u-4xl);
+    text-align: center;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+}

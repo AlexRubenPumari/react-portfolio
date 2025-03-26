@@ -1,0 +1,18 @@
+@use '../config';
+
+.IButton {
+  @extend %flex-center;
+  gap: var(--u-xs);
+  border-radius: var(--rounded-xs);
+  padding: var(--p-xs);
+  &--rounded {
+    width: var(--u-xl);
+    height: var(--u-xl);
+    border-radius: 50% !important;
+    outline: 1px solid var(--c-secondary-03);
+    font-weight: bold;
+  }
+  &__icon {
+    width: var(--u-xl);
+  }
+}

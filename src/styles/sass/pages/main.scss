@@ -1,0 +1,38 @@
+// Pages
+@use './IndexPage';
+@use './ProjectsPage';
+@use './ContactsPage';
+@use './AboutMePage';
+// Components
+@use './ProjectCard';
+@use './buttons';
+
+.GridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--u-l);
+}
+.Blob {
+  position: absolute;
+  color: var(--violet-50);
+}
+.BasePage {
+  padding: var(--u-3xl) var(--u-2xl);
+  position: relative;
+  height: 100%;
+}
+@media (hover: hover) {
+  .ProjectCard {
+    &:hover &__img {
+      transform: scale(1.1);
+    }
+    &:hover &__label {
+      opacity: 1;
+    }
+  }
+  .PrimaryButton {
+    &:hover {
+      background-color: var(--violet-40);
+    }
+  }
+}

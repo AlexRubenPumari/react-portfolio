@@ -1,0 +1,54 @@
+@use '../config';
+// UI components
+@use './Header';
+@use './Footer';
+// components
+@use './Trackbar' as t;
+@use './DropMenu';
+@use './buttons';
+
+.Viewport {
+  @extend %flex-center;
+  height: 80vh;
+
+  background-color: var(--c-secondary-02);
+}
+.Page {
+  width: 80%;
+  max-width: 700px;
+  aspect-ratio: 7/5;
+  max-height: 100%;
+
+  overflow: hidden;
+  font-size: min(1.85vw, 1em);
+  background-color: var(--c-secondary-01);
+  box-shadow: 0px 0px 15px 0px var(--c-primary-01-o);
+}
+@media (hover: hover) {
+  .IButton {
+    &:hover {
+      background-color: var(--yellow-70);
+      outline: 1px solid var(--yellow-40);
+    }
+  }
+  .Header {
+    &__flap:hover {
+      background-color: var(--c-secondary-03);
+    }
+  }
+  .Trackbar {
+    &__input {
+      &::-webkit-slider-thumb:hover {
+        @include t.emphasized-thumb-styles();
+      }
+      &::-moz-range-thumb:hover {
+        @include t.emphasized-thumb-styles();
+      }
+    }
+  }
+  .DropMenu {
+    &__item:hover {
+      background-color: var(--c-secondary-02);
+    }
+  }
+}

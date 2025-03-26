@@ -1,0 +1,60 @@
+:root {
+  --fs-xs: 0.88em;
+  --fs-sm: 1em;
+  --fs-m: 1.3em;
+  --fs-l: 2em;
+
+  --rounded-xs: 0.15em;
+  --rounded-sm: 0.4em;
+  --rounded-m: 0.8em;
+  --rounded-l: 1.2em;
+
+  --p-xs: 0.13em;
+  --p-sm: 0.3em;
+  --p-m: 0.8em;
+  --p-l: 1.2em;
+
+  --u-xs: 0.15em;
+  --u-sm: 0.35em;
+  --u-m: 0.7em;
+  --u-l: 1em;
+  --u-xl: 1.25em;
+  --u-2xl: 1.5em;
+  --u-3xl: 2em;
+  --u-4xl: 3.25em;
+  --u-5xl: 4.5em;
+  --u-6xl: 6em;
+  --u-7xl: 8.25em;
+  --u-8xl: 10.5em;
+  --u-9xl: 15em;
+
+  --white-90: hsl(210, 14%, 95%);
+  --white-70: hsl(213, 9%, 79%);
+  --white-50: hsl(215, 5%, 57%);
+  --violet-50: hsl(260, 94%, 58%);
+  --violet-40: hsl(260, 94%, 48%);
+  --black-90: hsl(0, 0%, 9%);
+  --black-90-6o: hsla(0, 0%, 9%, 0.6);
+  --yellow-70: hsl(60, 90%, 75%);
+  --yellow-40: hsl(51, 90%, 45%);
+
+  --c-primary-01: var(--black-90);
+  --c-primary-01-o: var(--black-90-6o);
+  --c-secondary-01: var(--white-90);
+  --c-secondary-02: var(--white-70);
+  --c-secondary-03: var(--white-50);
+
+  --font-primary: Verdana;
+  --font-secondary: Helvetica, Arial, sans-serif;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

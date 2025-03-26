@@ -1,0 +1,15 @@
+@use '../config';
+
+.PrimaryButton {
+  @extend %flex-center;
+  gap: var(--u-sm);
+  width: var(--u-8xl);
+  padding: var(--p-sm) 0;
+  border-radius: var(--rounded-sm);
+
+  background-color: var(--violet-50);
+  color: var(--white-90);
+  &__icon {
+    width: var(--u-2xl);
+  }
+}
