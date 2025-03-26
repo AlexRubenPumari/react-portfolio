@@ -1,5 +1,5 @@
 import DropMenu from './DropMenu'
-import { getNameFor } from '../../logic/pages'
+import { getNameFor } from '../../logic/getData'
 
 export default function Flaps({ currentFlap, changeFlap, flaps, values }) {
   return (

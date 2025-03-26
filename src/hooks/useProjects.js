@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getTitleFrom, getDescriptionFrom } from '../logic/description'
+import { getTitleFrom, getDescriptionFrom } from '../logic/getData'
 import { getProjects } from '../services/projects'
 
 export function useProjects () {

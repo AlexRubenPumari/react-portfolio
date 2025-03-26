@@ -1,7 +1,7 @@
 @use '../config' as c;
 
 .Header {
-  height: 16vh;
+  height: 16dvh;
   border-bottom: c.$border;
   position: relative;
   z-index: 1;

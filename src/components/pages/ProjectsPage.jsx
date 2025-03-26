@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useProjects } from '../../hooks/useProjects'
 import Blob_3 from '../../assets/svg/blobs/Blob_3'
 
