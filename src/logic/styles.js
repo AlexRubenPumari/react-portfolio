@@ -25,6 +25,9 @@ export function getDropMenuStyles(direction) {
     if (direction === 'bottom right') {
       styles = { ...styles, right: '0' }
     }
+    if (direction === 'bottom left') {
+      styles = { ...styles, left: '0' }
+    }
   }
 
   return styles

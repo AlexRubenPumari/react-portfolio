@@ -12,6 +12,7 @@
   --p-sm: 0.3em;
   --p-m: 0.8em;
   --p-l: 1.2em;
+  --p-xl: 1.6em;
   --u-xs: 0.15em;
   --u-sm: 0.35em;
   --u-m: 0.7em;
@@ -191,7 +192,7 @@ body {
   position: relative;
   z-index: 1;
   background-color: var(--c-secondary-01);
-  box-shadow: 0px -3px 10px 0px var(--c-primary-01-o);
+  box-shadow: 0px -3px 10px 0px var(--black-90-6o);
   user-select: none;
 }
 .Header__nav {
@@ -287,12 +288,13 @@ body {
   border: 1px solid var(--c-secondary-03);
   border-radius: var(--rounded-xs);
   position: absolute;
+  color: var(--c-primary-01);
   background-color: var(--c-secondary-01);
   box-shadow: 0 0 10px 0px var(--c-primary-01-o);
 }
 .DropMenu__item {
-  min-width: var(--u-6xl);
-  padding: var(--p-sm) var(--p-l) var(--p-sm) var(--p-m);
+  min-width: max-content;
+  padding: var(--p-sm) var(--p-xl) var(--p-sm) var(--p-m);
   position: relative;
   text-align: left;
   transition: background-color 200ms;
@@ -305,7 +307,7 @@ body {
   position: absolute;
   content: "✔";
   top: 50%;
-  right: 0.8em;
+  right: 0.36em;
   transform: translateY(-50%);
 }
 
@@ -367,12 +369,19 @@ body {
   overflow: hidden;
   font-size: min(1.85vw, 1em);
   background-color: var(--c-secondary-01);
-  box-shadow: 0px 0px 15px 0px var(--c-primary-01-o);
+  box-shadow: 0px 0px 15px 0px var(--black-90-6o);
+}
+
+.dUnresponsive {
+  display: none;
 }
 
 @media (max-width: 600px) {
   .dResponsive {
     display: none;
+  }
+  .dUnresponsive {
+    display: flex;
   }
   .Page {
     width: 95%;
@@ -383,6 +392,7 @@ body {
   .IButton:hover {
     background-color: var(--yellow-70);
     outline: 1px solid var(--yellow-40);
+    color: var(--black-90);
   }
   .Flap:hover {
     background-color: var(--c-secondary-03);

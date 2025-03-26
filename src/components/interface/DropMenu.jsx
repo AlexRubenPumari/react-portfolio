@@ -2,6 +2,7 @@ import { useState, cloneElement } from 'react'
 import { getDropMenuStyles } from '../../logic/styles'
 
 export default function DropMenu({
+  className = '',
   items,
   values,
   currentValue,
@@ -23,8 +24,9 @@ export default function DropMenu({
   return (
     <>
       <button
-        className='IButton DropMenu'
-        onClick={() => setIsDropped(!isDropped)}>
+        className={`IButton DropMenu ${className}`}
+        onClick={() => setIsDropped(!isDropped)}
+      >
         {icon && cloneElement(icon, { classIcon: 'DropMenu__icon' })}
         {text && <span>{text}</span>}
         <span className='DropMenu__arrow'>{arrow}</span>

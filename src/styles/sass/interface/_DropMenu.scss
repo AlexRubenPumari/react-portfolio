@@ -11,12 +11,13 @@
     border-radius: var(--rounded-xs);
     position: absolute;
 
+    color: var(--c-primary-01);
     background-color: var(--c-secondary-01);
     box-shadow: 0 0 10px 0px var(--c-primary-01-o)
   }
   &__item {
-    min-width: var(--u-6xl);
-    padding: var(--p-sm) var(--p-l) var(--p-sm) var(--p-m);
+    min-width: max-content;
+    padding: var(--p-sm) var(--p-xl) var(--p-sm) var(--p-m);
     position: relative;
     text-align: left;
     transition: background-color 200ms;
@@ -27,7 +28,7 @@
         position: absolute;
         content: '✔';
         top: 50%;
-        right: .8em;
+        right: .36em;
         transform: translateY(-50%);
       }
     }
