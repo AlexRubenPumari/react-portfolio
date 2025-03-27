@@ -4,8 +4,18 @@ import {
   DARK_MODE_SCHEME,
   COLOR_SCHEME,
 } from '../config/constants'
-
-export function getDropMenuStyles(direction) {
+export function getDropMenuStyles (direction, isDropped) {
+  const getArrow = bool => (bool ? '▼' : '▲')
+  const getArrowStyle = direction => {
+    if (direction.startsWith('bottom')) return getArrow(!isDropped)
+    if (direction.startsWith('top')) return getArrow(isDropped)
+  }
+  const menuStyles = getMenuStyles(direction)
+  const arrow = getArrowStyle(direction)
+  
+  return { arrow, styles: menuStyles }
+}
+export function getMenuStyles(direction) {
   let styles
   const stylesCenter = {
     left: '50%',

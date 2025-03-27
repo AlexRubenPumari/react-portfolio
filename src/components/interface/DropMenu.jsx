@@ -1,4 +1,4 @@
-import { useState, cloneElement, useEffect } from 'react'
+import { useState, cloneElement, useEffect, useRef } from 'react'
 import { getDropMenuStyles } from '../../logic/styles'
 
 export default function DropMenu({
@@ -13,48 +13,54 @@ export default function DropMenu({
 }) {
   const [isDropped, setIsDropped] = useState(false)
   const { arrow, styles } = getDropMenuStyles(direction, isDropped)
+  const btnRef = useRef(null)
+  const handleClickOutMenu = e => {
+    if (btnRef.current && !btnRef.current.contains(e.target)) {
+      setIsDropped(false)
+    }
+  }
 
   useEffect(() => {
-    // usar useRef para cerrar el menu...
+    document.addEventListener('click', handleClickOutMenu)
+    return () => {
+      document.removeEventListener('click', handleClickOutMenu)
+    }
   }, [])
   return (
     <>
       <button
         className={`IButton DropMenu ${className}`}
         onClick={() => setIsDropped(!isDropped)}
+        ref={btnRef}
       >
         {icon && cloneElement(icon, { classIcon: 'DropMenu__icon' })}
         {text && <span>{text}</span>}
         <span className='DropMenu__arrow'>{arrow}</span>
         {isDropped && (
-          <Menu
-            styles={styles}
-            items={items}
-            values={values}
-            currentValue={currentValue}
-            callback={callback}
-          />
+          <ul className='DropMenu__menu' style={styles}>
+            {items.map((item, index) => (
+              <Item
+                key={values[index]}
+                current={currentValue}
+                value={values[index]}
+                callback={callback}
+              >
+                {item}
+              </Item>
+            ))}
+          </ul>
         )}
       </button>
     </>
   )
 }
-function Menu({ items, values, currentValue, styles, callback }) {
+function Item({ children, current, value, callback }) {
   return (
-    <ul className='DropMenu__menu' style={styles}>
-      {items.map((item, index) => {
-        const value = values[index]
-        return (
-          <li
-            key={value}
-            className={`DropMenu__item ${
-              value === currentValue ? 'selected' : ''
-            }`}
-            onClick={() => callback(value)}>
-            {item}
-          </li>
-        )
-      })}
-    </ul>
+    <li
+      className={`DropMenu__item ${value === current ? 'selected' : ''}`}
+      onClick={() => callback(value)}
+    >
+      {children}
+    </li>
   )
 }
