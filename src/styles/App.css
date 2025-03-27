@@ -381,7 +381,7 @@ body {
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 630px) {
   .dResponsive {
     display: none;
   }
@@ -482,7 +482,7 @@ body {
 }
 
 .ProjectsPage__blob {
-  bottom: -5%;
+  bottom: 0;
   left: 0;
 }
 .ProjectsPage__title {
@@ -626,7 +626,7 @@ body {
     padding-bottom: 3em;
   }
   .Container {
-    height: 88%;
+    height: 89%;
   }
   .Container--projects {
     position: relative;
