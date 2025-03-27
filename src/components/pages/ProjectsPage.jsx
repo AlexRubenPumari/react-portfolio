@@ -21,6 +21,7 @@ export default function ProjectsPage() {
           className='ProjectsPage__pattern'
         />
       </h3>
+      <div className="Container">
       <div className='GridContainer GridContainer--projects'>
         {projects.map(({ id, title, imgUrl }) => (
           <ProjectCard key={id} title={title} imgUrl={imgUrl} />

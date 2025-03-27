@@ -8,7 +8,7 @@ export function useProjects () {
     id: id,
     title: getTitleFrom(description),
     description: getDescriptionFrom(description),
-    urlImg: `https://raw.githubusercontent.com/AlexRubenPumari/${name}/master/cover.jpg`,
+    imgUrl: `https://raw.githubusercontent.com/AlexRubenPumari/${name}/master/cover.jpg`,
     tags: topics,
   }))
   useEffect(() => {
