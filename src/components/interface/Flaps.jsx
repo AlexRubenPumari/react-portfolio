@@ -30,7 +30,7 @@ export default function Flaps({ currentFlap, changeFlap, flaps, values }) {
 function Flap({ current, item, value, callback }) {
   return (
     <li
-      className={`Flap ${current === value ? 'selected' : ''}`}
+      className={`Flap${current === value ? ' selected' : ''}`}
       onClick={() => callback(value)}>
       {item}
     </li>

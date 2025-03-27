@@ -12,7 +12,7 @@ export default function Pagination({
       <button
         className='IButton IButton--rounded'
         onClick={() => updateTo(clampLoop(current - 1, min, max))}>
-        <span className='Pagination__arrow'>◀</span>
+        <span className='IButton__symbol'>◀</span>
       </button>
       <span>
         <span className='dResponsive'>{`${label} `}</span>
@@ -21,7 +21,7 @@ export default function Pagination({
       <button
         className='IButton IButton--rounded'
         onClick={() => updateTo(clampLoop(current + 1, min, max))}>
-        <span className='Pagination__arrow'>▶</span>
+        <span className='IButton__symbol'>▶</span>
       </button>
     </div>
   )

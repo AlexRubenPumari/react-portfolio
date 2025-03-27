@@ -1,4 +1,4 @@
-import { useState, cloneElement } from 'react'
+import { useState, cloneElement, useEffect } from 'react'
 import { getDropMenuStyles } from '../../logic/styles'
 
 export default function DropMenu({
@@ -12,15 +12,11 @@ export default function DropMenu({
   callback,
 }) {
   const [isDropped, setIsDropped] = useState(false)
-  let arrow
-  const getArrow = bool => (bool ? '▼' : '▲')
-  const styles = getDropMenuStyles(direction)
-  if (direction.startsWith('bottom')) {
-    arrow = getArrow(!isDropped)
-  }
-  if (direction.startsWith('top')) {
-    arrow = getArrow(isDropped)
-  }
+  const { arrow, styles } = getDropMenuStyles(direction, isDropped)
+
+  useEffect(() => {
+    // usar useRef para cerrar el menu...
+  }, [])
   return (
     <>
       <button

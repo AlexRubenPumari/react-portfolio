@@ -1,25 +1,12 @@
-import { useEffect, useState } from 'react'
 import { MODES } from '../../config/constants'
-import { changeDisplayMode } from '../../logic/styles'
+import useColorScheme from '../../hooks/useColorScheme'
 import IconDarkMode from '../../assets/svg/icons/IconDarkMode'
 import IconMoon from '../../assets/svg/icons/IconMoon'
 import IconSun from '../../assets/svg/icons/IconSun'
 import DropMenu from './DropMenu'
 
 export default function DarkModeButton() {
-  const { DARK, LIGHT, AUTO } = MODES
-  const [mode, setMode] = useState(AUTO)
-  useEffect(() => {
-    if (mode === DARK) {
-      changeDisplayMode(DARK)
-    }
-    if (mode === LIGHT) {
-      changeDisplayMode(LIGHT)
-    }
-    if (mode === AUTO) {
-      changeDisplayMode(AUTO)
-    }
-  }, [mode])
+  const { mode, setMode, DARK, LIGHT, AUTO } = useColorScheme()
   return (
     <DropMenu
       items={['Dark', 'Light', 'Auto']}

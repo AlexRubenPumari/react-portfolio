@@ -14,7 +14,7 @@ export default function Trackbar({
       <button
         className='IButton IButton--rounded'
         onClick={() => changeValue(clamp(value - step, min, max))}>
-        -
+        <span className='IButton__symbol'>-</span>
       </button>
       <input
         className='Trackbar__input'
@@ -28,7 +28,7 @@ export default function Trackbar({
       <button
         className='IButton IButton--rounded'
         onClick={() => changeValue(clamp(value + step, min, max))}>
-        +
+        <span className='IButton__symbol'>+</span>
       </button>
     </div>
   )
