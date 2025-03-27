@@ -8,14 +8,15 @@
   color: var(--c-secondary-01);
   &__ImgContainer {
     height: 100%;
-    border-radius: var(--rounded-sm);
     overflow: hidden;
+    border-radius: var(--rounded-sm);
   }
   &__img {
     aspect-ratio: 9/5;
     transition: transform 300ms;
   }
   &__title {
+    border-radius: var(--rounded-sm);
     @extend %flex-center;
     width: 100%;
     padding: var(--u-sm);
