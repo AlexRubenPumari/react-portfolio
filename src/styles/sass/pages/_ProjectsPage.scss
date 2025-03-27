@@ -1,6 +1,16 @@
 .ProjectsPage {
   &__blob {
-    bottom: -3.2em;
+    bottom: -5%;
     left: 0;
+  }
+  &__title {
+    position: relative;
+  }
+  &__pattern {
+    position: absolute;
+    top: 50%;
+    right: 1.8em;
+    color: var(--violet-50);
+    transform: translateY(-50%);
   }
 }

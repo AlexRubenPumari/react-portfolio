@@ -1,0 +1,23 @@
+@use '../config';
+
+.AboutMePage {
+  @extend %flex-center;
+  &__content {
+    width: 90%;
+    position: relative;
+  }
+  &__blob {
+    &--1 {
+      bottom: 0;
+      right: 0;
+      width: 35%;
+      transform: scaleX(-1);
+    }
+    &--2 {
+      top: 0;
+      left: 0;
+      width: 50%;
+      transform: scaleX(-1);
+    }
+  }
+}
