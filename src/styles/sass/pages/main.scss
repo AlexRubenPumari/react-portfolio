@@ -15,6 +15,22 @@
   &--projects {
     height: 90%;
     overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 8px; /* Ancho de la barra de desplazamiento */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--c-secondary-01);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--c-primary-01-o);
+      border-left: 5px solid var(--c-secondary-01);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--c-primary-01);
+    }
   }
 }
 .Blob {

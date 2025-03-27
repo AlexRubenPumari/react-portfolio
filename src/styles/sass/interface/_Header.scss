@@ -11,6 +11,7 @@
   user-select: none;
   &__nav {
     @extend %flex-between;
+    align-items: end;
     padding: 0 1em;
     border-bottom: c.$border;
     background: var(--c-secondary-02);

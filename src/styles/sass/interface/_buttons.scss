@@ -4,15 +4,20 @@
   @extend %flex-center;
   gap: var(--u-xs);
   border-radius: var(--rounded-xs);
-  padding: var(--p-xs);
+  padding: var(--p-sm);
   &--rounded {
-    width: var(--u-xl);
-    height: var(--u-xl);
     border-radius: 50% !important;
     outline: 1px solid var(--c-secondary-03);
+    line-height: 0;
+    aspect-ratio: 1/1;
     font-weight: bold;
   }
   &__icon {
     width: var(--u-xl);
+  }
+  &__symbol {
+    width: .85em;
+    line-height: .85em;
+    text-align: center;
   }
 }
