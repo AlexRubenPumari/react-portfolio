@@ -13,4 +13,10 @@
     color: var(--violet-50);
     transform: translateY(-50%);
   }
+  &__loadingLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

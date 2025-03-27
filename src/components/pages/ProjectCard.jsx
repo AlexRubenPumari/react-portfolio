@@ -1,6 +1,6 @@
-export default function ProjectCard({ title, imgUrl }) {
+export default function ProjectCard({ title, imgUrl, id, callback }) {
   return (
-    <article className='ProjectCard'>
+    <article className='ProjectCard' onClick={() => callback(id)}>
       <h4 className='ProjectCard__title'>{title}</h4>
       <div className='ProjectCard__ImgContainer'>
         <img

@@ -11,3 +11,14 @@ export function getDescriptionFrom (description) {
 export function getNameFor(index) {
   return PAGES_NAMES[index]
 }
+export function getFormatedTag(tag) {
+  const tags = {
+    html: 'HTML',
+    css: 'CSS',
+    scss: 'SCSS',
+    js: 'JavaScript',
+    react: 'React'
+  }
+
+  return tags[tag] || ''
+}

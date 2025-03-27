@@ -7,6 +7,7 @@
 @use './ZoomTrackbar';
 @use './Pagination';
 @use './DropMenu';
+@use './Modal';
 @use './Flaps';
 @use './buttons';
 
@@ -52,7 +53,7 @@
     height: 6dvh;
   }
   .Page {
-    font-size: .9em;
+    font-size: 0.9em;
   }
   .IndexPage {
     &__content {
@@ -86,6 +87,11 @@
       background-color: var(--yellow-70);
       outline: 1px solid var(--yellow-40);
       color: var(--black-90);
+    }
+  }
+  .CloseButton {
+    &:hover {
+      color: var(--c-primary-01-o);
     }
   }
   .Flap {

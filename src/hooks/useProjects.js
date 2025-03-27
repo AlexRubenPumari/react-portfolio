@@ -16,6 +16,6 @@ export function useProjects () {
       .then(projects => setProjects(projects))
       .catch(alert)
   }, [])
-
+  
   return { projects: mappedProjects }
 }

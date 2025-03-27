@@ -311,6 +311,45 @@ body {
   transform: translateY(-50%);
 }
 
+.Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1em;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background-color: var(--c-secondary-01);
+  padding: 3em 2em;
+}
+
+.ProjectModal__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 1.1em;
+  max-width: 32rem;
+  height: 100%;
+  font-size: 1rem;
+}
+.ProjectModal__img {
+  width: 19em;
+  border-radius: var(--rounded-sm);
+}
+.ProjectModal__buttons {
+  display: flex;
+  gap: 1.5em;
+}
+.ProjectModal__tags {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3em 1.1em;
+}
+
 .Flaps {
   display: flex;
 }
@@ -359,6 +398,14 @@ body {
   width: 0.85em;
   line-height: 0.85em;
   text-align: center;
+}
+
+.CloseButton {
+  aspect-ratio: 1/1;
+  padding: var(--p-sm);
+  line-height: 0;
+  font-weight: bold;
+  font-size: 1.8em;
 }
 
 .Viewport {
@@ -435,6 +482,9 @@ body {
     outline: 1px solid var(--yellow-40);
     color: var(--black-90);
   }
+  .CloseButton:hover {
+    color: var(--c-primary-01-o);
+  }
   .Flap:hover {
     background-color: var(--c-secondary-03);
   }
@@ -495,9 +545,16 @@ body {
   color: var(--violet-50);
   transform: translateY(-50%);
 }
+.ProjectsPage__loadingLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .ContactsPage {
   flex-direction: column;
+  gap: 1.5em;
 }
 .ContactsPage__buttons {
   display: flex;
@@ -574,6 +631,32 @@ body {
   transition: opacity 200ms;
 }
 
+.Tag {
+  width: 6.5em;
+  padding: 0.3em 0;
+  border-radius: var(--rounded-sm);
+  line-height: 1em;
+  text-align: center;
+  color: var(--black-90);
+  font-size: 0.88em;
+  font-weight: bold;
+}
+.Tag--html {
+  background-color: rgb(213, 80, 28);
+}
+.Tag--css {
+  background-color: rgb(29, 185, 239);
+}
+.Tag--js {
+  background-color: rgb(239, 216, 29);
+}
+.Tag--react {
+  background-color: rgb(97, 218, 251);
+}
+.Tag--sass, .Tag--scss {
+  background-color: rgb(201, 97, 149);
+}
+
 .PrimaryButton {
   gap: var(--u-sm);
   width: var(--u-8xl);
@@ -584,6 +667,12 @@ body {
 }
 .PrimaryButton__icon {
   width: var(--u-2xl);
+}
+.PrimaryButton__symbol {
+  font-weight: bold;
+}
+.PrimaryButton__symbol--m {
+  font-size: 0.9em;
 }
 
 .GridContainer {

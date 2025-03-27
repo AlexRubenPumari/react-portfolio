@@ -5,6 +5,7 @@
 @use './AboutMePage';
 // Components
 @use './ProjectCard';
+@use './Tag';
 @use './buttons';
 .GridContainer {
   display: grid;

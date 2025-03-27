@@ -12,4 +12,10 @@
   &__icon {
     width: var(--u-2xl);
   }
+  &__symbol {
+    font-weight: bold;
+    &--m {
+      font-size: .9em;
+    }
+  }
 }

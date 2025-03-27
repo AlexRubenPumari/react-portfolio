@@ -1,0 +1,39 @@
+.Modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1em;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background-color: var(--c-secondary-01);
+  padding: 3em 2em;
+}
+.ProjectModal {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap: 1.1em;
+    max-width: 32rem;
+    height: 100%;
+    font-size: 1rem;
+  }
+  &__img {
+    width: 19em;
+    border-radius: var(--rounded-sm);
+  }
+  &__buttons {
+    display: flex;
+    gap: 1.5em;
+  }
+  &__tags {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .3em 1.1em;
+  }
+}
