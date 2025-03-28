@@ -193,12 +193,14 @@ body {
 }
 
 .Header {
+  display: flex;
+  flex-direction: column;
   height: 16dvh;
   border-bottom: 1px solid var(--c-secondary-03);
   position: relative;
   z-index: 1;
   background-color: var(--c-secondary-01);
-  box-shadow: 0px -3px 10px 0px var(--black-90-6o);
+  box-shadow: 0px -3px 10px 0px var(--c-primary-01-o);
   user-select: none;
   font-size: 1rem;
   line-height: 1.4em;
@@ -208,6 +210,16 @@ body {
   padding: 0 1em;
   border-bottom: 1px solid var(--c-secondary-03);
   background: var(--c-secondary-02);
+}
+.Header__buttons {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 43.75rem;
+  margin: 0 auto;
+  padding: 0 1em;
 }
 
 .Viewport {
@@ -221,7 +233,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 2;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .Footer {
@@ -341,6 +353,9 @@ body {
   right: 0.36em;
   transform: translateY(-50%);
 }
+.DropMenu__label--zoom {
+  width: 5ch;
+}
 
 .Modal {
   display: flex;
@@ -415,6 +430,18 @@ body {
   border-radius: var(--rounded-xs);
   padding: var(--p-sm);
 }
+.IButton__img {
+  width: auto;
+  height: 32px;
+}
+.IButton--header {
+  max-width: 7.5em;
+  height: 92%;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  flex-basis: 0;
+}
 .IButton--rounded {
   border-radius: 50% !important;
   outline: 1px solid var(--c-secondary-03);
@@ -436,12 +463,10 @@ body {
 }
 
 .Page {
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
   max-width: 43.75em;
   max-height: 31.25em;
-  min-width: 37.625em;
-  min-height: 26.875em;
   overflow: hidden;
   background-color: var(--c-secondary-01);
   box-shadow: 0px 0px 15px 0px var(--black-90-6o);
@@ -460,11 +485,19 @@ body {
   }
 }
 @media (orientation: portrait) {
+  .Page {
+    max-width: 23.5em;
+    max-height: 35em;
+  }
   .Header {
     height: 18dvh;
   }
   .Viewport {
     height: 76dvh;
+  }
+  .Viewport--fullScreen .Page {
+    max-width: 95%;
+    max-height: 83%;
   }
   .Footer {
     height: 6dvh;

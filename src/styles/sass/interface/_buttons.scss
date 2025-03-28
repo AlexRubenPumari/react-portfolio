@@ -5,6 +5,18 @@
   gap: var(--u-xs);
   border-radius: var(--rounded-xs);
   padding: var(--p-sm);
+  &__img {
+    width: auto;
+    height: 32px;
+  }
+  &--header {
+    max-width: 7.5em;
+    height: 92%;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
   &--rounded {
     border-radius: 50% !important;
     outline: 1px solid var(--c-secondary-03);

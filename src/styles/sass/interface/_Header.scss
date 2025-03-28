@@ -1,12 +1,15 @@
 @use '../config' as c;
 
 .Header {
+  display: flex;
+  flex-direction: column;
+  
   height: 16dvh;
   border-bottom: c.$border;
   position: relative;
   z-index: 1;
   background-color: var(--c-secondary-01);
-  box-shadow: 0px -3px 10px 0px var(--black-90-6o);
+  box-shadow: 0px -3px 10px 0px var(--c-primary-01-o);
   user-select: none;
 
   font-size: 1rem;
@@ -17,5 +20,16 @@
     padding: 0 1em;
     border-bottom: c.$border;
     background: var(--c-secondary-02);
+  }
+  &__buttons {
+    flex-grow: 1;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 43.75rem;
+    margin: 0 auto;
+    padding: 0 1em;
   }
 }

@@ -18,6 +18,7 @@ export default function ZoomTrackbar({ initialValue, min, max }) {
         text={`${value}%`}
         direction='top'
         callback={setValue}
+        mod='zoom'
       />
       <Trackbar
         className='dResponsive'

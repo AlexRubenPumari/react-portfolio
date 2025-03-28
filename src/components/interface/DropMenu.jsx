@@ -10,6 +10,7 @@ export default function DropMenu({
   icon,
   direction,
   callback,
+  mod = '',
 }) {
   const [isDropped, setIsDropped] = useState(false)
   const { arrow, styles } = getDropMenuStyles(direction, isDropped)
@@ -31,10 +32,16 @@ export default function DropMenu({
       <button
         className={`IButton DropMenu ${className}`}
         onClick={() => setIsDropped(!isDropped)}
-        ref={btnRef}
-      >
+        ref={btnRef}>
         {icon && cloneElement(icon, { classIcon: 'DropMenu__icon' })}
-        {text && <span>{text}</span>}
+        {text && (
+          <span
+            className={`DropMenu__label ${
+              mod ? `DropMenu__label--${mod}` : ''
+            }`}>
+            {text}
+          </span>
+        )}
         <span className='DropMenu__arrow'>{arrow}</span>
         {isDropped && (
           <ul className='DropMenu__menu' style={styles}>
@@ -43,8 +50,7 @@ export default function DropMenu({
                 key={values[index]}
                 current={currentValue}
                 value={values[index]}
-                callback={callback}
-              >
+                callback={callback}>
                 {item}
               </Item>
             ))}
@@ -58,8 +64,7 @@ function Item({ children, current, value, callback }) {
   return (
     <li
       className={`DropMenu__item ${value === current ? 'selected' : ''}`}
-      onClick={() => callback(value)}
-    >
+      onClick={() => callback(value)}>
       {children}
     </li>
   )
