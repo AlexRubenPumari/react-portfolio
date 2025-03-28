@@ -67,3 +67,12 @@ $border: 1px solid var(--c-secondary-03);
   align-items: center;
   justify-content: space-between;
 }
+%btn-close-base {
+  aspect-ratio: 1/1;
+  padding: var(--p-sm);
+  line-height: 0;
+  font: {
+    weight: bold;
+    size: 1.8em;
+  }
+}

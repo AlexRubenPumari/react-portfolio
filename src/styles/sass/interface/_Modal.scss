@@ -8,6 +8,7 @@
   z-index: 20;
   background-color: var(--c-secondary-01);
   padding: 3em 2em;
+  font-size: 1rem;
 }
 .ProjectModal {
   &__body {
@@ -19,7 +20,6 @@
     gap: 1.1em;
     max-width: 32rem;
     height: 100%;
-    font-size: 1rem;
   }
   &__img {
     width: 19em;

@@ -17,7 +17,7 @@ export default function CirclePattern({
             width: `${width}em`,
             aspectRatio: '1/1',
             borderRadius: '50%',
-            border: `${strokeWidth}px solid currentColor`,
+            border: `${strokeWidth/16}em solid currentColor`,
           }}
         />
       )

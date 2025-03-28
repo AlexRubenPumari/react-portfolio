@@ -1,0 +1,16 @@
+@use '../config';
+
+.Viewport {
+  @extend %flex-center;
+  height: 79dvh;
+  overflow: hidden;
+  background-color: var(--c-secondary-02);
+  font-size: 1em;
+  &--fullScreen {
+    height: auto !important;
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    font-size: 1.2rem;
+  }
+}

@@ -49,7 +49,7 @@
   --font-secondary: Helvetica, Arial, sans-serif;
 }
 
-.PrimaryButton, .ProjectCard__title, .AboutMePage, .ContactsPage, .IndexPage, .Viewport, .IButton {
+.PrimaryButton, .ProjectCard__title, .AboutMePage, .ContactsPage, .IndexPage, .IButton, .Viewport {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +59,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.CloseButton, .ICloseButton {
+  aspect-ratio: 1/1;
+  padding: var(--p-sm);
+  line-height: 0;
+  font-weight: bold;
+  font-size: 1.8em;
 }
 
 * {
@@ -179,7 +187,6 @@ body {
   font-family: var(--font-primary);
   color: var(--c-primary-01);
   background-color: var(--c-secondary-01);
-  line-height: 1.4em;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -193,6 +200,8 @@ body {
   background-color: var(--c-secondary-01);
   box-shadow: 0px -3px 10px 0px var(--black-90-6o);
   user-select: none;
+  font-size: 1rem;
+  line-height: 1.4em;
 }
 .Header__nav {
   align-items: end;
@@ -201,12 +210,27 @@ body {
   background: var(--c-secondary-02);
 }
 
+.Viewport {
+  height: 79dvh;
+  overflow: hidden;
+  background-color: var(--c-secondary-02);
+  font-size: 1em;
+}
+.Viewport--fullScreen {
+  height: auto !important;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  font-size: 1.2rem;
+}
+
 .Footer {
   height: 5dvh;
   border-top: 1px solid var(--c-secondary-03);
   padding: 0 1em;
   position: relative;
   z-index: 1;
+  font-size: 1rem;
   background-color: var(--c-secondary-01);
   user-select: none;
 }
@@ -274,6 +298,13 @@ body {
   align-items: center;
   gap: var(--u-m);
 }
+.Pagination--fullScreen {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.15rem;
+}
 
 .DropMenu {
   position: relative;
@@ -321,6 +352,7 @@ body {
   z-index: 20;
   background-color: var(--c-secondary-01);
   padding: 3em 2em;
+  font-size: 1rem;
 }
 
 .ProjectModal__body {
@@ -332,7 +364,6 @@ body {
   gap: 1.1em;
   max-width: 32rem;
   height: 100%;
-  font-size: 1rem;
 }
 .ProjectModal__img {
   width: 19em;
@@ -387,8 +418,7 @@ body {
 .IButton--rounded {
   border-radius: 50% !important;
   outline: 1px solid var(--c-secondary-03);
-  line-height: 0;
-  aspect-ratio: 1/1;
+  background-color: var(--c-secondary-01);
   font-weight: bold;
 }
 .IButton__icon {
@@ -397,29 +427,22 @@ body {
 .IButton__symbol {
   width: 0.85em;
   line-height: 0.85em;
-  text-align: center;
 }
 
-.CloseButton {
-  aspect-ratio: 1/1;
-  padding: var(--p-sm);
-  line-height: 0;
-  font-weight: bold;
-  font-size: 1.8em;
-}
-
-.Viewport {
-  height: 79dvh;
-  background-color: var(--c-secondary-02);
+.ICloseButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .Page {
-  width: 80%;
-  max-width: 700px;
-  aspect-ratio: 7/5;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: 43.75em;
+  max-height: 31.25em;
+  min-width: 37.625em;
+  min-height: 26.875em;
   overflow: hidden;
-  font-size: min(1.85vw, 1em);
   background-color: var(--c-secondary-01);
   box-shadow: 0px 0px 15px 0px var(--black-90-6o);
 }
@@ -437,9 +460,6 @@ body {
   }
 }
 @media (orientation: portrait) {
-  .Page {
-    height: 95%;
-  }
   .Header {
     height: 18dvh;
   }
@@ -448,9 +468,6 @@ body {
   }
   .Footer {
     height: 6dvh;
-  }
-  .Page {
-    font-size: 0.9em;
   }
   .IndexPage__content {
     flex-direction: column;
@@ -513,7 +530,7 @@ body {
 .IndexPage__profile {
   width: 18.75em;
   aspect-ratio: 1/1;
-  border: 6px solid var(--c-secondary-01);
+  border: 0.5em solid var(--c-secondary-01);
   border-radius: 50%;
 }
 .IndexPage__subtitle {
@@ -595,7 +612,6 @@ body {
 .ProjectCard {
   aspect-ratio: 9/5;
   position: relative;
-  z-index: 1;
   cursor: pointer;
   color: var(--c-secondary-01);
 }
@@ -614,7 +630,6 @@ body {
   padding: var(--u-sm);
   position: absolute;
   inset: 0;
-  z-index: 1;
   font-weight: bold;
   text-align: center;
   line-height: 1.1em;

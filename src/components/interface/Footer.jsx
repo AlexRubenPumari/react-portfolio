@@ -1,9 +1,9 @@
-import React from 'react'
 import ZoomTrackbar from '../../components/interface/ZoomTrackbar'
 import Pagination from '../../components/interface/Pagination'
+import IButton from '../../components/interface/IButton'
 import IconSlide from '../../assets/svg/icons/IconSlide'
 
-export default function Footer({ currentPage, changePage }) {
+export default function Footer ({ currentPage, changePage, onFullScreen }) {
   return (
     <footer className='Footer'>
       <Pagination
@@ -14,9 +14,11 @@ export default function Footer({ currentPage, changePage }) {
         updateTo={changePage}
       />
       <div className='Footer__rigth'>
-        <button className='IButton' title='Presentación con diapositiva'>
-          <IconSlide className='IButton__icon' />
-        </button>
+        <IButton
+          title='Presentación con diapositiva'
+          icon={<IconSlide />}
+          onClick={onFullScreen}
+        />
         <ZoomTrackbar initialValue={100} min={20} max={180} />
       </div>
     </footer>

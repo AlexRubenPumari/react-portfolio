@@ -8,8 +8,7 @@
   &--rounded {
     border-radius: 50% !important;
     outline: 1px solid var(--c-secondary-03);
-    line-height: 0;
-    aspect-ratio: 1/1;
+    background-color: var(--c-secondary-01);
     font-weight: bold;
   }
   &__icon {
@@ -18,15 +17,11 @@
   &__symbol {
     width: .85em;
     line-height: .85em;
-    text-align: center;
   }
 }
-.CloseButton {
-  aspect-ratio: 1/1;
-  padding: var(--p-sm);
-  line-height: 0;
-  font: {
-    weight: bold;
-    size: 1.8em;
-  }
+.ICloseButton {
+  @extend %btn-close-base;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
 }

@@ -5,6 +5,12 @@ export const PAGES = {
   CONTACTS: 3,
 }
 export const PAGES_NAMES = ['Inicio', 'Proyectos', 'Sobre mí', 'Contactos']
+export const PAGES_VALUES = [
+  PAGES.INDEX,
+  PAGES.PROJECTS,
+  PAGES.ABOUT_ME,
+  PAGES.CONTACTS,
+]
 export const URL_GITHUB_REPOSITORIES =
   'https://api.github.com/users/alexrubenpumari/repos'
 export const MODES = {

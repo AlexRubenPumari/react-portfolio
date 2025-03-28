@@ -1,4 +1,5 @@
 import { clamp } from '../../logic/clamps'
+import IRoundedButton from './IRoundedButton'
 
 export default function Trackbar({
   value,
@@ -7,15 +8,14 @@ export default function Trackbar({
   max,
   step,
   className = '',
+  callback,
 }) {
-  const TrackbarClass = `Trackbar ${className}` 
   return (
-    <div className={TrackbarClass}>
-      <button
-        className='IButton IButton--rounded'
-        onClick={() => changeValue(clamp(value - step, min, max))}>
-        <span className='IButton__symbol'>-</span>
-      </button>
+    <div className={`Trackbar ${className}`}>
+      <IRoundedButton
+        onClick={() => changeValue(clamp(value - step, min, max))}
+        symbol='-'
+      />
       <input
         className='Trackbar__input'
         onChange={e => changeValue(Number(e.target.value))}
@@ -25,11 +25,10 @@ export default function Trackbar({
         step={step}
         value={value}
       />
-      <button
-        className='IButton IButton--rounded'
-        onClick={() => changeValue(clamp(value + step, min, max))}>
-        <span className='IButton__symbol'>+</span>
-      </button>
+      <IRoundedButton
+        onClick={() => changeValue(clamp(value + step, min, max))}
+        symbol='+'
+      />
     </div>
   )
 }

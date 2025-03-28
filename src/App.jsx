@@ -1,27 +1,32 @@
 import { useState } from 'react'
 import { PAGES } from './config/constants'
+import useFullScreen from './hooks/useFullScreen'
 import Header from './components/interface/Header'
+import Viewport from './components/interface/Viewport'
 import Footer from './components/interface/Footer'
-import IndexPage from './components/pages/IndexPage'
-import ProjectsPage from './components/pages/ProjectsPage'
-import AboutMePage from './components/pages/AboutMePage'
-import ContactsPage from './components/pages/ContactsPage'
 import './styles/App.css'
 
-export default function App() {
+export default function App () {
   const [page, setPage] = useState(PAGES.INDEX)
+  const { fullScreen, enableFullScreen, disableFullScreen } =
+    useFullScreen(false)
   return (
     <>
-      <Header currentPage={page} changePage={setPage} />
-      <main className='Viewport'>
-        <div className='Page'>
-          {page === PAGES.INDEX && <IndexPage />}
-          {page === PAGES.PROJECTS && <ProjectsPage />}
-          {page === PAGES.ABOUT_ME && <AboutMePage />}
-          {page === PAGES.CONTACTS && <ContactsPage />}
-        </div>
-      </main>
-      <Footer currentPage={page} changePage={setPage} />
+      <Header
+        currentPage={page}
+        changePage={setPage}
+      />
+      <Viewport
+        currentPage={page}
+        changePage={setPage}
+        onNormalScreen={disableFullScreen}
+        isFullScreen={fullScreen}
+      />
+      <Footer
+        currentPage={page}
+        changePage={setPage}
+        onFullScreen={enableFullScreen}
+      />
     </>
   )
 }

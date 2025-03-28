@@ -1,4 +1,5 @@
 import { clampLoop } from '../../logic/clamps'
+import IRoundedButton from './IRoundedButton'
 
 export default function Pagination({
   label,
@@ -6,23 +7,22 @@ export default function Pagination({
   max,
   current,
   updateTo,
+  mod='',
 }) {
   return (
-    <div className='Pagination'>
-      <button
-        className='IButton IButton--rounded'
-        onClick={() => updateTo(clampLoop(current - 1, min, max))}>
-        <span className='IButton__symbol'>◀</span>
-      </button>
+    <div className={`Pagination ${mod ? `Pagination--${mod}` : ''}`}>
+      <IRoundedButton
+        symbol='◀'
+        onClick={() => updateTo(clampLoop(current - 1, min, max))}
+      />
       <span>
-        <span className='dResponsive'>{`${label} `}</span>
+        { label && <span className='dResponsive'>{`${label} `}</span>}
         {`${current + 1} de ${max + 1}`}
       </span>
-      <button
-        className='IButton IButton--rounded'
-        onClick={() => updateTo(clampLoop(current + 1, min, max))}>
-        <span className='IButton__symbol'>▶</span>
-      </button>
+      <IRoundedButton
+        symbol='▶'
+        onClick={() => updateTo(clampLoop(current + 1, min, max))}
+      />
     </div>
   )
 }

@@ -3,7 +3,6 @@
 .ProjectCard {
   aspect-ratio: 9/5;
   position: relative;
-  z-index: 1;
   cursor: pointer;
   color: var(--c-secondary-01);
   &__ImgContainer {
@@ -22,7 +21,6 @@
     padding: var(--u-sm);
     position: absolute;
     inset: 0;
-    z-index: 1;
     font-weight: bold;
     text-align: center;
     line-height: 1.1em;
