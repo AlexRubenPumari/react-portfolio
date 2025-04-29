@@ -1,10 +1,12 @@
 import Flaps from './Flaps'
 import DarkModeButton from './DarkModeButton'
-import { PAGES_NAMES, PAGES_VALUES } from '../../config/constants'
+import { PAGES_NAMES, PAGES_VALUES, PAGES } from '../../config/constants'
 import iconGithub from '../../assets/img/icon_github.png'
 import iconCV from '../../assets/img/icon_cv.png'
 import iconLinkedin from '../../assets/img/icon_linkedin.png'
 import iconPortfolio from '../../assets/img/icon_portfolio.png'
+import IButton from './IButton'
+import cv from '../../assets/pdf/alex_pumari_cv.pdf'
 
 export default function Header({ currentPage, changePage }) {
   return (
@@ -19,34 +21,37 @@ export default function Header({ currentPage, changePage }) {
         <DarkModeButton />
       </nav>
       <div className='Header__buttons'>
-        <button className='IButton IButton--header'>
-          <img className='IButton__img' src={iconCV} alt='Icono de CV' />
-          <span>Ver CV</span>
-        </button>
-        <button className='IButton IButton--header'>
-          <img
-            className='IButton__img'
-            src={iconPortfolio}
-            alt='Icono de portafolio'
-          />
-          <span>Ver Proyectos</span>
-        </button>
-        <button className='IButton IButton--header'>
-          <img
-            className='IButton__img'
-            src={iconGithub}
-            alt='Icono de GitHub'
-          />
-          <span>Ir a GitHub</span>
-        </button>
-        <button className='IButton IButton--header'>
-          <img
-            className='IButton__img'
-            src={iconLinkedin}
-            alt='Icono de LinkedIn'
-          />
-          <span>Ir a LinkedIn</span>
-        </button>
+        <IButton
+          img={iconCV}
+          value='Ver CV'
+          mod='header'
+          onClick={() => window.open(cv, '_blank')}
+        />
+        <IButton
+          img={iconPortfolio}
+          value='Ver Proyectos'
+          mod='header'
+          onClick={() => changePage(PAGES.PROJECTS)}
+        />
+        <IButton
+          img={iconGithub}
+          value='Mi GitHub'
+          mod='header'
+          onClick={() =>
+            window.open('https://github.com/AlexRubenPumari', '_blank')
+          }
+        />
+        <IButton
+          img={iconLinkedin}
+          value='Mi LinkedIn'
+          mod='header'
+          onClick={() =>
+            window.open(
+              'https://www.linkedin.com/in/alex-pumari-diaz/',
+              '_blank'
+            )
+          }
+        />
       </div>
     </header>
   )

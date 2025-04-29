@@ -4,12 +4,14 @@ import { getProjects } from '../services/projects'
 
 export function useProjects () {
   const [projects, setProjects] = useState([])
-  const mappedProjects = projects.map(({id, description, topics, name}) => ({
+  const mappedProjects = projects.map(({id, description, topics, name, html_url, homepage}) => ({
     id: id,
     title: getTitleFrom(description),
     description: getDescriptionFrom(description),
     imgUrl: `https://raw.githubusercontent.com/AlexRubenPumari/${name}/master/cover.jpg`,
     tags: topics,
+    repoUrl: html_url,
+    pageUrl: homepage,
   }))
   useEffect(() => {
     getProjects()

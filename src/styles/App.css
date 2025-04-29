@@ -61,7 +61,7 @@
   justify-content: space-between;
 }
 
-.CloseButton, .ICloseButton {
+.CloseButton, .IButton--close {
   aspect-ratio: 1/1;
   padding: var(--p-sm);
   line-height: 0;
@@ -429,6 +429,8 @@ body {
   gap: var(--u-xs);
   border-radius: var(--rounded-xs);
   padding: var(--p-sm);
+  cursor: pointer;
+  text-align: center;
 }
 .IButton__img {
   width: auto;
@@ -448,18 +450,17 @@ body {
   background-color: var(--c-secondary-01);
   font-weight: bold;
 }
+.IButton--close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
 .IButton__icon {
   width: var(--u-xl);
 }
 .IButton__symbol {
   width: 0.85em;
   line-height: 0.85em;
-}
-
-.ICloseButton {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
 }
 
 .Page {
@@ -511,7 +512,7 @@ body {
     text-align: center;
   }
   .IndexPage__blob--1 {
-    width: 38% !important;
+    width: 33% !important;
   }
   .ContactsPage {
     text-align: center;
@@ -623,6 +624,7 @@ body {
   bottom: 0;
   left: 0;
   transform: scale(-1, -1);
+  pointer-events: none;
 }
 
 .AboutMePage__content {
@@ -631,7 +633,7 @@ body {
 }
 .AboutMePage__blob--1 {
   bottom: 0;
-  right: 0;
+  right: -1px;
   width: 35%;
   transform: scaleX(-1);
 }
@@ -712,6 +714,7 @@ body {
   border-radius: var(--rounded-sm);
   background-color: var(--violet-50);
   color: var(--white-90);
+  cursor: pointer;
 }
 .PrimaryButton__icon {
   width: var(--u-2xl);
@@ -758,7 +761,7 @@ body {
   height: 100%;
 }
 
-@media (max-width: 630px) {
+@media (max-width: 680px) {
   .GridContainer--projects {
     padding-bottom: 3em;
   }

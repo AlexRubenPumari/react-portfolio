@@ -1,7 +1,8 @@
 import Blob_1 from '../../assets/svg/blobs/Blob_1'
 import Blob_2 from '../../assets/svg/blobs/Blob_2'
 import IconDownload from '../../assets/svg/icons/IconDownload'
-import profile from '../../assets/img/1.jpeg'
+import profile from '../../assets/img/profile600x600.jpg'
+import cv from '../../assets/pdf/alex_pumari_cv.pdf'
 
 export default function IndexPage () {
   return (
@@ -17,10 +18,10 @@ export default function IndexPage () {
             <br />
             Frontend
           </h2>
-          <button className='PrimaryButton'>
+          <a className='PrimaryButton' href={cv} target='_blank'>
             <IconDownload className='PrimaryButton__icon' />
             <span>Descargar CV</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>

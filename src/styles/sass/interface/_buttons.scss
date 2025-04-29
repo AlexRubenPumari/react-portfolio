@@ -5,6 +5,8 @@
   gap: var(--u-xs);
   border-radius: var(--rounded-xs);
   padding: var(--p-sm);
+  cursor: pointer;
+  text-align: center;
   &__img {
     width: auto;
     height: 32px;
@@ -23,6 +25,12 @@
     background-color: var(--c-secondary-01);
     font-weight: bold;
   }
+  &--close {
+    @extend %btn-close-base;
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+  }
   &__icon {
     width: var(--u-xl);
   }
@@ -30,10 +38,4 @@
     width: .85em;
     line-height: .85em;
   }
-}
-.ICloseButton {
-  @extend %btn-close-base;
-  position: absolute;
-  top: .5rem;
-  right: .5rem;
 }

@@ -24,6 +24,7 @@ export default function DropMenu({
   useEffect(() => {
     document.addEventListener('click', handleClickOutMenu)
     return () => {
+      console.log('Desmontando tarea...')
       document.removeEventListener('click', handleClickOutMenu)
     }
   }, [])

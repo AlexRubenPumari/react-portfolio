@@ -8,14 +8,20 @@ export default function ContactsPage() {
     <div className='BasePage ContactsPage'>
       <h3>¡Quedo a la espera de su mensaje!</h3>
       <div className='ContactsPage__buttons'>
-        <button className='PrimaryButton'>
+        <a
+          className='PrimaryButton'
+          href='https://github.com/AlexRubenPumari'
+          target='_blank'>
           <IconGitHub className='PrimaryButton__icon' />
           <span>Mi GitHub</span>
-        </button>
-        <button className='PrimaryButton'>
+        </a>
+        <a
+          className='PrimaryButton'
+          href='https://www.linkedin.com/in/alex-pumari-diaz/'
+          target='_blank'>
           <IconLinkedIn className='PrimaryButton__icon' />
           <span>Mi LinkedIn</span>
-        </button>
+        </a>
       </div>
       <Blob_2 className='ContactsPage__blob' />
       <CirclePattern
