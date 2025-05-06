@@ -36,18 +36,11 @@
     max-width: 23.5em;
     max-height: 35em;
   }
-  .Header {
-    height: 18dvh;
-  }
   .Viewport {
-    height: 76dvh;
     &--fullScreen .Page {
       max-width: 95%;
       max-height: 83%;
     } 
-  }
-  .Footer {
-    height: 6dvh;
   }
   .IndexPage {
     &__content {

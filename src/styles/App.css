@@ -182,7 +182,9 @@ svg {
 }
 
 body {
-  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
   font-size: 100%;
   font-family: var(--font-primary);
   color: var(--c-primary-01);
@@ -195,7 +197,6 @@ body {
 .Header {
   display: flex;
   flex-direction: column;
-  height: 16dvh;
   border-bottom: 1px solid var(--c-secondary-03);
   position: relative;
   z-index: 1;
@@ -212,18 +213,16 @@ body {
   background: var(--c-secondary-02);
 }
 .Header__buttons {
-  flex-grow: 1;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   max-width: 43.75rem;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: var(--p-sm) 1em;
 }
 
 .Viewport {
-  height: 79dvh;
+  flex-grow: 1;
   overflow: hidden;
   background-color: var(--c-secondary-02);
   font-size: 1em;
@@ -237,9 +236,8 @@ body {
 }
 
 .Footer {
-  height: 5dvh;
   border-top: 1px solid var(--c-secondary-03);
-  padding: 0 1em;
+  padding: var(--p-xs) 1em;
   position: relative;
   z-index: 1;
   font-size: 1rem;
@@ -438,7 +436,6 @@ body {
 }
 .IButton--header {
   max-width: 7.5em;
-  height: 92%;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
@@ -490,18 +487,9 @@ body {
     max-width: 23.5em;
     max-height: 35em;
   }
-  .Header {
-    height: 18dvh;
-  }
-  .Viewport {
-    height: 76dvh;
-  }
   .Viewport--fullScreen .Page {
     max-width: 95%;
     max-height: 83%;
-  }
-  .Footer {
-    height: 6dvh;
   }
   .IndexPage__content {
     flex-direction: column;

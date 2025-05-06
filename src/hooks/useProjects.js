@@ -16,7 +16,7 @@ export function useProjects () {
   useEffect(() => {
     getProjects()
       .then(projects => setProjects(projects))
-      .catch(alert)
+      .catch(error => console.log(error))
   }, [])
   
   return { projects: mappedProjects }

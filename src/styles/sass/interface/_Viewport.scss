@@ -1,8 +1,9 @@
 @use '../config';
 
 .Viewport {
+  flex-grow: 1;
+
   @extend %flex-center;
-  height: 79dvh;
   overflow: hidden;
   background-color: var(--c-secondary-02);
   font-size: 1em;

@@ -96,12 +96,14 @@ svg {
   fill: currentColor;
 }
 body {
-  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  
   font-size: 100%;
   font-family: var(--font-primary);
   color: var(--c-primary-01);
   background-color: var(--c-secondary-01);
-  // line-height: 1.4em;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
