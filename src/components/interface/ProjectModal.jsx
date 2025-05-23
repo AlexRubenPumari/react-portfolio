@@ -5,8 +5,8 @@ import Modal from './Modal'
 export default function ProjectModal({ project, toClose }) {
   const { title, description, imgUrl, tags, repoUrl, pageUrl } = project
   return (
-    <Modal className='ProjectModal__body' toClose={toClose}>
-      <h3>{title}</h3>
+    <Modal className='ProjectModal__body Scrollbar' toClose={toClose}>
+      <h3 className='ProjectModal__title'>{title}</h3>
       <img
         src={imgUrl}
         alt={`Imagen de ${title.toLowerCase()}`}
@@ -20,7 +20,7 @@ export default function ProjectModal({ project, toClose }) {
           </span>
         ))}
       </div>
-      <p>{description}</p>
+      <p className='ProjectModal__p'>{description}</p>
       <div className='ProjectModal__buttons'>
         <a
           className='PrimaryButton'

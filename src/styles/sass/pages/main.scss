@@ -14,20 +14,6 @@
   gap: var(--u-l);
   &--projects {
     height: 100%;
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-      width: 7px;
-    }
-    &::-webkit-scrollbar-track {
-      background: var(--c-secondary-01);
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--c-primary-01-o);
-      border-left: 4px solid var(--c-secondary-01);
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: var(--c-primary-01);
-    }
   }
 }
 .Blob {

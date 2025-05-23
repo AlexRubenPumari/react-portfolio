@@ -25,7 +25,7 @@ export default function ProjectsPage() {
           />
         </h3>
         <div className='Container Container--projects'>
-          <div className='GridContainer GridContainer--projects'>
+          <div className='GridContainer GridContainer--projects Scrollbar Scrollbar--projects'>
             <Projects elements={projects} callback={setModal} />
           </div>
         </div>

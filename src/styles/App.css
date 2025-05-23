@@ -184,6 +184,7 @@ svg {
 body {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   height: 100dvh;
   font-size: 100%;
   font-family: var(--font-primary);
@@ -372,19 +373,30 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   align-self: center;
   gap: 1.1em;
-  max-width: 32rem;
+  width: 32rem;
+  max-width: 100%;
   height: 100%;
+}
+.ProjectModal__title {
+  text-align: center;
 }
 .ProjectModal__img {
   width: 19em;
   border-radius: var(--rounded-sm);
 }
+.ProjectModal__p {
+  flex-grow: 1;
+  text-align: center;
+}
 .ProjectModal__buttons {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
   gap: 1.5em;
+  max-width: 100%;
 }
 .ProjectModal__tags {
   width: 100%;
@@ -458,6 +470,26 @@ body {
 .IButton__symbol {
   width: 0.85em;
   line-height: 0.85em;
+}
+
+.Scrollbar {
+  overflow-y: auto;
+}
+.Scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+.Scrollbar::-webkit-scrollbar-track {
+  background: var(--c-secondary-01);
+}
+.Scrollbar::-webkit-scrollbar-thumb {
+  background: var(--c-primary-01-o);
+  border-left: 4px solid var(--c-secondary-01);
+}
+.Scrollbar--projects::-webkit-scrollbar-thumb {
+  border-bottom: 3em solid var(--c-secondary-01);
+}
+.Scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--c-primary-01);
 }
 
 .Page {
@@ -712,6 +744,7 @@ body {
 }
 .PrimaryButton__symbol--m {
   font-size: 0.9em;
+  line-height: 1.5rem;
 }
 
 .GridContainer {
@@ -722,20 +755,6 @@ body {
 }
 .GridContainer--projects {
   height: 100%;
-  overflow-y: auto;
-}
-.GridContainer--projects::-webkit-scrollbar {
-  width: 7px;
-}
-.GridContainer--projects::-webkit-scrollbar-track {
-  background: var(--c-secondary-01);
-}
-.GridContainer--projects::-webkit-scrollbar-thumb {
-  background: var(--c-primary-01-o);
-  border-left: 4px solid var(--c-secondary-01);
-}
-.GridContainer--projects::-webkit-scrollbar-thumb:hover {
-  background: var(--c-primary-01);
 }
 
 .Blob {
