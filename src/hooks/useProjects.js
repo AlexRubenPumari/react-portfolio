@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
-import { getTitleFrom, getDescriptionFrom } from '../logic/getData'
+import { getTitleFrom } from '../logic/data'
 import { getProjects } from '../services/projects'
 
 export function useProjects () {
   const [projects, setProjects] = useState([])
   const mappedProjects = projects.map(({id, description, topics, name, html_url, homepage}) => ({
     id: id,
-    title: getTitleFrom(description),
-    description: getDescriptionFrom(description),
+    title: getTitleFrom(topics.find(topic => topic[0] === '1')),
+    description: description,
     imgUrl: `https://raw.githubusercontent.com/AlexRubenPumari/${name}/master/cover.jpg`,
-    tags: topics,
+    tags: topics.filter(topic => topic[0] !== '1'),
     repoUrl: html_url,
     pageUrl: homepage,
   }))

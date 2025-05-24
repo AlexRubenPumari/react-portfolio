@@ -1,4 +1,4 @@
-import { getFormatedTag } from '../../logic/getData'
+import { getFormatedTag } from '../../logic/data'
 import IconEye from '../../assets/svg/icons/IconEye'
 import Modal from './Modal'
 
