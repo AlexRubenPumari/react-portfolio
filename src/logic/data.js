@@ -1,12 +1,7 @@
 import { PAGES_NAMES } from '../config/constants'
 
-export function getTitleFrom (description) {
-  const index = description.indexOf(':')
-  return description.slice(0, index)
-}
-export function getDescriptionFrom (description) {
-  const index = description.indexOf(':')
-  return description.slice(index + 1)
+export function getTitleFrom (string) {
+  return string.replaceAll('-', ' ').toUpperCase().slice(2)
 }
 export function getNameFor(index) {
   return PAGES_NAMES[index]
