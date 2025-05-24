@@ -12,7 +12,11 @@ export function getFormatedTag(tag) {
     css: 'CSS',
     scss: 'SCSS',
     js: 'JavaScript',
-    react: 'React'
+    javascript: 'JavaScript',
+    tailwind: 'Tailwind',
+    tailwindcss: 'Tailwind',
+    react: 'React',
+    'asp-net': 'ASP.NET',
   }
 
   return tags[tag] || ''

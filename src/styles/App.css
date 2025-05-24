@@ -708,6 +708,7 @@ body {
   line-height: 1em;
   text-align: center;
   color: var(--black-90);
+  user-select: none;
   font-size: 0.88em;
   font-weight: bold;
 }
@@ -725,6 +726,12 @@ body {
 }
 .Tag--sass, .Tag--scss {
   background-color: rgb(201, 97, 149);
+}
+.Tag--tailwind, .Tag--tailwindcss {
+  background-color: rgb(76, 175, 174);
+}
+.Tag--asp-net {
+  background-color: rgb(61, 147, 229);
 }
 
 .PrimaryButton {

@@ -5,6 +5,7 @@
   line-height: 1em;
   text-align: center;
   color: var(--black-90);
+  user-select: none;
   font: {
     size: .88em;
     weight: bold;
@@ -23,5 +24,11 @@
   }
   &--sass, &--scss {
     background-color: rgb(201, 97, 149);
+  }
+  &--tailwind, &--tailwindcss {
+    background-color: rgb(76, 175, 174);
+  }
+  &--asp-net {
+    background-color: rgb(61, 147, 229);
   }
 }
