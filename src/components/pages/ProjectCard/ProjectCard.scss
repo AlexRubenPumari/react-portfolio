@@ -1,11 +1,11 @@
-@use '../config';
+@use '../../../index.scss';
 
 .ProjectCard {
   aspect-ratio: 9/5;
   position: relative;
   cursor: pointer;
   color: var(--c-secondary-01);
-  &__ImgContainer {
+  &__imgContainer {
     height: 100%;
     overflow: hidden;
     border-radius: var(--rounded-sm);
@@ -15,8 +15,8 @@
     transition: transform 300ms;
   }
   &__title {
+    @extend %flex-center-all;
     border-radius: var(--rounded-sm);
-    @extend %flex-center;
     width: 100%;
     padding: var(--u-sm);
     position: absolute;

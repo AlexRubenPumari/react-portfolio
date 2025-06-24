@@ -1,0 +1,23 @@
+@use '../../../index.scss';
+
+.AboutMePage {
+  @extend %base-page;
+  @extend %flex-center-all;
+  &__content {
+    width: 90%;
+    position: relative;
+  }
+  &__blob {
+    transform: scaleX(-1);
+    &--1 {
+      bottom: 0;
+      right: -1px;
+      width: 35%;
+    }
+    &--2 {
+      top: 0;
+      left: 0;
+      width: 50%;
+    }
+  }
+}

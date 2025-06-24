@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { useProjects } from '../../hooks/useProjects'
-import CirclePattern from '../../assets/patterns/CirclePattern'
-import ProjectCard from './ProjectCard'
-import Blob_3 from '../../assets/svg/blobs/Blob_3'
-import ProjectModal from '../interface/ProjectModal'
+import { useProjects } from '../../../hooks/useProjects'
+import CirclePattern from '../../../assets/patterns/CirclePattern'
+import ProjectCard from '../ProjectCard/ProjectCard'
+import Blob_3 from '../../../assets/svg/blobs/Blob_3'
+import ProjectModal from '../../interface/ProjectModal'
+import './ProjectsPage.scss'
 
 export default function ProjectsPage() {
   const [modal, setModal] = useState(false)
@@ -12,7 +13,7 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <div className='BasePage ProjectsPage'>
+      <div className='ProjectsPage'>
         <h3 className='ProjectsPage__title'>
           Proyectos
           <CirclePattern
@@ -45,7 +46,7 @@ function Projects({ elements, callback }) {
     return <p className='ProjectsPage__loadingLabel'>Cargando...</p>
   }
 
-  return elements.map(({ id, title, imgUrl }) => (
+  return elements?.map(({ id, title, imgUrl }) => (
     <ProjectCard
       key={id}
       id={id}

@@ -1,7 +1,9 @@
+import './ProjectCard.scss'
+
 export default function ProjectCard({ title, imgUrl, id, callback }) {
   return (
     <article className='ProjectCard' onClick={() => callback(id)}>
-      <div className='ProjectCard__ImgContainer'>
+      <div className='ProjectCard__imgContainer'>
         <img
           className='ProjectCard__img'
           src={imgUrl}

@@ -5,6 +5,7 @@ import Header from './components/interface/Header'
 import Viewport from './components/interface/Viewport'
 import Footer from './components/interface/Footer'
 import './styles/App.css'
+import './index.scss'
 
 export default function App () {
   const [page, setPage] = useState(PAGES.INDEX)

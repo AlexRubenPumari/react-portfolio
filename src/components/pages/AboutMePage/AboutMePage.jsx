@@ -1,10 +1,10 @@
-import React from 'react'
-import Blob_1 from '../../assets/svg/blobs/Blob_1'
-import Blob_2 from '../../assets/svg/blobs/Blob_2'
+import Blob_1 from '../../../assets/svg/blobs/Blob_1'
+import Blob_2 from '../../../assets/svg/blobs/Blob_2'
+import './AboutMePage.scss'
 
 export default function AboutMePage() {
   return (
-    <div className='BasePage AboutMePage'>
+    <div className='AboutMePage'>
       <div className='AboutMePage__content'>
         <h3>Sobre mí</h3>
         <p>
@@ -15,8 +15,8 @@ export default function AboutMePage() {
           muy interactivas.
         </p>
       </div>
-      <Blob_1 className='AboutMePage__blob--1' />
-      <Blob_2 className='AboutMePage__blob--2' />
+      <Blob_1 className='AboutMePage__blob AboutMePage__blob--1' />
+      <Blob_2 className='AboutMePage__blob AboutMePage__blob--2' />
     </div>
   )
 }

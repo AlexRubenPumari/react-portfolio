@@ -1,8 +1,8 @@
 import { PAGES } from '../../config/constants'
-import IndexPage from '../pages/IndexPage'
-import ProjectsPage from '../pages/ProjectsPage'
-import AboutMePage from '../pages/AboutMePage'
-import ContactsPage from '../pages/ContactsPage'
+import IndexPage from '../pages/IndexPage/IndexPage'
+import ProjectsPage from '../pages/ProjectsPage/ProjectsPage'
+import AboutMePage from '../pages/AboutMePage/AboutMePage'
+import ContactsPage from '../pages/ContactsPage/ContactsPage'
 import ICloseButton from './ICloseButton'
 import Pagination from './Pagination'
 

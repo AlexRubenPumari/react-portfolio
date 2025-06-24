@@ -1,11 +1,12 @@
-import IconGitHub from '../../assets/svg/icons/IconGitHub'
-import IconLinkedIn from '../../assets/svg/icons/IconLinkedIn'
-import Blob_2 from '../../assets/svg/blobs/Blob_2'
-import CirclePattern from '../../assets/patterns/CirclePattern'
+import IconGitHub from '../../../assets/svg/icons/IconGitHub'
+import IconLinkedIn from '../../../assets/svg/icons/IconLinkedIn'
+import Blob_2 from '../../../assets/svg/blobs/Blob_2'
+import CirclePattern from '../../../assets/patterns/CirclePattern'
+import './ContactsPage.scss'
 
 export default function ContactsPage() {
   return (
-    <div className='BasePage ContactsPage'>
+    <div className='ContactsPage'>
       <h3>¡Quedo a la espera de su mensaje!</h3>
       <div className='ContactsPage__buttons'>
         <a
