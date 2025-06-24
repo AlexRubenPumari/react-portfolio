@@ -1,6 +1,7 @@
 import Blob_1 from '../../../assets/svg/blobs/Blob_1'
 import Blob_2 from '../../../assets/svg/blobs/Blob_2'
 import IconDownload from '../../../assets/svg/icons/IconDownload'
+import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import profile from '../../../assets/img/profile600x600.jpg'
 import cv from '../../../assets/pdf/alex_pumari_cv.pdf'
 import './IndexPage.scss'
@@ -19,9 +20,8 @@ export default function IndexPage () {
             <br />
             Frontend
           </h2>
-          <a className='PrimaryButton' href={cv} target='_blank'>
-            <IconDownload className='PrimaryButton__icon' />
-            <span>Descargar CV</span>
+          <a href={cv} target='_blank'>
+            <PrimaryButton Icon={IconDownload}>Descargar CV</PrimaryButton>
           </a>
         </div>
       </div>
