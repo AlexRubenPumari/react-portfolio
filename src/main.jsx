@@ -1,9 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import ModalProvider from './contexts/modal'
+import App from './App'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ModalProvider><App /></ModalProvider>
   </StrictMode>
 )

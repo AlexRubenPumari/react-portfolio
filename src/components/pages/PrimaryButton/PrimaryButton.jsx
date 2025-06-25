@@ -10,7 +10,7 @@ export default function PrimaryButton ({
       className={`PrimaryButton ${className}`}
     >
       {Icon && <Icon className='PrimaryButton__icon' />}
-      {symbol && <span className='PrimaryButton__symbol'>{symbol}</span>}
+      {symbol && <span className='PrimaryButton__symbol PrimaryButton__symbol--m'>{symbol}</span>}
       {children && <span>{children}</span>}
     </button>
   )

@@ -1,14 +1,10 @@
-import { useState } from 'react'
 import { useProjects } from '../../../hooks/useProjects'
 import CirclePattern from '../../../assets/patterns/CirclePattern'
 import ProjectCard from '../ProjectCard/ProjectCard'
 import Blob_3 from '../../../assets/svg/blobs/Blob_3'
-import ProjectModal from '../../interface/ProjectModal'
 import './ProjectsPage.scss'
 
 export default function ProjectsPage() {
-  const [modal, setModal] = useState(false)
-  const closeModal = () => setModal(false)
   const { projects } = useProjects()
 
   return (
@@ -27,32 +23,20 @@ export default function ProjectsPage() {
         </h3>
         <div className='Container Container--projects'>
           <div className='GridContainer GridContainer--projects Scrollbar Scrollbar--projects'>
-            <Projects elements={projects} callback={setModal} />
+            <Projects elements={projects} />
           </div>
         </div>
         <Blob_3 className='ProjectsPage__blob' />
       </div>
-      {modal && (
-        <ProjectModal
-          project={projects.find(({ id }) => id === modal)}
-          toClose={closeModal}
-        />
-      )}
     </>
   )
 }
-function Projects({ elements, callback }) {
+function Projects({ elements }) {
   if (elements?.length === 0) {
     return <p className='ProjectsPage__loadingLabel'>Cargando...</p>
   }
 
-  return elements?.map(({ id, title, imgUrl }) => (
-    <ProjectCard
-      key={id}
-      id={id}
-      title={title}
-      imgUrl={imgUrl}
-      callback={callback}
-    />
+  return elements?.map(element => (
+    <ProjectCard key={element.id} project={element} />
   ))
 }

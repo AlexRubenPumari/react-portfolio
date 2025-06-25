@@ -1,6 +1,7 @@
 import { getFormatedTag } from '../../logic/data'
 import IconEye from '../../assets/svg/icons/IconEye'
 import Modal from './Modal'
+import PrimaryButton from '../pages/PrimaryButton/PrimaryButton'
 
 export default function ProjectModal({ project, toClose }) {
   const { title, description, imgUrl, tags, repoUrl, pageUrl } = project
@@ -22,21 +23,11 @@ export default function ProjectModal({ project, toClose }) {
       </div>
       <p className='ProjectModal__p'>{description}</p>
       <div className='ProjectModal__buttons'>
-        <a
-          className='PrimaryButton'
-          href={pageUrl}
-          target='_blank'
-        >
-          <IconEye className='PrimaryButton__icon' />
-          <span>Ver Proyecto</span>
+        <a href={pageUrl} target='_blank'>
+          <PrimaryButton Icon={IconEye} >VerProyecto</PrimaryButton>
         </a>
-        <a
-          className='PrimaryButton'
-          href={repoUrl}
-          target='_blank'
-        >
-          <span className='PrimaryButton__symbol PrimaryButton__symbol--m'>{'</>'}</span>
-          <span>Ir al código</span>
+        <a href={repoUrl} target='_blank'>
+          <PrimaryButton symbol={'</>'} >Ir al código</PrimaryButton>
         </a>
       </div>
     </Modal>
