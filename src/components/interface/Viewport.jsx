@@ -1,3 +1,4 @@
+import { useDraggable } from '../../hooks/useDraggable'
 import { PAGES } from '../../config/constants'
 import IndexPage from '../pages/IndexPage/IndexPage'
 import ProjectsPage from '../pages/ProjectsPage/ProjectsPage'
@@ -12,10 +13,12 @@ export default function Viewport({
   onNormalScreen,
   isFullScreen,
 }) {
+  const { elementRef } = useDraggable()
+  
   const { INDEX, PROJECTS, ABOUT_ME, CONTACTS } = PAGES
   return (
     <main className={`Viewport${isFullScreen ? ' Viewport--fullScreen' : ''}`}>
-      <div className='Page'>
+      <div ref={elementRef} className='Page' >
         {currentPage === INDEX && <IndexPage />}
         {currentPage === PROJECTS && <ProjectsPage />}
         {currentPage === ABOUT_ME && <AboutMePage />}
