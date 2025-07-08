@@ -1,12 +1,59 @@
-# React + Vite
+# 📋 Portafolio web
+![React](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)
+![Sass](https://img.shields.io/badge/Sass-1.89.2-cc6699?style=for-the-badge&logo=sass&logoColor=white)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📁 Estructura del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+react-portfolio/
+├── 📁 public/                  
+│   └── 📁 favicons/             # Conjunto de Favicons
+├── 📁 src/
+│   ├── 📁 assets/               # Imagenes, patrones, PDF...
+│   ├── 📁 components/           # Componentes de React
+│   ├── 📁 config/               # Ajustes y constantes
+│   ├── 📁 contexts/             # Contextos de React
+│   ├── 📁 hooks/                # Customs Hooks de React
+│   ├── 📁 logic/                # Lógica de negocio
+│   ├── 📁 services/             # Servicios de datos
+│   ├── app.jsx 
+│   └── main.jsx 
+└── README.md
+```
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Instalación
+
+### Requisitos previos
+- Node.js 18+ 
+- npm or yarn
+
+### 1. Clonar este repositorio
+```bash
+git clone https://github.com/AlexRubenPumari/react-portfolio.git
+cd react-portfolio
+```
+
+### 2. Instalar dependencias
+```bash
+npm install
+```
+
+---
+
+## 🚀 Ejecutando el proyecto
+
+### Inicializar el Servidor de Desarrollo
+```bash
+npm run dev
+```
+El servidor se aloja por defecto en: `http://localhost:5137`
+
+### Inicializar el Servidor de Desarrollo con Host Binding
+```bash
+npm run host
+```
+El servidor se aloja por defecto en: `http://localhost:5500`
