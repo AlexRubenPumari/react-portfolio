@@ -1,15 +1,16 @@
+@use '../../../styles/index.scss';
+
 .PrimaryButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-center-all;
   gap: 1em;
-  width: 8em;
+  width: 10.5em;
   padding: var(--p-sm) 0;
   border-radius: var(--rounded-sm);
 
   background-color: var(--violet-50);
   color: var(--white-90);
   cursor: pointer;
+
   &__icon {
     width: var(--u-2xl);
   }

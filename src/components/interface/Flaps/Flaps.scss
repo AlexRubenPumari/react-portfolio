@@ -1,0 +1,29 @@
+@use '../../../styles/index.scss' as c;
+
+.Flaps {
+  display: flex;
+}
+.Flap {
+  width: var(--u-6xl);
+  padding: var(--p-xs) 0;
+  border-radius: var(--rounded-sm) var(--rounded-sm) 0 0;
+  text-align: center;
+  transition: 200ms background-color;
+  cursor: pointer;
+  &.selected {
+    background-color: var(--c-secondary-01) !important; 
+    position: relative;
+    &::before {
+      width: calc(100% - 2px);
+      height: calc(100% - 1px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: c.$border;
+      border-bottom: 1px solid var(--c-secondary-01);
+      border-radius: inherit;
+      background-color: transparent;
+      content: '';
+    }
+  }
+}

@@ -2,12 +2,11 @@ import { useContext, useState } from 'react'
 import { PAGES } from './config/constants'
 import { ModalContext } from './contexts/modal'
 import useFullScreen from './hooks/useFullScreen'
-import Header from './components/interface/Header'
-import Viewport from './components/interface/Viewport'
-import Footer from './components/interface/Footer'
-import ProjectModal from './components/interface/ProjectModal'
-import './styles/App.css'
-import './index.scss'
+import Header from './components/interface/Header/Header'
+import Viewport from './components/interface/Viewport/Viewport'
+import Footer from './components/interface/Footer/Footer'
+import ProjectModal from './components/interface/ProjectModal/ProjectModal'
+import './styles/index.scss'
 
 export default function App() {
   const { modal, closeModal } = useContext(ModalContext)

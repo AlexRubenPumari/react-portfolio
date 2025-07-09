@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host --port 5500",
     "build": "vite build",
     "preview": "vite preview",
-    "host": "vite --host --port 5500",
     "lint": "eslint .",
     "deploy": "npm run build && gh-pages -d dist"
   },

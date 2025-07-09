@@ -1,7 +1,7 @@
 import './PrimaryButton.scss'
 
 export default function PrimaryButton ({
-  name, className, onClick, children, Icon, symbol
+  name, className = '', onClick, children, Icon, symbol
 }) {
   return (
     <button

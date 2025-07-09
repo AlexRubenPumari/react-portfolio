@@ -1,0 +1,17 @@
+@use '../../../styles/index.scss';
+
+.Footer {
+  @extend %flex-between;
+  border-top: 1px solid var(--c-secondary-03);
+  padding: var(--p-xs) 1em;
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  background-color: var(--c-secondary-01);
+  user-select: none;
+  &__rigth {
+    display: flex;
+    align-items: center;
+    gap: var(--u-m);
+  }
+}
