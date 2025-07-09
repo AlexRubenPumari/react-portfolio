@@ -1,4 +1,4 @@
-import IconEye from '../../../assets/svg/icons/IconEye'
+import { IconEye } from '../../../assets/svg/icons/Icons'
 import Modal from '../Modal/Modal'
 import PrimaryButton from '../../pages/PrimaryButton/PrimaryButton'
 import Tag from '../../pages/Tag/Tag'

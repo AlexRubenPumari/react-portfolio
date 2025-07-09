@@ -1,7 +1,7 @@
 import { useProjects } from '../../../hooks/useProjects'
 import CirclePattern from '../../../assets/patterns/CirclePattern'
 import ProjectCard from '../ProjectCard/ProjectCard'
-import Blob_3 from '../../../assets/svg/blobs/Blob_3'
+import { Blob_3 } from '../../../assets/svg/blobs/Blobs'
 import './ProjectsPage.scss'
 
 export default function ProjectsPage() {

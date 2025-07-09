@@ -1,7 +1,7 @@
+import { IconSlide } from '../../../assets/svg/icons/Icons'
 import ZoomTrackbar from '../ZoomTrackbar/ZoomTrackbar'
 import Pagination from '../Pagination/Pagination'
 import IButton from '../IButton/IButton'
-import IconSlide from '../../../assets/svg/icons/IconSlide'
 import './Footer.scss'
 
 export default function Footer ({ currentPage, changePage, onFullScreen }) {
