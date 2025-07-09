@@ -12,7 +12,7 @@ export default function IndexPage () {
       <Blob_1 className='IndexPage__blob--1' />
       <Blob_2 className='IndexPage__blob--2' />
       <div className='IndexPage__content'>
-        <img src={profile} className='IndexPage__profile' alt='Profile' />
+        <img src={profile} className='IndexPage__profile' alt='Profile' draggable="false" />
         <div className='IndexPage__column'>
           <h3 className='IndexPage__subtitle'>Alex Pumari Diaz</h3>
           <h2>
