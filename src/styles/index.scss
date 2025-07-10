@@ -101,16 +101,6 @@ $border: 1px solid var(--c-secondary-03);
   align-items: center;
 }
 
-.Page {
-  width: 200%;
-  height: 200%;
-  max-width: 43.75em;
-  max-height: 31.25em;
-  overflow: hidden;
-  background-color: var(--c-secondary-01);
-  box-shadow: 0px 0px 15px 0px var(--black-90-6o);
-  user-select: none;
-}
 .dUnresponsive {
   display: none;
 }

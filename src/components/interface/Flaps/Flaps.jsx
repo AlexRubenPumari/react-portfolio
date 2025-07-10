@@ -2,38 +2,38 @@ import { getNameFor } from '../../../logic/data'
 import DropMenu from '../DropMenu/DropMenu'
 import './Flaps.scss'
 
-export default function Flaps({ currentFlap, changeFlap, flaps, values }) {
+export default function Flaps({ currentValue, flaps, values, callbacks }) {
   return (
     <>
       <DropMenu
         className='dUnresponsive'
         items={flaps}
+        currentValue={currentValue}
         values={values}
-        currentValue={currentFlap}
-        text={getNameFor(currentFlap)}
+        text={getNameFor(currentValue)}
         direction='bottom left'
-        callback={changeFlap}
+        callbacks={callbacks}
       />
       <ul className='Flaps dResponsive'>
         {flaps.map((flap, index) => (
           <Flap
             key={values[index]}
-            current={currentFlap}
-            item={flap}
+            name={flap}
+            currentValue={currentValue}
             value={values[index]}
-            callback={changeFlap}
+            callback={callbacks[index]}
           />
         ))}
       </ul>
     </>
   )
 }
-function Flap({ current, item, value, callback }) {
+function Flap({ name, currentValue, value, callback }) {
   return (
     <li
-      className={`Flap${current === value ? ' selected' : ''}`}
+      className={`Flap${currentValue === value ? ' selected' : ''}`}
       onClick={() => callback(value)}>
-      {item}
+      {name}
     </li>
   )
 }

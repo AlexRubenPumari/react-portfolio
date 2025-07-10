@@ -10,7 +10,7 @@ export default function DropMenu({
   text,
   Icon,
   direction,
-  callback,
+  callbacks,
   mod = '',
 }) {
   const [isDropped, setIsDropped] = useState(false)
@@ -51,7 +51,8 @@ export default function DropMenu({
                 key={values[index]}
                 current={currentValue}
                 value={values[index]}
-                callback={callback}>
+                callback={callbacks[index]}
+              >
                 {item}
               </Item>
             ))}

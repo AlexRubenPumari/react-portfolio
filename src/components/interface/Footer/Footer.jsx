@@ -1,19 +1,13 @@
 import { IconSlide } from '../../../assets/svg/icons/Icons'
 import ZoomTrackbar from '../ZoomTrackbar/ZoomTrackbar'
-import Pagination from '../Pagination/Pagination'
 import IButton from '../IButton/IButton'
+import PagesNavigator from '../PagesNavigator/PagesNavigator'
 import './Footer.scss'
 
-export default function Footer ({ currentPage, changePage, onFullScreen }) {
+export default function Footer({ onFullScreen }) {
   return (
     <footer className='Footer'>
-      <Pagination
-        label='Diapositiva'
-        min={0}
-        max={3}
-        current={currentPage}
-        updateTo={changePage}
-      />
+      <PagesNavigator />
       <div className='Footer__rigth'>
         <IButton
           title='Presentación con diapositiva'

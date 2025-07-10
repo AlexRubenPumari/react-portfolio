@@ -4,7 +4,11 @@ export const PAGES = {
   ABOUT_ME: 2,
   CONTACTS: 3,
 }
-export const PAGES_NAMES = ['Inicio', 'Proyectos', 'Sobre mí', 'Contactos']
+export const PAGES_NAMES = {
+  [-2]: 'Inicio',
+  [-1]: 'Sobre mí',
+  [0]: 'Proyectos',
+}
 export const PAGES_VALUES = [
   PAGES.INDEX,
   PAGES.PROJECTS,
