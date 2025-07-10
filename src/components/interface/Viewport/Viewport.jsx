@@ -11,7 +11,7 @@ export default function Viewport({
   return (
     <main className={`Viewport${isFullScreen ? ' Viewport--fullScreen' : ''}`}>
       <PageController />
-      {/* {isFullScreen && (
+      {isFullScreen && (
         <>
           <Navigator
             current={currentPage}
@@ -20,7 +20,7 @@ export default function Viewport({
           />
           <ICloseButton onClick={onNormalScreen} />
         </>
-      )} */}
+      )}
     </main>
   )
 }

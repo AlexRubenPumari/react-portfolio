@@ -22,8 +22,6 @@
     text-align: left;
     transition: background-color 200ms;
     &.selected {
-      pointer-events: none;
-      cursor: default;
       &::before {
         position: absolute;
         content: '✔';

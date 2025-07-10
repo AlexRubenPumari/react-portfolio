@@ -5,6 +5,7 @@ import './DropMenu.scss'
 export default function DropMenu({
   className = '',
   items,
+  defaultValue,
   values,
   currentValue,
   text,
@@ -50,6 +51,7 @@ export default function DropMenu({
               <Item
                 key={values[index]}
                 current={currentValue}
+                isDefaultItem={!values.includes(currentValue) && values[index] === defaultValue}
                 value={values[index]}
                 callback={callbacks[index]}
               >
@@ -62,11 +64,12 @@ export default function DropMenu({
     </>
   )
 }
-function Item({ children, current, value, callback }) {
+function Item({ children, current, value, isDefaultItem, callback }) {
   return (
     <li
-      className={`DropMenu__item ${value === current ? 'selected' : ''}`}
-      onClick={() => callback(value)}>
+      className={`DropMenu__item ${value === current || isDefaultItem ? 'selected' : ''}`}
+      onClick={() => callback(value)}
+    >
       {children}
     </li>
   )
