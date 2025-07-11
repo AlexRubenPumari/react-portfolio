@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { getEventClientCoordinates } from '../logic/draggable'
 
+const isTouchDevice = ('ontouchstart' in window) ||
+                      (navigator.maxTouchPoints > 0) ||
+                      (navigator.msMaxTouchPoints > 0)
+
 export function useDraggable() {
   const elementRef = useRef()
   const isDraggingRef = useRef(false)
@@ -25,6 +29,8 @@ export function useDraggable() {
 
     const handleMouseMove = e => {
       if (!isDraggingRef.current) return
+      e.preventDefault()
+
       const { x, y } = getEventClientCoordinates(e)
       const deltaX = x - clickPositionRef.current.x
       const deltaY = y - clickPositionRef.current.y
@@ -41,13 +47,9 @@ export function useDraggable() {
       element.style.opacity = 1
     }
 
-    const isTouchDevice = ('ontouchstart' in window) ||
-                          (navigator.maxTouchPoints > 0) ||
-                          (navigator.msMaxTouchPoints > 0);
-
     if (isTouchDevice) {
       element.addEventListener('touchstart', handleMouseDown)
-      document.addEventListener('touchmove', handleMouseMove)
+      document.addEventListener('touchmove', handleMouseMove, { passive: false })
       document.addEventListener('touchend', handleMouseUp)
     } else {
       element.addEventListener('mousedown', handleMouseDown)
