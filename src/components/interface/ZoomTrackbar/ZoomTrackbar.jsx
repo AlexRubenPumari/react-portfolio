@@ -18,7 +18,7 @@ export default function ZoomTrackbar({ initialValue, min, max }) {
         currentValue={value}
         text={`${value}%`}
         direction='top'
-        callback={setValue}
+        callbacks={x => setValue(x)}
         mod='zoom'
       />
       <Trackbar

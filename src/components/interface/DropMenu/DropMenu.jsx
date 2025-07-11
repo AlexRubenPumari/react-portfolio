@@ -47,17 +47,19 @@ export default function DropMenu({
         <span className='DropMenu__arrow'>{arrow}</span>
         {isDropped && (
           <ul className='DropMenu__menu' style={styles}>
-            {items.map((item, index) => (
-              <Item
-                key={values[index]}
-                current={currentValue}
-                isDefaultItem={!values.includes(currentValue) && values[index] === defaultValue}
-                value={values[index]}
-                callback={callbacks[index]}
-              >
-                {item}
-              </Item>
-            ))}
+            {items.map((item, index) => {
+              return (
+                <Item
+                  key={values[index]}
+                  current={currentValue}
+                  isDefaultItem={!values.includes(currentValue) && values[index] === defaultValue}
+                  value={values[index]}
+                  callback={typeof callbacks === 'function' ? callbacks : callbacks[index] }
+                >
+                  {item}
+                </Item>
+              )
+            })}
           </ul>
         )}
       </button>
