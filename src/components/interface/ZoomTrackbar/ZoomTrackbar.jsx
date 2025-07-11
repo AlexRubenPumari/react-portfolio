@@ -6,7 +6,7 @@ import './ZoomTrackbar.scss'
 
 export default function ZoomTrackbar({ initialValue, min, max }) {
   const [value, setValue] = useState(initialValue)
-  const values = [20, 40, 60, 80, 100, 120, 140, 160, 180].reverse()
+  const values = [60, 70, 80, 90, 100, 110, 120, 130, 140].reverse()
   useEffect(() => {
     changeFontSizeBody(value)
   }, [value])
@@ -27,7 +27,7 @@ export default function ZoomTrackbar({ initialValue, min, max }) {
         changeValue={setValue}
         min={min}
         max={max}
-        step={20}
+        step={10}
       />
     </div>
   )
