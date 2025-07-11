@@ -1,7 +1,8 @@
 import { useContext } from 'react'
 import { ModalContext } from './contexts/modal'
 import useFullScreen from './hooks/useFullScreen'
-import PagesProvider from './contexts/projects'
+import PagesProvider from './contexts/pages'
+import ProjectsProvider from './contexts/projects'
 import Header from './components/interface/Header/Header'
 import Viewport from './components/interface/Viewport/Viewport'
 import Footer from './components/interface/Footer/Footer'
@@ -13,19 +14,21 @@ export default function App() {
   const { fullScreen, enableFullScreen, disableFullScreen } =
     useFullScreen(false)
   return (
-    <PagesProvider>
-      <Header />
-      <Viewport
-        onNormalScreen={disableFullScreen}
-        isFullScreen={fullScreen}
-      />
-      {/* {modal && (
-        <ProjectModal
-          project={modal}
-          toClose={closeModal}
+    <ProjectsProvider>
+      <PagesProvider>
+        <Header />
+        <Viewport
+          onNormalScreen={disableFullScreen}
+          isFullScreen={fullScreen}
         />
-      )} */}
-      <Footer onFullScreen={enableFullScreen} />
-    </PagesProvider>
+        {modal && (
+          <ProjectModal
+            project={modal}
+            toClose={closeModal}
+          />
+      )}
+        <Footer onFullScreen={enableFullScreen} />
+      </PagesProvider>
+    </ProjectsProvider>
   )
 }

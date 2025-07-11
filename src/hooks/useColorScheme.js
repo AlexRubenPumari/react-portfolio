@@ -5,6 +5,9 @@ import { changeDisplayMode } from '../logic/styles'
 export default function useColorScheme () {
   const { DARK, LIGHT, AUTO } = MODES
   const [mode, setMode] = useState(AUTO)
+  const setDarkMode = () => setMode(MODES.DARK)
+  const setLigthMode = () => setMode(MODES.LIGHT)
+  const setAutoMode = () => setMode(MODES.AUTO)
   useEffect(() => {
     if (mode === DARK) {
       changeDisplayMode(DARK)
@@ -17,5 +20,5 @@ export default function useColorScheme () {
     }
   }, [mode])
 
-  return { mode, setMode, DARK, LIGHT, AUTO }
+  return { mode, setDarkMode, setLigthMode, setAutoMode }
 }

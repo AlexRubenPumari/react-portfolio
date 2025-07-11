@@ -1,16 +1,22 @@
-import { getNameFor } from '../../../logic/data'
+import { classNames } from '../../../logic/classNames'
 import DropMenu from '../DropMenu/DropMenu'
 import './Flaps.scss'
 
-export default function Flaps({ currentValue, flaps, values, callbacks }) {
+export default function Flaps({ currentValue, defaultValue, flaps, values, callbacks }) {
+  const getTextOfCurrentValue = currentValue => {
+    const i = values.indexOf(currentValue)
+
+    return i >= 0 ? flaps[i] : flaps[values.indexOf(defaultValue)]
+  }
   return (
     <>
       <DropMenu
         className='dUnresponsive'
         items={flaps}
         currentValue={currentValue}
+        defaultValue={defaultValue}
         values={values}
-        text={getNameFor(currentValue)}
+        text={getTextOfCurrentValue(currentValue)}
         direction='bottom left'
         callbacks={callbacks}
       />
@@ -20,6 +26,7 @@ export default function Flaps({ currentValue, flaps, values, callbacks }) {
             key={values[index]}
             name={flap}
             currentValue={currentValue}
+            isDefaultFlap={!values.includes(currentValue) && values[index] === defaultValue}
             value={values[index]}
             callback={callbacks[index]}
           />
@@ -28,10 +35,13 @@ export default function Flaps({ currentValue, flaps, values, callbacks }) {
     </>
   )
 }
-function Flap({ name, currentValue, value, callback }) {
+function Flap({ name, currentValue, isDefaultFlap, value, callback }) {
+  const className = classNames('Flap', {
+    'selected': currentValue === value || isDefaultFlap
+  })
   return (
     <li
-      className={`Flap${currentValue === value ? ' selected' : ''}`}
+      className={className}
       onClick={() => callback(value)}>
       {name}
     </li>

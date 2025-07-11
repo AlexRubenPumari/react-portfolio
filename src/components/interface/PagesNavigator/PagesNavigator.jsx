@@ -3,7 +3,7 @@ import { getCorrectPageN } from '../../../logic/pages'
 import Navigator from '../Navigator/Navigator'
 
 
-export default function PagesNavigator() {
+export default function PagesNavigator({ mod }) {
   const { page, cantPages, goToNextPage, goToPreviousPage } = usePagesContext()
 
   return (
@@ -13,6 +13,7 @@ export default function PagesNavigator() {
       label='Diapositiva'
       onPrevious={() => goToPreviousPage()}
       onNext={() => goToNextPage()}
+      mod={mod}
     />
   )
 }

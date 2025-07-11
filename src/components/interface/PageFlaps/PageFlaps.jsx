@@ -1,5 +1,5 @@
 import { usePagesContext } from '../../../hooks/usePagesContext'
-import { PAGES_NAMES, PAGES_VALUES } from '../../../config/pages'
+import { PAGES_NAMES, PAGES_VALUES, PAGES } from '../../../config/pages'
 import Flaps from '../Flaps/Flaps'
 
 export default function PageFlaps () {
@@ -21,6 +21,7 @@ export default function PageFlaps () {
     <Flaps
       currentValue={page}
       values={PAGES_VALUES}
+      defaultValue={PAGES.FIRST_PROJECT}
       flaps={PAGES_NAMES}
       callbacks={flapCallbacks}
     />

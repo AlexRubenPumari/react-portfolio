@@ -1,16 +1,15 @@
 import { createContext } from 'react'
-import { usePageNavigation } from '../hooks/usePage'
+import { useProjects } from '../hooks/useProjects'
 
-export const PagesContext = createContext()
+export const ProjectsContext = createContext()
 
-export default function PagesProvider ({ children }) {
-  const contextValues = usePageNavigation()
-
+export default function ProjectsProvider ({ children }) {
+  const contextValues = useProjects()
   return (
-    <PagesContext.Provider
+    <ProjectsContext.Provider
       value={contextValues}
     >
       {children}
-    </PagesContext.Provider>
+    </ProjectsContext.Provider>
   )
 }

@@ -14,7 +14,7 @@ export default function Footer({ onFullScreen }) {
           icon={<IconSlide />}
           onClick={onFullScreen}
         />
-        <ZoomTrackbar initialValue={100} min={20} max={180} />
+        <ZoomTrackbar initialValue={100} min={60} max={140} />
       </div>
     </footer>
   )

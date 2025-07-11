@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { useProjects } from '../hooks/useProjects'
+import { useProjectsContext } from '../hooks/useProjectsContext'
 import { PAGES } from '../config/pages'
 import { getTotalPages, getNextPage, getPreviousPage } from '../logic/pages'
 
 export function usePageNavigation() {
   const [page, setPage] = useState(PAGES.INDEX)
-  const { projects } = useProjects()
+  const { projects } = useProjectsContext()
 
   const goToNextPage = () => setPage(prev => getNextPage(prev, projects.length))
   const goToPreviousPage = () => setPage(prev => getPreviousPage(prev, projects.length))
