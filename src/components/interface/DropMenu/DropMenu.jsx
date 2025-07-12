@@ -1,78 +1,51 @@
-import { useState, useEffect, useRef } from 'react'
-import { getDropMenuStyles } from '../../../logic/styles'
+import { useClickOutside } from './useClickOutside'
+import { useToggle } from './useToggle'
+import { classNames } from '../../../logic/classNames'
+import DropMenuButton from './DropMenuButton'
+import Menu from './Menu'
 import './DropMenu.scss'
 
 export default function DropMenu({
-  className = '',
-  items,
-  defaultValue,
-  values,
-  currentValue,
-  text,
-  Icon,
-  direction,
-  callbacks,
-  mod = '',
+  className, direction = 'bottom',
+  Icon, text,
+  items, values, defaultValue, currentValue, callbacks,
 }) {
-  const [isDropped, setIsDropped] = useState(false)
-  const { arrow, styles } = getDropMenuStyles(direction, isDropped)
-  const btnRef = useRef(null)
-  const handleClickOutMenu = e => {
-    if (btnRef.current && !btnRef.current.contains(e.target)) {
-      setIsDropped(false)
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutMenu)
-    return () => {
-      document.removeEventListener('click', handleClickOutMenu)
-    }
-  }, [])
+  const { toggle: dropped, setToToggle: toggleMenu, setToOff: closeMenu } = useToggle()
+  const { ref: btnRef } = useClickOutside(closeMenu)
+  const DropMenuClasses = classNames(
+    'DropMenu', getDropMenuClass(direction, dropped), className
+  )
   return (
-    <>
-      <button
-        className={`IButton DropMenu ${className}`}
-        onClick={() => setIsDropped(!isDropped)}
-        ref={btnRef}>
-        {Icon && <Icon className='DropMenu__icon' />}
-        {text && (
-          <span
-            className={`DropMenu__label ${
-              mod ? `DropMenu__label--${mod}` : ''
-            }`}>
-            {text}
-          </span>
-        )}
-        <span className='DropMenu__arrow'>{arrow}</span>
-        {isDropped && (
-          <ul className='DropMenu__menu' style={styles}>
-            {items.map((item, index) => {
-              return (
-                <Item
-                  key={values[index]}
-                  current={currentValue}
-                  isDefaultItem={!values.includes(currentValue) && values[index] === defaultValue}
-                  value={values[index]}
-                  callback={typeof callbacks === 'function' ? callbacks : callbacks[index] }
-                >
-                  {item}
-                </Item>
-              )
-            })}
-          </ul>
-        )}
-      </button>
-    </>
+    <div className={DropMenuClasses}>
+      <DropMenuButton
+        ref={btnRef}
+        Icon={Icon}
+        text={text}
+        onClick={toggleMenu}
+      />
+      {dropped && (
+        <Menu
+          items={items}
+          values={values}
+          currentValue={currentValue}
+          defaultValue={defaultValue}
+          callbacks={callbacks}
+        />
+      )}
+    </div>
   )
 }
-function Item({ children, current, value, isDefaultItem, callback }) {
-  return (
-    <li
-      className={`DropMenu__item ${value === current || isDefaultItem ? 'selected' : ''}`}
-      onClick={() => callback(value)}
-    >
-      {children}
-    </li>
-  )
+
+function getDropMenuClass(direction, dropped) {
+  let arrClassNames = []
+
+  if (direction.includes('bottom')) arrClassNames.push('DropMenu--bottom')
+  if (direction.includes('top')) arrClassNames.push('DropMenu--top')
+
+  if (direction.includes('left')) arrClassNames.push('DropMenu--left')
+  if (direction.includes('right')) arrClassNames.push('DropMenu--right')
+
+  if (dropped) arrClassNames.push('DropMenu--dropped')
+
+  return arrClassNames
 }

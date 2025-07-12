@@ -7,17 +7,17 @@ export default function DarkModeButton() {
   const { mode, setDarkMode, setLigthMode, setAutoMode } = useColorScheme()
   return (
     <DropMenu
+      currentValue={mode}
+      Icon={getIconByMode(mode)}
       items={['Dark', 'Light', 'Auto']}
       values={[M.DARK, M.LIGHT, M.AUTO]}
-      currentValue={mode}
-      Icon={getIcon({ currentMode: mode })}
-      direction='bottom right'
       callbacks={[setDarkMode, setLigthMode, setAutoMode]}
+      direction='bottom right'
     />
   )
 }
-function getIcon({ currentMode }) {
-  if (currentMode === M.LIGHT) return IconSun
-  if (currentMode === M.DARK) return IconMoon
-  if (currentMode === M.AUTO) return IconDarkMode
+function getIconByMode(mode) {
+  if (mode === M.LIGHT) return IconSun
+  if (mode === M.DARK) return IconMoon
+  if (mode === M.AUTO) return IconDarkMode
 }
