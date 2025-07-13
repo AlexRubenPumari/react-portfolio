@@ -26,9 +26,9 @@ export default function DropMenu({
       {dropped && (
         <Menu
           items={items}
-          values={values}
           currentValue={currentValue}
           defaultValue={defaultValue}
+          values={values}
           callbacks={callbacks}
         />
       )}
