@@ -2,9 +2,7 @@ import { getFormatedTag } from '../../../logic/data'
 import './Tag.scss'
 
 export default function Tag({ children }) {
-  return (
-    <span className={`Tag Tag--${children}`}>
-      {getFormatedTag(children)}
-    </span>
-  )
+  const tagName = getFormatedTag(children)
+  const className = `Tag Tag--${tagName.toLowerCase().replace(/[. ]/g, '-')}`
+  return <li className={className}>{tagName}</li>
 }

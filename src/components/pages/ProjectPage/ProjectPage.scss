@@ -2,24 +2,26 @@
 
 .ProjectPage {
   @extend %base-page;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
   &__blob {
     bottom: 0;
     left: 0;
   }
   &__title {
-    position: relative;
+    text-align: center;
   }
-  &__pattern {
-    position: absolute;
-    top: 50%;
-    right: 1.8em;
-    color: var(--violet-50);
-    transform: translateY(-50%);
+  &__img {
+    max-width: 300px;
+    border-radius: .5em;
   }
-  &__loadingLabel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5em 1em;
   }
 }
