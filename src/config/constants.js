@@ -17,6 +17,8 @@ export const PAGES_VALUES = [
 ]
 export const URL_GITHUB_REPOSITORIES =
   'https://api.github.com/users/alexrubenpumari/repos'
+export const getImgUrl = imgName =>
+  `https://raw.githubusercontent.com/AlexRubenPumari/${imgName}/master/cover.jpg`
 export const MODES = {
   LIGHT: 0,
   DARK: 1,

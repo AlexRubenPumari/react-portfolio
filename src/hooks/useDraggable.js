@@ -16,6 +16,8 @@ export function useDraggable() {
     if (!element) return
 
     const handleMouseDown = e => {
+      e.preventDefault()
+      
       isDraggingRef.current = true
       const { x, y } = getEventClientCoordinates(e)
       clickPositionRef.current = { x, y }

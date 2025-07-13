@@ -1,23 +1,10 @@
 import { useState, useEffect } from 'react'
-import { getTitleFrom } from '../logic/data'
 import { getProjects } from '../services/projects'
+import { mapProjectsToUI } from '../adapters/projects'
 
 export function useProjects() {
   const [projects, setProjects] = useState([])
-  const mappedProjects = 
-    projects
-      ?.filter(({ description, topics }) => description && topics)
-      ?.map(({ id, description, topics, name, html_url, homepage }) => (
-        {
-          id: id,
-          title: getTitleFrom(topics.find(topic => topic[0] === '1')),
-          description: description,
-          imgUrl: `https://raw.githubusercontent.com/AlexRubenPumari/${name}/master/cover.jpg`,
-          tags: topics.filter(topic => topic[0] !== '1'),
-          repoUrl: html_url,
-          pageUrl: homepage,
-        }
-      ))
+  const mappedProjects = mapProjectsToUI(projects) 
   useEffect(() => {
     getProjects()
       .then(projects => setProjects(projects))
