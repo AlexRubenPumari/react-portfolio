@@ -4,22 +4,21 @@ import './Trackbar.scss'
 
 export default function Trackbar({
   value,
-  changeValue,
+  onChange,
   min,
   max,
   step,
   className = '',
-  callback,
 }) {
   return (
     <div className={`Trackbar ${className}`}>
       <IRoundedButton
-        onClick={() => changeValue(clamp(value - step, min, max))}
+        onClick={() => onChange({ target: { value: clamp(value - step, min, max) } })}
         symbol='-'
       />
       <input
         className='Trackbar__input'
-        onChange={e => changeValue(Number(e.target.value))}
+        onChange={onChange}
         type='range'
         min={min}
         max={max}
@@ -27,7 +26,7 @@ export default function Trackbar({
         value={value}
       />
       <IRoundedButton
-        onClick={() => changeValue(clamp(value + step, min, max))}
+        onClick={() => onChange({ target: { value: clamp(value + step, min, max) } })}
         symbol='+'
       />
     </div>

@@ -3,6 +3,7 @@ import { ModalContext } from './contexts/modal'
 import useFullScreen from './hooks/useFullScreen'
 import PagesProvider from './contexts/pages'
 import ProjectsProvider from './contexts/projects'
+import ElementProvider from './contexts/element'
 import Header from './components/interface/Header/Header'
 import Viewport from './components/interface/Viewport/Viewport'
 import Footer from './components/interface/Footer/Footer'
@@ -16,18 +17,20 @@ export default function App() {
   return (
     <ProjectsProvider>
       <PagesProvider>
-        <Header />
-        <Viewport
-          onNormalScreen={disableFullScreen}
-          isFullScreen={fullScreen}
-        />
-        {modal && (
-          <ProjectModal
-            project={modal}
-            toClose={closeModal}
+        <ElementProvider>
+          <Header />
+          <Viewport
+            onNormalScreen={disableFullScreen}
+            isFullScreen={fullScreen}
           />
-      )}
-        <Footer onFullScreen={enableFullScreen} />
+          {modal && (
+            <ProjectModal
+              project={modal}
+              toClose={closeModal}
+            />
+          )}
+          <Footer onFullScreen={enableFullScreen} />
+        </ElementProvider>
       </PagesProvider>
     </ProjectsProvider>
   )

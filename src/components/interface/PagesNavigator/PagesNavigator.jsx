@@ -1,5 +1,4 @@
 import { usePagesContext } from '../../../hooks/usePagesContext'
-import { getCorrectPageN } from '../../../logic/pages'
 import Navigator from '../Navigator/Navigator'
 
 
@@ -8,7 +7,7 @@ export default function PagesNavigator({ mod }) {
 
   return (
     <Navigator
-      current={getCorrectPageN(page, cantPages)}
+      current={page}
       cant={cantPages}
       label='Diapositiva'
       onPrevious={() => goToPreviousPage()}

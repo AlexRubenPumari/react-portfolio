@@ -8,17 +8,23 @@ export function getCorrectPageN (pageValue, n) {
   }
 }
 
-export function getTotalPages(projectsLength) {
+export function getTotalPages (projectsLength) {
   return projectsLength + DEFAULT_PAGES_CANT
 }
 
-export function getNextPage(currentPage, projectsLength) {
-  if (currentPage === PAGES.CONTACTS) return PAGES.INDEX
-  if (currentPage < projectsLength - 1) return currentPage + 1
-  return PAGES.CONTACTS
+export function getValueOfPage (page, cantPages) {
+  if (page === PAGES.CONTACTS) return cantPages
+
+  return page + DEFAULT_PAGES_CANT
 }
 
-export function getPreviousPage(currentPage, projectsLength) {
-  if (currentPage === PAGES.CONTACTS) return projectsLength - 1
-  if (currentPage >= PAGES.INDEX) return currentPage - 1
+export function getPageOfValue (value, cantPages) {
+  if (value === 7) return -3
+  const VALUES = {
+    [1]: PAGES.INDEX,
+    [2]: PAGES.ABOUT_ME,
+    [cantPages]: PAGES.CONTACTS
+  }
+
+  return VALUES[value] || value - DEFAULT_PAGES_CANT
 }

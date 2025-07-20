@@ -1,11 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { getEventClientCoordinates } from '../logic/draggable'
 
-const isTouchDevice = ('ontouchstart' in window) ||
-                      (navigator.maxTouchPoints > 0) ||
-                      (navigator.msMaxTouchPoints > 0)
-
-export function useDraggable() {
+export function useDraggable({ isTouchDevice }) {
   const elementRef = useRef()
   const isDraggingRef = useRef(false)
   const initElementPositionRef = useRef()
@@ -15,7 +10,7 @@ export function useDraggable() {
     const element = elementRef.current
     if (!element) return
 
-    const handleMouseDown = e => {
+    const handlePointerstart = e => {
       e.preventDefault()
       
       isDraggingRef.current = true
@@ -29,7 +24,7 @@ export function useDraggable() {
       initElementPositionRef.current = { x: matrix.m41, y: matrix.m42 }
     }
 
-    const handleMouseMove = e => {
+    const handlePointermove = e => {
       if (!isDraggingRef.current) return
       e.preventDefault()
 
@@ -44,35 +39,45 @@ export function useDraggable() {
       element.style.opacity = 0.5
     }
 
-    const handleMouseUp = () => {
+    const handlePointerend = () => {
       isDraggingRef.current = false
       element.style.opacity = 1
     }
 
     if (isTouchDevice) {
-      element.addEventListener('touchstart', handleMouseDown)
-      document.addEventListener('touchmove', handleMouseMove, { passive: false })
-      document.addEventListener('touchend', handleMouseUp)
+      element.addEventListener('touchstart', handlePointerstart)
+      document.addEventListener('touchmove', handlePointermove, { passive: false })
+      document.addEventListener('touchend', handlePointerend)
     } else {
-      element.addEventListener('mousedown', handleMouseDown)
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
-      document.addEventListener('mouseleave', handleMouseUp)
+      element.addEventListener('mousedown', handlePointerstart)
+      document.addEventListener('mousemove', handlePointermove)
+      document.addEventListener('mouseup', handlePointerend)
+      document.addEventListener('mouseleave', handlePointerend)
     }
 
     return () => {
     if (isTouchDevice) {
-      element.removeEventListener('touchstart', handleMouseDown);
-      document.removeEventListener('touchmove', handleMouseMove);
-      document.removeEventListener('touchend', handleMouseUp);
+      element.removeEventListener('touchstart', handlePointerstart);
+      document.removeEventListener('touchmove', handlePointermove);
+      document.removeEventListener('touchend', handlePointerend);
     } else {
-      element.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('mouseleave', handleMouseUp);
+      element.removeEventListener('mousedown', handlePointerstart);
+      document.removeEventListener('mousemove', handlePointermove);
+      document.removeEventListener('mouseup', handlePointerend);
+      document.removeEventListener('mouseleave', handlePointerend);
     }
     }
   }, [])
 
-  return { elementRef }
+  return elementRef
+}
+
+function getEventClientCoordinates (e) {
+  if (e.touches && e.touches.length > 0) {
+    return { x: e.touches[0].clientX, y: e.touches[0].clientY }
+  } else if (e.changedTouches && e.changedTouches.length > 0) {
+    return { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY }
+  } else {
+    return { x: e.clientX, y: e.clientY }
+  }
 }

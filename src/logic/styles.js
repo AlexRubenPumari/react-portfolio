@@ -43,6 +43,6 @@ export function changeDisplayMode(mode) {
     setColorScheme(LIGHT)
   }
 }
-export function changeFontSizeBody (value) {
-  document.body.style.fontSize = `${value/100}rem`
+export function scaleElement (element, value, base = 100) {
+  element.style.transform = `scale(${value/base})`
 }

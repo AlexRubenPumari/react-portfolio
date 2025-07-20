@@ -1,5 +1,6 @@
 import { usePagesContext } from '../../../hooks/usePagesContext'
 import { PAGES_NAMES, PAGES_VALUES, PAGES } from '../../../config/pages'
+import { getPageOfValue } from '../../../logic/pages'
 import Flaps from '../Flaps/Flaps'
 
 export default function PageFlaps () {
@@ -19,7 +20,7 @@ export default function PageFlaps () {
 
   return (
     <Flaps
-      currentValue={page}
+      currentValue={getPageOfValue(page)}
       values={PAGES_VALUES}
       defaultValue={PAGES.FIRST_PROJECT}
       flaps={PAGES_NAMES}

@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react'
-import { changeFontSizeBody } from '../../../logic/styles'
+import { useEffect } from 'react'
+import { useElementContext } from '../../../contexts/element'
+import { scaleElement } from '../../../logic/styles'
 import Trackbar from '../Trackbar/Trackbar'
 import DropMenu from '../DropMenu/DropMenu'
 import './ZoomTrackbar.scss'
 
-export default function ZoomTrackbar({ initialValue, min, max }) {
-  const [value, setValue] = useState(initialValue)
+export default function ZoomTrackbar () {
   const values = [60, 70, 80, 90, 100, 110, 120, 130, 140].reverse()
+  const { elementRef, value, setValue } = useElementContext()
   useEffect(() => {
-    changeFontSizeBody(value)
+    scaleElement(elementRef.current, value, 100)
   }, [value])
   return (
     <div className='ZoomTrackbar'>
@@ -24,9 +25,9 @@ export default function ZoomTrackbar({ initialValue, min, max }) {
       <Trackbar
         className='dResponsive'
         value={value}
-        changeValue={setValue}
-        min={min}
-        max={max}
+        onChange={e => setValue(Number(e.target.value))}
+        min={60}
+        max={140}
         step={10}
       />
     </div>

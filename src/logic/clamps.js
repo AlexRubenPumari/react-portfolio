@@ -1,16 +1,10 @@
-export function clampLoop(value, min, max) {
-    if (value >= min && value <= max) {
-      return value
-    } else {
-      if (value < min) return max
-      if (value > max) return min
-    }
-} 
-export function clamp(value, min, max) {
-    if (value >= min && value <= max) {
-      return value
-    } else {
-      if (value < min) return min
-      if (value > max) return max
-    }
-} 
+export function clamp(val, min, max) {
+  return Math.min(Math.max(val, min), max)
+}
+
+export function clampLoop(val, min, max) {
+  if (val > max) return min
+  if (val < min) return max
+  return val
+}
+
