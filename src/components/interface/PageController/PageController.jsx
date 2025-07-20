@@ -1,6 +1,5 @@
 import { PAGES as P } from '../../../config/pages'
-// import { useDraggable } from '../../../hooks/useDraggable'
-import { scaleElement } from '../../../logic/styles'
+import { useDraggable } from '../../../hooks/useDraggable'
 import { getPageOfValue } from '../../../logic/pages'
 import { useZoom } from '../../../hooks/useZoom'
 import { usePagesContext } from '../../../hooks/usePagesContext'
@@ -13,14 +12,18 @@ import ProjectPage from '../../pages/ProjectPage/ProjectPage'
 import './Page.scss'
 
 export default function PageController() {
-  const { elementRef, value } = useElementContext()
+  const { elementRef, goNext, goPrevious } = useElementContext()
   const isTouchDevice = ('ontouchstart' in window) ||
                         (navigator.maxTouchPoints > 0) ||
                         (navigator.msMaxTouchPoints > 0)
   useZoom({
     ref: elementRef,
-    onZoomIn: e => scaleElement(elementRef.current, value + e / 20),
-    onZoomOut: e => scaleElement(elementRef.current, value - e / 20),
+    onZoomIn: goNext,
+    onZoomOut: goPrevious,
+    isTouchDevice,
+  })
+  useDraggable({
+    ref: elementRef,
     isTouchDevice,
   })
   const { page, cantPages } = usePagesContext()

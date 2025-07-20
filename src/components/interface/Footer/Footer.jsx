@@ -9,12 +9,12 @@ export default function Footer({ onFullScreen }) {
     <footer className='Footer'>
       <PagesNavigator />
       <div className='Footer__rigth'>
+        <ZoomTrackbar />
         <IButton
           title='Presentación con diapositiva'
           icon={<IconSlide />}
           onClick={onFullScreen}
         />
-        <ZoomTrackbar />
       </div>
     </footer>
   )

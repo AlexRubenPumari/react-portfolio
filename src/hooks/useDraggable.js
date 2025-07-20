@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
 
-export function useDraggable({ isTouchDevice }) {
-  const elementRef = useRef()
+export function useDraggable({ ref, isTouchDevice }) {
+  const internalRef = useRef()
+  const elementRef = ref ?? internalRef
+
   const isDraggingRef = useRef(false)
   const initElementPositionRef = useRef()
   const clickPositionRef = useRef()
@@ -11,8 +13,9 @@ export function useDraggable({ isTouchDevice }) {
     if (!element) return
 
     const handlePointerstart = e => {
-      e.preventDefault()
-      
+      if (isTouchDevice && e.touches && e.touches.length > 1) return turnOff()
+      // e.preventDefault()
+
       isDraggingRef.current = true
       const { x, y } = getEventClientCoordinates(e)
       clickPositionRef.current = { x, y }
@@ -35,14 +38,36 @@ export function useDraggable({ isTouchDevice }) {
       const newX = initElementPositionRef.current.x + deltaX
       const newY = initElementPositionRef.current.y + deltaY
 
-      element.style.transform = `translate(${newX}px, ${newY}px)`
+
+
+      element.style.transform =
+        `translate(${newX}px, ${newY}px) scale(${getScaleFromElement(element)})`
       element.style.opacity = 0.5
     }
 
-    const handlePointerend = () => {
-      isDraggingRef.current = false
-      element.style.opacity = 1
+    const handlePointerend = e => {
+      if (isTouchDevice && e.touches && e.touches.length === 1) {
+        const { x, y } = getEventClientCoordinates(e)
+        clickPositionRef.current = { x, y }
+
+        const transform = window.getComputedStyle(element).transform
+        const matrix = new DOMMatrix(transform)
+
+        initElementPositionRef.current = { x: matrix.m41, y: matrix.m42 }
+
+        isDraggingRef.current = true
+        return
+      }
+
+      turnOff()
     }
+
+
+    const turnOff = () => {
+      isDraggingRef.current = false
+      turnOffStyles()
+    }
+    const turnOffStyles = () => element.style.opacity = 1
 
     if (isTouchDevice) {
       element.addEventListener('touchstart', handlePointerstart)
@@ -56,23 +81,23 @@ export function useDraggable({ isTouchDevice }) {
     }
 
     return () => {
-    if (isTouchDevice) {
-      element.removeEventListener('touchstart', handlePointerstart);
-      document.removeEventListener('touchmove', handlePointermove);
-      document.removeEventListener('touchend', handlePointerend);
-    } else {
-      element.removeEventListener('mousedown', handlePointerstart);
-      document.removeEventListener('mousemove', handlePointermove);
-      document.removeEventListener('mouseup', handlePointerend);
-      document.removeEventListener('mouseleave', handlePointerend);
-    }
+      if (isTouchDevice) {
+        element.removeEventListener('touchstart', handlePointerstart);
+        document.removeEventListener('touchmove', handlePointermove);
+        document.removeEventListener('touchend', handlePointerend);
+      } else {
+        element.removeEventListener('mousedown', handlePointerstart);
+        document.removeEventListener('mousemove', handlePointermove);
+        document.removeEventListener('mouseup', handlePointerend);
+        document.removeEventListener('mouseleave', handlePointerend);
+      }
     }
   }, [])
 
   return elementRef
 }
 
-function getEventClientCoordinates (e) {
+function getEventClientCoordinates(e) {
   if (e.touches && e.touches.length > 0) {
     return { x: e.touches[0].clientX, y: e.touches[0].clientY }
   } else if (e.changedTouches && e.changedTouches.length > 0) {
@@ -80,4 +105,21 @@ function getEventClientCoordinates (e) {
   } else {
     return { x: e.clientX, y: e.clientY }
   }
+}
+
+const getScaleFromElement = (element) => {
+  const style = window.getComputedStyle(element)
+  const transform = style.transform
+
+  if (!transform || transform === 'none') return 1
+
+  const match = transform.match(/^matrix\((.+)\)$/)
+  if (!match) return 1
+
+  const values = match[1].split(', ').map(parseFloat)
+  const scaleX = values[0]
+  const scaleY = values[3]
+
+  // Normalmente scaleX === scaleY si no hay deformación
+  return (scaleX + scaleY) / 2
 }

@@ -1,14 +1,18 @@
 import { useContext, createContext, useRef, useState } from 'react'
+import { useStepper } from '../hooks/useStepper'
 
 const ElementContext = createContext()
 
 export default function ElementProvider({ children }) {
   const elementRef = useRef()
-  const [value, setValue] = useState(100)
+  const { value, setValue, goNext, goPrevious } = useStepper(
+    { min: 60, max: 140, step: 20, initial: 100 }
+  )
 
   return (
     <ElementContext.Provider
-      value={{ elementRef, value, setValue }}>
+      value={{ elementRef, value, setValue, goNext, goPrevious }}
+    >
       {children}
     </ElementContext.Provider>
   )

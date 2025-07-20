@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 export function useZoom(
-  { ref, isTouchDevice, onZoomIn, onZoomOut, threshold = 10 }
+  { ref, isTouchDevice, onZoomIn, onZoomOut, threshold = 15 }
 ) {
   const internalRef = useRef(null)
   const elementRef = ref ?? internalRef
