@@ -1,9 +1,28 @@
-import { useClickOutside } from './useClickOutside'
-import { useToggle } from './useToggle'
+import { useRef, useEffect } from 'react'
+import { useToggle } from '../../../hooks/useToggle'
 import { classNames } from '../../../logic/classNames'
-import DropMenuButton from './DropMenuButton'
-import Menu from './Menu'
+import IButton from '../IButton/IButton'
+import Menu from '../Menu/Menu'
 import './DropMenu.scss'
+
+function useClickOutside(callback) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const handleClick = e => {
+      if (ref.current && !ref.current.contains(e.target)) callback()
+    }
+    document.addEventListener('click', handleClick)
+    return () => document.removeEventListener('click', handleClick)
+  }, [])
+  return ref
+}
+
+function getArrowSymbol(dropped, direction) {
+  const isBottom = direction.includes('bottom');
+  return dropped
+    ? (isBottom ? '▲' : '▼')
+    : (isBottom ? '▼' : '▲')
+}
 
 export default function DropMenu({
   className, direction = 'bottom',
@@ -11,20 +30,33 @@ export default function DropMenu({
   items, values, defaultValue, currentValue, callbacks,
 }) {
   const { toggle: dropped, setToToggle: toggleMenu, setToOff: closeMenu } = useToggle()
-  const { ref: btnRef } = useClickOutside(closeMenu)
-  const DropMenuClasses = classNames(
-    'DropMenu', getDropMenuClass(direction, dropped), className
+  const btnRef = useClickOutside(closeMenu)
+
+  const classes = classNames(
+    'DropMenu', dropped && 'DropMenu--dropped', className
   )
+
+  const menuClasses = classNames(
+    direction.includes('bottom') && 'Menu--bottom',
+    direction.includes('top') && 'Menu--top',
+    direction.includes('left') && 'Menu--left',
+    direction.includes('right') && 'Menu--right'
+  )
+
   return (
-    <div className={DropMenuClasses}>
-      <DropMenuButton
+    <div className={classes}>
+      <IButton
         ref={btnRef}
         Icon={Icon}
-        text={text}
         onClick={toggleMenu}
-      />
+        symbol={getArrowSymbol(dropped, direction)}
+      >
+        {text}
+      </IButton>
+
       {dropped && (
         <Menu
+          className={menuClasses}
           items={items}
           currentValue={currentValue}
           defaultValue={defaultValue}
@@ -34,18 +66,4 @@ export default function DropMenu({
       )}
     </div>
   )
-}
-
-function getDropMenuClass(direction, dropped) {
-  let arrClassNames = []
-
-  if (direction.includes('bottom')) arrClassNames.push('DropMenu--bottom')
-  if (direction.includes('top')) arrClassNames.push('DropMenu--top')
-
-  if (direction.includes('left')) arrClassNames.push('DropMenu--left')
-  if (direction.includes('right')) arrClassNames.push('DropMenu--right')
-
-  if (dropped) arrClassNames.push('DropMenu--dropped')
-
-  return arrClassNames
 }

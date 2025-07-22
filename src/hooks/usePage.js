@@ -12,7 +12,7 @@ export function usePageNavigation() {
   const goToIndexPage = () => setValue(getValueOfPage(PAGES.INDEX))
   const goToAboutMePage = () => setValue(getValueOfPage(PAGES.ABOUT_ME))
   const goToFirstProjectPage = () => setValue(getValueOfPage(PAGES.FIRST_PROJECT))
-  const goToContactsPage = () => setValue(getValueOfPage(PAGES.CONTACTS))
+  const goToContactsPage = () => setValue(getValueOfPage(PAGES.CONTACTS, cantPages))
 
   return { 
     page: value, cantPages,

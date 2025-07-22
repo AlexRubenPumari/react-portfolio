@@ -1,4 +1,4 @@
-import { IconSlide } from '../../../assets/svg/icons/Icons'
+import { IconSlide } from '../Icons/Icons'
 import ZoomTrackbar from '../ZoomTrackbar/ZoomTrackbar'
 import IButton from '../IButton/IButton'
 import PagesNavigator from '../PagesNavigator/PagesNavigator'
@@ -12,7 +12,7 @@ export default function Footer({ onFullScreen }) {
         <ZoomTrackbar />
         <IButton
           title='Presentación con diapositiva'
-          icon={<IconSlide />}
+          Icon={IconSlide}
           onClick={onFullScreen}
         />
       </div>

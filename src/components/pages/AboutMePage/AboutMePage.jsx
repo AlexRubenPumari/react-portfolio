@@ -1,4 +1,4 @@
-import { Blob_1, Blob_2 } from '../../../assets/svg/blobs/Blobs'
+import { Blob_1, Blob_2 } from '../Blobs/Blobs'
 import './AboutMePage.scss'
 
 export default function AboutMePage() {

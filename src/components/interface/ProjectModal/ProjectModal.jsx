@@ -1,13 +1,13 @@
-import { IconEye } from '../../../assets/svg/icons/Icons'
+import { IconEye } from '../Icons/Icons'
 import Modal from '../Modal/Modal'
 import PrimaryButton from '../../pages/PrimaryButton/PrimaryButton'
 import Tag from '../../pages/Tag/Tag'
 import './ProjectModal.scss'
 
-export default function ProjectModal({ project, toClose }) {
+export default function ProjectModal({ project, onClose }) {
   const { title, description, imgUrl, tags, repoUrl, pageUrl } = project
   return (
-    <Modal className='ProjectModal__body Scrollbar' toClose={toClose}>
+    <Modal className='ProjectModal__body Scrollbar' onClose={onClose}>
       <h3 className='ProjectModal__title'>{title}</h3>
       <img
         src={imgUrl}

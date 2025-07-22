@@ -1,4 +1,4 @@
-import { usePagesContext } from '../../../hooks/usePagesContext'
+import { usePagesContext } from '../../../contexts/pages'
 import { PAGES_NAMES, PAGES_VALUES, PAGES } from '../../../config/pages'
 import { getPageOfValue } from '../../../logic/pages'
 import Flaps from '../Flaps/Flaps'

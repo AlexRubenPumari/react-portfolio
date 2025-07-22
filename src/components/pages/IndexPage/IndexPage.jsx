@@ -1,5 +1,5 @@
-import { Blob_1, Blob_2 } from '../../../assets/svg/blobs/Blobs'
-import { IconDownload } from '../../../assets/svg/icons/Icons'
+import { Blob_1, Blob_2 } from '../Blobs/Blobs'
+import { IconDownload } from '../../interface/Icons/Icons'
 import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import profile from '../../../assets/img/profile600x600.jpg'
 import cv from '../../../assets/pdf/alex_pumari_cv.pdf'

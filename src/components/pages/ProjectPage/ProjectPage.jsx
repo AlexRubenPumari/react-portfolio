@@ -1,14 +1,13 @@
-import { useContext } from 'react'
-import { ModalContext } from '../../../contexts/modal'
-import { IconEye } from '../../../assets/svg/icons/Icons'
-import { Blob_3 } from '../../../assets/svg/blobs/Blobs'
+import { useModalContext } from '../../../contexts/modal'
+import { IconEye } from '../../interface/Icons/Icons'
+import { Blob_3 } from '../Blobs/Blobs'
 import ListOfTags from '../ListOfTags/ListOfTags'
 import PrimaryButton from '../PrimaryButton/PrimaryButton'
 import './ProjectPage.scss'
 
 export default function ProjectPage({ project }) {
+  const { openModal } = useModalContext()
   const { title, imgUrl, tags } = project
-  const { openModal } = useContext(ModalContext)
   return (
     <>
       <div className='ProjectPage'>

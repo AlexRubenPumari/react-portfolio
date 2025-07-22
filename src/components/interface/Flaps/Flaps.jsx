@@ -3,17 +3,8 @@ import DropMenu from '../DropMenu/DropMenu'
 import './Flaps.scss'
 
 export default function Flaps({ currentValue, defaultValue, flaps, values, callbacks }) {
-  const dropMenuText = getTextOfCurrentValue(defaultValue, currentValue, values, flaps)
-  const listOfFlaps = flaps.map((flap, index) => (
-    <Flap
-      key={values[index]}
-      name={flap}
-      currentValue={currentValue}
-      isDefaultFlap={!values.includes(currentValue) && values[index] === defaultValue}
-      value={values[index]}
-      callback={callbacks[index]}
-    />
-  ))
+  const dropMenuText = getDisplayText({ currentValue, defaultValue, values, flaps })
+
   return (
     <>
       <DropMenu
@@ -26,25 +17,33 @@ export default function Flaps({ currentValue, defaultValue, flaps, values, callb
         direction='bottom left'
         callbacks={callbacks}
       />
-      <ul className='Flaps dResponsive'>{listOfFlaps}</ul>
+      <ul className="Flaps dResponsive">
+        {flaps.map((name, i) => (
+          <Flap
+            key={values[i]}
+            name={name}
+            value={values[i]}
+            currentValue={currentValue}
+            isDefault={!values.includes(currentValue) && values[i] === defaultValue}
+            onClick={callbacks[i]}
+          />
+        ))}
+      </ul>
     </>
   )
 }
-function Flap({ name, currentValue, isDefaultFlap, value, callback }) {
-  const className = classNames('Flap', {
-    'selected': currentValue === value || isDefaultFlap
-  })
+function Flap({ name, value, currentValue, isDefault, onClick }) {
+  const className = classNames(
+    'Flap', (currentValue === value || isDefault) && 'selected'
+  )
   return (
-    <li
-      className={className}
-      onClick={() => callback(value)}>
-      {name}
-    </li>
+    <li className={className} onClick={() => onClick(value)}>{name}</li>
   )
 }
-function getTextOfCurrentValue(defaultValue, currentValue, values, names) {
-  const nameIndex = values.indexOf(currentValue)
-  const defaultIndex = values.indexOf(defaultValue)
 
-  return names[nameIndex >= 0 ? nameIndex : defaultIndex]
+function getDisplayText({ currentValue, defaultValue, values, flaps }) {
+  const index = values?.indexOf(currentValue)
+  const fallbackIndex = values?.indexOf(defaultValue)
+
+  if (fallbackIndex) return flaps[index >= 0 ? index : fallbackIndex]
 }

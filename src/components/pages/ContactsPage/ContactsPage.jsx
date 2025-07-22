@@ -1,7 +1,7 @@
+import { IconGitHub, IconLinkedIn } from '../../interface/Icons/Icons'
+import { Blob_2 } from '../Blobs/Blobs'
 import PrimaryButton from '../PrimaryButton/PrimaryButton'
-import { IconGitHub, IconLinkedIn } from '../../../assets/svg/icons/Icons'
-import { Blob_2 } from '../../../assets/svg/blobs/Blobs'
-import CirclePattern from '../../../assets/patterns/CirclePattern'
+import CirclePattern from '../Pattern/CirclePattern'
 import './ContactsPage.scss'
 
 export default function ContactsPage() {

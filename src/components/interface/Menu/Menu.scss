@@ -1,0 +1,49 @@
+.Menu {
+  border: 1px solid var(--c-secondary-03);
+  border-radius: var(--rounded-xs);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: var(--c-primary-01);
+  background-color: var(--c-secondary-01);
+  box-shadow: 0 0 10px 0px var(--c-primary-01-o);
+
+  &__item {
+    min-width: max-content;
+    padding: var(--p-sm) 1.8em var(--p-sm) 1em;
+    position: relative;
+    text-align: left;
+    transition: background-color 200ms;
+
+    &.selected {
+      &::before {
+        position: absolute;
+        content: '✔';
+        top: 50%;
+        right: .36em;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &--bottom {
+    top: 125%;
+  }
+
+  &--top {
+    bottom: 125%;
+  }
+
+  &--right {
+    left: auto;
+    transform: translateX(0);
+    right: 0;
+  }
+
+  &--left {
+    right: auto;
+    transform: translateX(0);
+    left: 0;
+  }
+}

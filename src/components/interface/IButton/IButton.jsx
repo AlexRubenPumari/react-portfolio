@@ -1,25 +1,23 @@
-import { cloneElement } from 'react'
+import { forwardRef } from 'react'
 import './IButton.scss'
 
-export default function IButton ({
-  mod = '',
-  title = '',
-  img,
-  value,
-  symbol,
-  icon,
-  onClick,
-}) {
+function IButton(props, ref) {
+  const { children, mod, title = '', img, symbol, Icon, onClick } = props
+  const className = `IButton${mod ? ` IButton--${mod}` : ''}`
+
   return (
     <button
-      className={`IButton ${mod ? `IButton--${mod}` : ''}`}
+      ref={ref}
+      className={className}
       onClick={onClick}
       title={title}
     >
+      {Icon && <Icon className='IButton__icon' />}
+      {img && <img src={img} alt='' className='IButton__img' />}
+      {children}
       {symbol && <span className='IButton__symbol'>{symbol}</span>}
-      {icon && cloneElement(icon, { className: 'IButton__icon' })}
-      {img && <img src={img} className='IButton__img' />}
-      {value && <span className={mod ? `IButton__span--${mod}` : ''}>{value}</span>}
     </button>
   )
 }
+
+export default forwardRef(IButton)

@@ -24,10 +24,7 @@ export default function App() {
             isFullScreen={fullScreen}
           />
           {modal && (
-            <ProjectModal
-              project={modal}
-              toClose={closeModal}
-            />
+            <ProjectModal project={modal} onClose={closeModal} />
           )}
           <Footer onFullScreen={enableFullScreen} />
         </ElementProvider>
