@@ -11,7 +11,7 @@ export function getValueOfPage (page, cantPages) {
 }
 
 export function getPageOfValue (value, cantPages) {
-  if (value === 7) return -3
+  if (value === cantPages) return -3
   const VALUES = {
     [1]: PAGES.INDEX,
     [2]: PAGES.ABOUT_ME,

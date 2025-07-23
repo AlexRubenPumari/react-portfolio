@@ -10,6 +10,8 @@ export function getFormatedTag(tag) {
     js: 'JavaScript',
     javascript: 'JavaScript',
     tailwind: 'Tailwind',
+    express: 'Express',
+    expressjs: 'Express',
     tailwindcss: 'Tailwind',
     react: 'React',
     'asp-net': 'ASP.NET',
