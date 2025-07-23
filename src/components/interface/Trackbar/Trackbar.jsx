@@ -3,12 +3,9 @@ import IRoundedButton from '../IRoundedButton/IRoundedButton'
 import './Trackbar.scss'
 
 export default function Trackbar({
-  value,
-  onChange,
-  min,
-  max,
-  step,
+  value, min, max, step,
   className = '',
+  onChange,
 }) {
   return (
     <div className={`Trackbar ${className}`}>

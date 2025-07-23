@@ -12,32 +12,32 @@
  * @returns {string} A space-separated string of active class names.
  */
 export function classNames(...args) {
-  const classes = [];
+  const classes = []
 
   args.forEach(arg => {
-    if (!arg) return; // Ignore falsy values like null, undefined, false
+    if (!arg) return // Ignore falsy values like null, undefined, false
 
-    const type = typeof arg;
+    const type = typeof arg
 
     if (type === 'string' || type === 'number') {
-      classes.push(arg);
+      classes.push(arg)
     } else if (type === 'object') {
       if (Array.isArray(arg)) {
         // Recursively process arrays
-        const innerClasses = classNames(...arg);
+        const innerClasses = classNames(...arg)
         if (innerClasses) {
-          classes.push(innerClasses);
+          classes.push(innerClasses)
         }
       } else {
         // Process objects for conditional classes
         for (const key in arg) {
           if (Object.prototype.hasOwnProperty.call(arg, key) && arg[key]) {
-            classes.push(key);
+            classes.push(key)
           }
         }
       }
     }
-  });
+  })
 
-  return classes.join(' ');
+  return classes.join(' ')
 }

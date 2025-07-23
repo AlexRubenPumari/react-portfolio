@@ -1,14 +1,17 @@
+import { classNames } from '../../../logic/classNames'
 import { forwardRef } from 'react'
 import './IButton.scss'
 
 function IButton(props, ref) {
-  const { children, mod, title = '', img, symbol, Icon, onClick } = props
-  const className = `IButton${mod ? ` IButton--${mod}` : ''}`
+  const { children, mod, title = '', img, symbol, Icon, onClick, className } = props
+  const btnClass = classNames(
+    'IButton', mod && `IButton--${mod}`, className
+  )
 
   return (
     <button
       ref={ref}
-      className={className}
+      className={btnClass}
       onClick={onClick}
       title={title}
     >

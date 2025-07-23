@@ -1,24 +1,24 @@
-import { MODES as M } from '../../../config/constants'
+import { SCHEMES as S } from '../../../config/constants'
 import { IconSun, IconDarkMode, IconMoon } from '../Icons/Icons'
-import useColorScheme from '../../../hooks/useColorScheme'
+import useTheme from '../../../hooks/useTheme'
 import DropMenu from '../DropMenu/DropMenu'
 
 const icons = {
-  [M.LIGHT]: IconSun,
-  [M.DARK]: IconMoon,
-  [M.AUTO]: IconDarkMode,
+  [S.LIGHT]: IconSun,
+  [S.DARK]: IconMoon,
+  [S.AUTO]: IconDarkMode,
 }
 
 export default function DarkModeButton() {
-  const { mode, setDarkMode, setLigthMode, setAutoMode } = useColorScheme()
+  const { scheme, setDarkScheme, setLigthScheme, setAutoScheme } = useTheme()
 
   return (
     <DropMenu
-      currentValue={mode}
-      Icon={icons[mode]}
+      currentValue={scheme}
+      Icon={icons[scheme]}
       items={['Dark', 'Light', 'Auto']}
-      values={[M.DARK, M.LIGHT, M.AUTO]}
-      callbacks={[setDarkMode, setLigthMode, setAutoMode]}
+      values={[S.DARK, S.LIGHT, S.AUTO]}
+      callbacks={[setDarkScheme, setLigthScheme, setAutoScheme]}
       direction="bottom right"
     />
   )

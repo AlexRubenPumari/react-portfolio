@@ -1,11 +1,7 @@
-import { PAGES_NAMES } from '../config/constants'
-
 export function getTitleFrom (string) {
   return string.replaceAll('-', ' ').toUpperCase().slice(2)
 }
-export function getNameFor(index) {
-  return PAGES_NAMES[index] || 'Contactos'
-}
+
 export function getFormatedTag(tag) {
   const tags = {
     html: 'HTML',

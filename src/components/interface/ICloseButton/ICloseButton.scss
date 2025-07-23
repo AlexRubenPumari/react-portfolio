@@ -1,0 +1,16 @@
+.ICloseButton {
+  aspect-ratio: 1/1;
+  padding: var(--p-sm);
+  line-height: 0;
+
+  font: {
+    weight: bold;
+    size: 1.8em;
+  }
+
+  &--screen {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+  }
+}

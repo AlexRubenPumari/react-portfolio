@@ -24,12 +24,6 @@
     background-color: var(--c-secondary-01);
     font-weight: bold;
   }
-  &--close {
-    @extend %btn-close-base;
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-  }
   &__icon {
     width: var(--u-xl);
   }

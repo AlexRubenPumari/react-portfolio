@@ -1,4 +1,4 @@
-import { useProjectsContext } from '../hooks/useProjectsContext'
+import { useProjectsContext } from '../contexts/projects'
 import { useStepper } from './useStepper'
 import { PAGES } from '../config/pages'
 import { getTotalPages, getValueOfPage } from '../logic/pages'

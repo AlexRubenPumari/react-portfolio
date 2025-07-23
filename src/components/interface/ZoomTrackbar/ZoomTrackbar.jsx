@@ -1,25 +1,22 @@
-import { useEffect } from 'react'
 import { useElementContext } from '../../../contexts/element'
-import { scaleElement } from '../../../logic/styles'
 import Trackbar from '../Trackbar/Trackbar'
 import DropMenu from '../DropMenu/DropMenu'
 import './ZoomTrackbar.scss'
 
+const zoomValues = [140, 130, 120, 110, 100, 90, 80, 70, 60]
+
 export default function ZoomTrackbar () {
-  const values = [60, 70, 80, 90, 100, 110, 120, 130, 140].reverse()
-  const { elementRef, value, setValue } = useElementContext()
-  useEffect(() => {
-    scaleElement(elementRef.current, value, 100)
-  }, [value])
+  const { value, setValue } = useElementContext()
+
   return (
     <div className='ZoomTrackbar'>
       <DropMenu
-        items={values.map(value => value + '%')}
-        values={values}
+        items={zoomValues.map(v => `${v}%`)}
+        values={zoomValues}
         currentValue={value}
         text={`${value}%`}
         direction='top'
-        callbacks={x => setValue(x)}
+        callbacks={setValue}
         mod='zoom'
       />
       <Trackbar

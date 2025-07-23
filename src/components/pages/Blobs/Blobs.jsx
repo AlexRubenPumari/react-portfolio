@@ -1,3 +1,5 @@
+import './Blobs.scss'
+
 export function Blob_1 ({ className = '' }) {
   return (
     <svg viewBox='0 0 640 480' className={`Blob ${className}`}>
