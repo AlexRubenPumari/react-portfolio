@@ -31,4 +31,8 @@
   &--asp-net {
     background-color: rgb(61, 147, 229);
   }
+  &--express {
+    background-color: #303030;
+    color: var(--white-90);
+  }
 }
