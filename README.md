@@ -11,13 +11,15 @@ react-portfolio/
 ├── 📁 public/                  
 │   └── 📁 favicons/             # Conjunto de Favicons
 ├── 📁 src/
-│   ├── 📁 assets/               # Imagenes, patrones, PDF...
+│   ├── 📁 adapters/             # Adaptadores de información
+│   ├── 📁 assets/               # Imagenes y PDFs
 │   ├── 📁 components/           # Componentes de React
 │   ├── 📁 config/               # Ajustes y constantes
 │   ├── 📁 contexts/             # Contextos de React
 │   ├── 📁 hooks/                # Customs Hooks de React
 │   ├── 📁 logic/                # Lógica de negocio
 │   ├── 📁 services/             # Servicios de datos
+│   ├── 📁 styles/               # Estilos y configuraciones del mismo
 │   ├── app.jsx 
 │   └── main.jsx 
 └── README.md
