@@ -7,11 +7,7 @@ export default function AboutMePage() {
       <div className='AboutMePage__content'>
         <h3>Sobre mí</h3>
         <p>
-          Soy un desarrollador frontend en el último año de mi tecnicatura, con
-          una sólida pasión por la creación de interfaces de usuario modernas y
-          atractivas. Esa es la razón, por mi enfoque en JavaScript y React, una
-          librería de JS que me permite construir aplicaciones web dinámicas e
-          muy interactivas.
+          Desarrollador Frontend en formación 🎓, actualmente cursando el último año de mi tecnicatura. Me entusiasma crear experiencias web modernas e intuitivas 🚀, utilizando JavaScript y React para desarrollar interfaces dinámicas. También trabajo con Tailwind CSS y Bootstrap para lograr diseños responsivos y bien cuidados 🎨📱.
         </p>
       </div>
       <Blob_1 className='AboutMePage__blob AboutMePage__blob--1' />
