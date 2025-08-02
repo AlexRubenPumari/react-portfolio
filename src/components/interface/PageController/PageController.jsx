@@ -1,4 +1,4 @@
-import { useProjectsContext } from '../../../contexts/projects'
+import { useRepositoriesContext } from '../../../contexts/repositories'
 import { usePagesContext } from '../../../contexts/pages'
 import { useElementContext } from '../../../contexts/element'
 
@@ -9,7 +9,7 @@ import { PAGES as P } from '../../../config/pages'
 import IndexPage from '../../pages/IndexPage/IndexPage'
 import AboutMePage from '../../pages/AboutMePage/AboutMePage'
 import ContactsPage from '../../pages/ContactsPage/ContactsPage'
-import ProjectPage from '../../pages/ProjectPage/ProjectPage'
+import RepositoryPage from '../../pages/RepositoryPage/RepositoryPage'
 import './Page.scss'
 
 const isTouchDevice = ('ontouchstart' in window) ||
@@ -19,7 +19,7 @@ const isTouchDevice = ('ontouchstart' in window) ||
 export default function PageController() {
   const { elementRef, goNext, goPrevious } = useElementContext()
   const { page, cantPages } = usePagesContext()
-  const { projects } = useProjectsContext()
+  const { repositories } = useRepositoriesContext()
 
   const pageValue = getPageOfValue(page, cantPages)
 
@@ -31,8 +31,8 @@ export default function PageController() {
     if (pageValue === P.ABOUT_ME) return <AboutMePage />
     if (pageValue === P.CONTACTS) return <ContactsPage />
 
-    if (pageValue >= P.FIRST_PROJECT && projects[pageValue]) {
-      return <ProjectPage project={projects[pageValue]} />;
+    if (pageValue >= P.FIRST_PROJECT && repositories[pageValue]) {
+      return <RepositoryPage repository={repositories[pageValue]} />;
     }
   }
 

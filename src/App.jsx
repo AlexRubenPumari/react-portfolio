@@ -2,33 +2,33 @@ import { useModalContext } from './contexts/modal'
 import { useToggle } from './hooks/useToggle'
 
 import PagesProvider from './contexts/pages'
-import ProjectsProvider from './contexts/projects'
+import RepositoriesProvider from './contexts/repositories'
 import ElementProvider from './contexts/element'
 
 import Header from './components/interface/Header/Header'
 import Viewport from './components/interface/Viewport/Viewport'
 import Footer from './components/interface/Footer/Footer'
-import ProjectModal from './components/interface/ProjectModal/ProjectModal'
+import RepositoryModal from './components/interface/RepositoryModal/RepositoryModal'
 import './styles/index.scss'
 
 export default function App() {
   const { modal, closeModal } = useModalContext()
   const { toggle: isFullScreen, setToOn: turnOnFullScreen, setToOff: turnOffFullScreen } = useToggle()
   return (
-    <ProjectsProvider>
-      <PagesProvider>
-        <ElementProvider>
+    <RepositoriesProvider>
+      <ElementProvider>
+        <PagesProvider>
           <Header />
           <Viewport
             onNormalScreen={turnOffFullScreen}
             isFullScreen={isFullScreen}
           />
           {modal && (
-            <ProjectModal project={modal} onClose={closeModal} />
+            <RepositoryModal project={modal} onClose={closeModal} />
           )}
           <Footer onFullScreen={turnOnFullScreen} />
-        </ElementProvider>
-      </PagesProvider>
-    </ProjectsProvider>
+        </PagesProvider>
+      </ElementProvider>
+    </RepositoriesProvider>
   )
 }

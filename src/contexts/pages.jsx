@@ -7,9 +7,7 @@ export default function PagesProvider ({ children }) {
   const contextValues = usePageNavigation()
 
   return (
-    <PagesContext.Provider
-      value={contextValues}
-    >
+    <PagesContext.Provider value={contextValues}>
       {children}
     </PagesContext.Provider>
   )

@@ -30,9 +30,5 @@ export default function Menu ({
 function MenuItem ({ label, value, isSelected, onClick }) {
   const itemClass = classNames('Menu__item', isSelected && 'selected')
 
-  return (
-    <li className={itemClass} onClick={() => onClick?.(value)}>
-      {label}
-    </li>
-  )
+  return <li className={itemClass} onClick={() => onClick?.(value)}>{label}</li>
 }

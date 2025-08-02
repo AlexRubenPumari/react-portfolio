@@ -1,10 +1,10 @@
-import { useProjectsContext } from '../contexts/projects'
+import { useRepositoriesContext } from '../contexts/repositories'
 import { useStepper } from './useStepper'
 import { PAGES } from '../config/pages'
 import { getTotalPages, getValueOfPage } from '../logic/pages'
 
 export function usePageNavigation() {
-  const cantPages = getTotalPages(useProjectsContext().projects.length)
+  const cantPages = getTotalPages(useRepositoriesContext().repositories.length)
   const { value, setValue, goNextLooped, goPreviousLooped } = useStepper(
     { min: 1, max: cantPages, initial: getValueOfPage(PAGES.INDEX) }
   )

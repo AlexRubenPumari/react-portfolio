@@ -7,6 +7,11 @@
   background-color: var(--yellow-70);
   border: 1px solid var(--yellow-40);
 }
+@mixin highlight-styles {
+  background-color: var(--yellow-70);
+  outline: 1px solid var(--yellow-40);
+  color: var(--black-90);
+}
 
 // SCSS Variables
 $border: 1px solid var(--c-secondary-03);
@@ -82,9 +87,7 @@ $border: 1px solid var(--c-secondary-03);
   // Interface
   .IButton {
     &:hover {
-      background-color: var(--yellow-70);
-      outline: 1px solid var(--yellow-40);
-      color: var(--black-90);
+      @include highlight-styles;
     }
   }
   .CloseButton {

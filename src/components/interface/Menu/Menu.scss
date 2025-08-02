@@ -1,3 +1,5 @@
+@use '../../../styles/index.scss' as i;
+
 .Menu {
   border: 1px solid var(--c-secondary-03);
   border-radius: var(--rounded-xs);
@@ -15,6 +17,12 @@
     position: relative;
     text-align: left;
     transition: background-color 200ms;
+    cursor: pointer;
+
+    &:hover {
+      @include i.highlight-styles;
+      border-radius: var(--rounded-xs);
+    }
 
     &.selected {
       &::before {
