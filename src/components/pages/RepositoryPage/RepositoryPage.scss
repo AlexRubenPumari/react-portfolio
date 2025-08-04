@@ -7,21 +7,25 @@
   align-items: center;
   justify-content: center;
   gap: 1em;
+
   &__blob {
     bottom: 0;
     left: 0;
   }
+
   &__title {
     text-align: center;
   }
+
   &__img {
     max-width: 300px;
-    border-radius: .5em;
+    aspect-ratio: 5/3;
   }
-  &__tags {
+
+  &__buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: .5em 1em;
+    gap: 1rem;
   }
 }

@@ -37,12 +37,12 @@ export function IconMoon({ className }) {
 export function IconDarkMode({ className }) {
   return (
     <svg viewBox='0 0 24 24' className={className}>
-        <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
-          <g fill='currentColor' fillRule='nonzero'>
-            <path d='M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z' />
-          </g>
+      <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+        <g fill='currentColor' fillRule='nonzero'>
+          <path d='M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z' />
         </g>
-      </svg>
+      </g>
+    </svg>
   )
 }
 
@@ -59,7 +59,7 @@ export function IconSlide({ className }) {
   )
 }
 
-export function IconLinkedIn ({ className }) {
+export function IconLinkedIn({ className }) {
   return (
     <svg fill='currentColor' viewBox='-143 145 512 512' className={className}>
       <path
@@ -73,7 +73,7 @@ export function IconLinkedIn ({ className }) {
   )
 }
 
-export function IconGitHub ({ className }) {
+export function IconGitHub({ className }) {
   return (
     <svg viewBox='0 0 20 20' className={className}>
       <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -113,7 +113,15 @@ export function IconEye({ className }) {
   )
 }
 
-export function IconDownload ({ className }) {
+export function IconPlay({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function IconDownload({ className }) {
   return (
     <svg className={className} viewBox='0 0 24 24' fill='none'>
       <path

@@ -48,7 +48,6 @@ i,
 b,
 u,
 em {
-  font-size: var(--fs-sm);
   font-weight: inherit;
   font-style: inherit;
   text-decoration: none;
@@ -101,7 +100,7 @@ body {
   height: 100vh;
   height: 100dvh;
   
-  font-size: 100%;
+  font-size: 112.5%;
   font-family: var(--font-primary);
   color: var(--c-primary-01);
   background-color: var(--c-secondary-01);
