@@ -3,9 +3,16 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 1em;
+
+  padding: 3em 0;
+  
   position: fixed;
   inset: 0;
   z-index: 20;
+
   background-color: var(--c-secondary-01);
-  padding: 3em 2em;
+
+  &__btn {
+    margin-right: .6em;
+  }
 }

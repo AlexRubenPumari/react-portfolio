@@ -14,11 +14,9 @@ export default function Modal({ children, onClose, className = '' }) {
 
 
   return (
-    <div className='Modal__overlay'>
-      <div className='Modal'>
-        <ICloseButton onClick={onClose} />
-        <div className={className}>{children}</div>
-      </div>
+    <div className='Modal'>
+      <ICloseButton className='Modal__btn' onClick={onClose} />
+      <div className={className}>{children}</div>
     </div>
   )
 }
