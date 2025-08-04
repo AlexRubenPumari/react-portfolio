@@ -48,14 +48,8 @@ $border: 1px solid var(--c-secondary-03);
 
 @media (orientation: portrait) {
   .Page {
-    max-width: 23.5em;
-    max-height: 35em;
-  }
-  .Viewport {
-    &--fullScreen .Page {
-      max-width: 95%;
-      max-height: 83%;
-    } 
+    width: 23.5rem;
+    height: 38rem;
   }
   .IndexPage {
     &__content {
