@@ -1,18 +1,18 @@
 import { useRepositoriesContext } from '../contexts/repositories'
 import { useStepper } from './useStepper'
 import { PAGES } from '../config/pages'
-import { getTotalPages, getValueOfPage } from '../logic/pages'
+import { getTotalPages, getPageOfValue } from '../logic/pages'
 
 export function usePageNavigation() {
   const cantPages = getTotalPages(useRepositoriesContext().repositories.length)
   const { value, setValue, goNextLooped, goPreviousLooped } = useStepper(
-    { min: 1, max: cantPages, initial: getValueOfPage(PAGES.INDEX) }
+    { min: 1, max: cantPages, initial: getPageOfValue(PAGES.INDEX) }
   )
 
-  const goToIndexPage = () => setValue(getValueOfPage(PAGES.INDEX))
-  const goToAboutMePage = () => setValue(getValueOfPage(PAGES.ABOUT_ME))
-  const goToFirstProjectPage = () => setValue(getValueOfPage(PAGES.FIRST_PROJECT))
-  const goToContactsPage = () => setValue(getValueOfPage(PAGES.CONTACTS, cantPages))
+  const goToIndexPage = () => setValue(getPageOfValue(PAGES.INDEX))
+  const goToAboutMePage = () => setValue(getPageOfValue(PAGES.ABOUT_ME))
+  const goToFirstProjectPage = () => setValue(getPageOfValue(PAGES.FIRST_PROJECT))
+  const goToContactsPage = () => setValue(getPageOfValue(PAGES.CONTACTS, cantPages))
 
   return { 
     page: value, cantPages,
