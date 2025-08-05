@@ -14,7 +14,7 @@ export function getRepositories() {
       return Promise.all(formattedRepositories.map(enrichRepository))
     })
 }
-async function enrichRepository (repository) {
+async function enrichRepository(repository) {
   const encodedReadmeContent = await getReadmeEncodedContent(repository.fullName);
   const decodedReadme = decodeBase64(encodedReadmeContent);
   const introData = parseMarkdownIntro(decodedReadme);
@@ -37,11 +37,13 @@ async function getReadmeEncodedContent(repositoryFullName) {
 function decodeBase64(encodedContent) {
   return atob(encodedContent)
 }
-function parseMarkdownIntro (decodedMarkdown) {
+function parseMarkdownIntro(decodedMarkdown) {
   const getFirstMarkdownSection = decodedMarkdown => decodedMarkdown.split('---')[0]
   const getMarkdownTitle = decodedMarkdown => {
     const titleMatch = decodedMarkdown.match(/#\s+(.+)/)
-    return titleMatch ? titleMatch[1].trim() : null
+    if (!titleMatch) return null
+
+    return titleMatch[1].replace(/^[^\p{L}\p{N}]+/u, '').trim()
   }
   const getMarkdownBadges = decodedMarkdown => {
     const badges = []
