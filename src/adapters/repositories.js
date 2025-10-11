@@ -1,8 +1,8 @@
 export function cleanAndFormatRepositories (repositories) {
   const PORTFOLIO_REPOSITORY_ID = 976695014
   const PERSONAL_REPOSITORY_ID = 1019148150
-  const isNotPortfolioOrPersonalRepo = ({ id }) =>
-    id !== PORTFOLIO_REPOSITORY_ID && id !== PERSONAL_REPOSITORY_ID
+  const isNotPortfolioOrPersonalRepo = ({ id, html_url, homepage, description }) =>
+    id !== PORTFOLIO_REPOSITORY_ID && id !== PERSONAL_REPOSITORY_ID && html_url && homepage && description
 
   const formatRepository = ({ id, full_name, html_url, homepage, description }) => ({
     id,
