@@ -1,0 +1,108 @@
+$font-stack: "Tahoma", "MS Sans Serif", sans-serif;
+
+$color-text: #000;
+$color-bg: #e4e4e4;
+$color-bg-hover: #dcdcdc;
+$color-bg-active: #c8c8c8;
+
+$color-border-light: #ffffff;
+$color-border-medium: #c8c8c8;
+$color-border-dark: #a0a0a0;
+$color-shadow-light: #ffffff;
+$color-shadow-dark: #c8c8c8;
+
+$color-disabled-text: #808080;
+$color-disabled-shadow-light: #f0f0f0;
+$color-disabled-shadow-dark: #d0d0d0;
+
+%border-3d {
+  border: 2px solid;
+  border-top-color: $color-border-light;
+  border-left-color: $color-border-light;
+  border-right-color: $color-border-dark;
+  border-bottom-color: $color-border-dark;
+}
+
+%shadow-raised {
+  box-shadow: inset -1px -1px 0 $color-shadow-light,
+              inset 1px 1px 0 $color-border-medium;
+}
+
+%shadow-sunken {
+  box-shadow: inset 1px 1px 0 $color-shadow-light,
+              inset -1px -1px 0 $color-shadow-dark;
+}
+
+.button {
+  font-family: $font-stack;
+  font-size: 13px;
+  width: 6em;
+  height: 2em;
+
+  color: $color-text;
+  background: $color-bg;
+
+  @extend %border-3d;
+  @extend %shadow-raised;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.button:hover {
+  background: $color-bg-hover;
+}
+
+.button:active {
+  border-top-color: $color-border-dark;
+  border-left-color: $color-border-dark;
+  border-right-color: $color-border-light;
+  border-bottom-color: $color-border-light;
+
+  background: $color-bg-active;
+
+  @extend %shadow-sunken;
+}
+
+.button:focus {
+  outline: 1px dotted #000;
+  outline-offset: 0;
+}
+
+.button:disabled {
+  color: $color-disabled-text;
+  background: $color-bg;
+  cursor: default;
+  opacity: 1;
+
+  border-top-color: $color-border-light;
+  border-left-color: $color-border-light;
+  border-right-color: $color-border-dark;
+  border-bottom-color: $color-border-dark;
+
+  box-shadow: inset -1px -1px 0 $color-disabled-shadow-light,
+                inset 1px 1px 0 $color-disabled-shadow-dark;
+
+  box-shadow: inset -1px -1px 0 #f0f0f0,
+              inset 1px 1px 0 #d0d0d0;
+}
+
+.button:disabled:active,
+.button:disabled:hover {
+  background: $color-bg;
+  box-shadow: inset -1px -1px 0 $color-disabled-shadow-light,
+              inset 1px 1px 0 $color-disabled-shadow-dark;
+}
+
+.button--square {
+  width: 2em;
+}
+
+.button--with-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+  height: 6em;
+}
