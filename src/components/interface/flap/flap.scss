@@ -1,0 +1,46 @@
+@use "/src/styles/helpers.scss" as h;
+
+.flap {
+  padding: .25em .6em;
+
+  font-size: 13px;
+  font-family: h.$font-stack;
+  background-color: h.$color-bg;
+  color: h.$color-text;
+
+  list-style: none;
+  
+  user-select: none;
+  cursor: pointer;
+
+  @extend %border-3d;
+  @extend %shadow-raised;
+
+  border-bottom: none;
+  position: relative;
+  top: 2px;
+
+  &:hover {
+    background: h.$color-bg-hover;
+  }
+
+  &:active {
+    background: h.$color-bg-active;
+    @extend %shadow-sunken;
+  
+    border-top-color: h.$color-border-dark;
+    border-left-color: h.$color-border-dark;
+    border-right-color: h.$color-border-light;
+  }
+  
+  &--selected {
+    cursor: default;
+    background: h.$color-bg-active !important;
+
+    @extend %shadow-sunken;
+
+    border-top-color: h.$color-border-dark;
+    border-left-color: h.$color-border-dark;
+    border-right-color: h.$color-border-light;
+  }
+}
