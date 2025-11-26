@@ -2,45 +2,49 @@
 
 .flap {
   padding: .25em .6em;
+  position: relative;
+  top: 2px;
+  list-style: none;
 
   font-size: 13px;
   font-family: h.$font-stack;
-  background-color: h.$color-bg;
-  color: h.$color-text;
-
-  list-style: none;
-  
   user-select: none;
+
+  background: h.$color-bg-active;
+  color: h.$color-text;
   cursor: pointer;
 
   @extend %border-3d;
   @extend %shadow-raised;
-
   border-bottom: none;
-  position: relative;
-  top: 2px;
 
   &:hover {
     background: h.$color-bg-hover;
   }
 
-  &:active {
+  &:active:not(&--selected) {
     background: h.$color-bg-active;
     @extend %shadow-sunken;
-  
+
     border-top-color: h.$color-border-dark;
     border-left-color: h.$color-border-dark;
     border-right-color: h.$color-border-light;
   }
-  
+
   &--selected {
+    background-color: h.$color-bg !important;
     cursor: default;
-    background: h.$color-bg-active !important;
+    top: 0;
 
-    @extend %shadow-sunken;
-
-    border-top-color: h.$color-border-dark;
-    border-left-color: h.$color-border-dark;
-    border-right-color: h.$color-border-light;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 900;
+      width: 100%;
+      height: 4px;
+      background-color: h.$color-bg;
+      bottom: -2px;
+      left: 0;
+    }
   }
 }
