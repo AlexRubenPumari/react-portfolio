@@ -1,0 +1,23 @@
+@use "/src/styles/helpers.scss" as h;
+
+.menu-item {
+  padding: .3em 1.5em;
+  font-family: h.$font-stack;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: h.$gray-200;
+  }
+
+  &:active {
+    background: h.$gray-300;
+  }
+  
+  &--selected {
+    cursor: default;
+    background: h.$gray-500 !important;
+    color: h.$white-900;
+  }
+}
