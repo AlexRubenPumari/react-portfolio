@@ -18,12 +18,12 @@ type Story = StoryObj<typeof meta>
 
 export const selected: Story = {
   args: {
-    isSelectedFlap: true,
+    selected: true,
   }
 }
 
 export const notSelected: Story = {
   args: {
-    isSelectedFlap: false,
+    selected: false,
   }
 }

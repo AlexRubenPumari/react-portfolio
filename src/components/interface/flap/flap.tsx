@@ -5,16 +5,16 @@ export type FlapValue = string | number
 
 interface FlapProps {
   value: FlapValue
-  isSelectedFlap: boolean
+  selected: boolean
   onClick?: (value: FlapValue) => void
 }
 
 export function Flap (
-  { value, isSelectedFlap, onClick }: FlapProps
+  { value, selected, onClick }: FlapProps
 ) {
   const flapClasses: string = joinClasses(
     "flap",
-    isSelectedFlap && "flap--selected",
+    selected && "flap--selected",
   )
 
   return (

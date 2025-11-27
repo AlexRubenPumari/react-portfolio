@@ -27,6 +27,12 @@ export const square: Story = {
 }
 
 export const disabled: Story = {
+  render: (args) => (
+    <div style={{ display: "flex", gap: "1em" }}>
+      <Button {...args}/>
+      <Button {...{ ...args, shape: "square", children: "@" }}/>
+    </div>
+  ),
   args: {
     disabled: true,
   }

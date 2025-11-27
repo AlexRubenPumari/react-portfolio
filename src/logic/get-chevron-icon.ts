@@ -1,10 +1,4 @@
-export type Direction =
-  | "bottom"
-  | "bottom-left"
-  | "bottom-right"
-  | "top"
-  | "top-left"
-  | "top-right"
+import type { Direction } from "../types/direction.js"
 
 export function getChevronIcon(isOpen: boolean, direction: Direction): string {
   const isOpeningDownward = direction.startsWith("bottom")

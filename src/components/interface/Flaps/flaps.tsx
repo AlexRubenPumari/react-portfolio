@@ -20,7 +20,7 @@ export function Flaps({ flaps, selectedFlap } : FlapsProps) {
           <Flap
             key={value}
             value={value}
-            isSelectedFlap={value === selectedFlap}
+            selected={value === selectedFlap}
             {...(onClick ? { onClick } : {})}
           />
         ))}
