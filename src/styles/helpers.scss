@@ -48,3 +48,10 @@ $color-disabled-shadow-dark: $gray-200;
   box-shadow: inset 1px 1px 0 $color-shadow-light,
               inset -1px -1px 0 $color-shadow-dark;
 }
+
+%flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
