@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import githubIcon from "../../../assets/img/icon-github.png"
+import portfolioIcon from "../../../assets/img/icon-portfolio.png"
 import { Button } from "./button.js"
 
 const meta = {
@@ -38,8 +38,15 @@ export const disabled: Story = {
   }
 }
 
-export const withIcon: Story = {
+export const rectangleWithIcon: Story = {
   args: {
-    icon: <img src={githubIcon} />,
+    icon: <img src={portfolioIcon} />,
+  }
+}
+
+export const squareWithIcon: Story = {
+  args: {
+    icon: <img src={portfolioIcon} />,
+    shape: "square"
   }
 }

@@ -16,7 +16,8 @@ export function Button(
   const btnClasses = joinClasses(
     "button",
     shape === "square" && "button--square",
-    !!icon && "button--with-icon",
+    (shape === "square" && !!icon) && "button--square-with-icon",
+    (shape === "rectangle" && !!icon) && "button--rectangle-with-icon",
   )
 
   return (

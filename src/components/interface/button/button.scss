@@ -1,10 +1,14 @@
 @use "/src/styles/helpers.scss" as h;
 
+$btn-width-default: 6em;
+$btn-height-default: 2.4em;
+
 .button {
   font-family: h.$font-stack;
   font-size: 13px;
-  width: 6em;
-  height: 2em;
+  padding: .4em;
+  width: $btn-width-default;
+  height: $btn-height-default;
 
   color: h.$color-text;
   background: h.$color-bg;
@@ -61,15 +65,19 @@
   }
 
   &--square {
-    width: 2em;
+    width: $btn-height-default;
+  }
+  
+  &--rectangle-with-icon {
+    @extend %flex-column-center;
+    gap: .5em;
+    height: 7.4em;
   }
 
-  &--with-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  &--square-with-icon {
+    @extend %flex-column-center;
     gap: .5em;
-    height: 6em;
+    height: $btn-width-default;
+    width: $btn-width-default;
   }
 }
