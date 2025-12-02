@@ -1,31 +1,28 @@
 // import { usePagesContext } from "../../../contexts/pages.jsx"
-import githubIcon from "../../../assets/img/icon-github.png"
-import linkedinIcon from "../../../assets/img/icon-linkedin.png"
-import cvIcon from "../../../assets/img/icon-cv.png"
-import portfolioIcon from "../../../assets/img/icon-portfolio.png"
-import cv from "../../../assets/pdf/cv.pdf"
+import { cvIcon, githubIcon, linkedinIcon, portfolioIcon } from "../../../assets/img/index.js"
 import { Button, Flaps, MenuButton } from "../index.js"
+import cv from "../../../assets/pdf/cv.pdf"
 import "./header.scss"
 
 const buttons = [
   {
     label: "Ver CV",
-    img: cvIcon,
+    imgPath: cvIcon,
     onClick: () => window.open(cv, "_blank"),
   },
   {
     label: "Ver Proyectos",
-    img: portfolioIcon,
+    imgPath: portfolioIcon,
     useContextAction: true,
   },
   {
     label: "Mi GitHub",
-    img: githubIcon,
+    imgPath: githubIcon,
     onClick: () => window.open("https://github.com/AlexRubenPumari", "_blank"),
   },
   {
     label: "Mi LinkedIn",
-    img: linkedinIcon,
+    imgPath: linkedinIcon,
     onClick: () => window.open("https://www.linkedin.com/in/alex-pumari-diaz/", "_blank"),
   },
 ]
@@ -53,12 +50,13 @@ export function Header () {
       </nav>
       <div className="header__panel">
         <div className="header__actions">
-        {buttons.map(({ label, img, onClick, useContextAction }) => (
+        {buttons.map(({ label, imgPath, onClick, useContextAction }) => (
           <Button
+            direction="column"
             key={label}
-            icon={<img src={img} />}
           >
-            {label}
+            <img height={28} src={imgPath} alt="icon" />
+            <span>{label}</span>
           </Button>
         ))}
         </div>
