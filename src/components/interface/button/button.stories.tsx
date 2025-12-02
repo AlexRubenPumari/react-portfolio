@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
 import portfolioIcon from "../../../assets/img/icon-portfolio.png"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Button } from "./button.js"
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     layout: "centered"
   },
   args: {
-    children: "Click me!",
+    children: "Btn!",
   },
 } satisfies Meta<typeof Button>
 
@@ -17,36 +17,48 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const rectangle: Story = {}
+const sizes = ["sm", "md", "lg"] as const
+const directions = ["column", "row"] as const
 
-export const square: Story = {
-  args: {
-    children: "@",
-    shape: "square"
-  }
+export const row: Story = {
+  render: args => (
+    <div style={{ display: "flex", gap: "1em" }}>
+      {sizes.map(size => (
+        <Button {...{ ...args, size, key: size }} />
+      ))}
+    </div>
+  ),
+}
+
+export const column: Story = {
+  render: args => (
+    <div style={{ display: "flex", gap: "1em" }}>
+      {sizes.map(size => (
+        <Button {...{ ...args, size, key: size, direction: "column" }} />
+      ))}
+    </div>
+  ),
 }
 
 export const disabled: Story = {
-  render: (args) => (
-    <div style={{ display: "flex", gap: "1em" }}>
-      <Button {...args}/>
-      <Button {...{ ...args, shape: "square", children: "@" }}/>
-    </div>
-  ),
   args: {
     disabled: true,
   }
 }
 
-export const rectangleWithIcon: Story = {
-  args: {
-    icon: <img src={portfolioIcon} />,
-  }
-}
-
-export const squareWithIcon: Story = {
-  args: {
-    icon: <img src={portfolioIcon} />,
-    shape: "square"
-  }
+export const withIcon: Story = {
+  render: args => (
+    <div style={{ display: "flex", gap: "1em" }}>
+      {directions.map(direction => (
+          <Button
+            {...args}
+            direction={direction}
+            size="lg"
+          >
+            <img height={18} src={portfolioIcon} alt="icon" />
+            Click me!
+          </Button>
+        ))}
+    </div>
+  ),
 }

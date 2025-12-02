@@ -3,21 +3,23 @@ import { joinClasses } from "../../../logic/index.js"
 import "./button.scss"
 
 interface ButtonProps {
-  shape?: "square" | "rectangle"
+  children: ReactNode
+  size?: "sm" | "md" | "lg"
+  direction?: "row" | "column"
   onClick?: () => void
   disabled?: boolean
-  icon?: ReactNode
-  children: string
 }
 
 export function Button(
-  { children, shape = "rectangle", onClick, disabled, icon }: ButtonProps
+  { children, direction = "row", size = "md", onClick, disabled }: ButtonProps
 ) {
   const btnClasses = joinClasses(
     "button",
-    shape === "square" && "button--square",
-    (shape === "square" && !!icon) && "button--square-with-icon",
-    (shape === "rectangle" && !!icon) && "button--rectangle-with-icon",
+    direction === "row" && "button--row",
+    direction === "column" && "button--column",
+    size === "sm" && "button--sm",
+    size === "md" && "button--md",
+    size === "lg" && "button--lg",
   )
 
   return (
@@ -26,8 +28,7 @@ export function Button(
       onClick={onClick}
       disabled={disabled}
     >
-      {icon && <span className="button__icon">{icon}</span>}
-      <span>{children}</span>
+      {children}
     </button>
   )
 }
