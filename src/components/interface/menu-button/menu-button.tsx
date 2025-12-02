@@ -25,8 +25,8 @@ export function MenuButton(
 
   return (
     <div className="menu-button">
-      <Button onClick={() => setIsOpen(!isOpen)}>
-        {`${label} ${chevronIcon}`}
+      <Button size="lg" onClick={() => setIsOpen(!isOpen)}>
+        <span>{label}</span><span>{chevronIcon}</span>
       </Button>
       {isOpen && (
         <Menu
