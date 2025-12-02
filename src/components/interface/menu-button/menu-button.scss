@@ -13,6 +13,7 @@
   
   &__menu {
     position: absolute;
+    z-index: 1;
 
     &--bottom {
       @extend %position-bottom;
