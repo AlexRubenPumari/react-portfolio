@@ -1,12 +1,10 @@
 // import { usePagesContext } from "../../../contexts/pages.jsx"
-import DarkModeButton from "../menu-button/menu-button.js"
 import githubIcon from "../../../assets/img/icon-github.png"
-import linkedinIcon from "../../../assets/img/icon_linkedin.png"
-import cvIcon from "../../../assets/img/icon_cv.png"
-import portfolioIcon from "../../../assets/img/icon_portfolio.png"
-import cv from "../../../assets/pdf/alex_pumari_cv.pdf"
-import { Flaps } from "../flaps/flaps.js"
-import { Button } from "../button/button.js"
+import linkedinIcon from "../../../assets/img/icon-linkedin.png"
+import cvIcon from "../../../assets/img/icon-cv.png"
+import portfolioIcon from "../../../assets/img/icon-portfolio.png"
+import cv from "../../../assets/pdf/cv.pdf"
+import { Button, Flaps, MenuButton } from "../index.js"
 import "./header.scss"
 
 const buttons = [
@@ -39,6 +37,11 @@ const flaps = [
   { value: "Contacto" },
 ]
 
+const items = [
+  { value: "Light" },
+  { value: "Dark" },
+]
+
 export function Header () {
   // const { goToFirstProjectPage } = usePagesContext()
 
@@ -46,7 +49,7 @@ export function Header () {
     <header className="header">
       <nav className="header__nav">
         <Flaps flaps={flaps} selectedFlap="Inicio" />
-        {/* <DarkModeButton /> */}
+        <MenuButton label="Theme" items={items} direction="bottom-right" />
       </nav>
       <div className="header__panel">
         <div className="header__actions">
