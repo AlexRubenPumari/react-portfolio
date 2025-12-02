@@ -50,9 +50,18 @@ $color-disabled-shadow-dark: $gray-200;
               inset -1px -1px 0 $color-shadow-dark;
 }
 
-%flex-column-center {
+%flex-center {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+%flex-column-center {
+  @extend %flex-center;
+  flex-direction: column;
+}
+
+%flex-row-center {
+  @extend %flex-center;
+  flex-direction: row;
 }
