@@ -14,6 +14,7 @@
   color: h.$color-text;
   cursor: pointer;
 
+  @extend %flex-center;
   @extend %border-3d;
   @extend %shadow-raised;
   border-bottom: none;
