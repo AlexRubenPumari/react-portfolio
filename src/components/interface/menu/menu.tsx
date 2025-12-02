@@ -1,16 +1,11 @@
 import { joinClasses } from "../../../logic/index.js"
-import { MenuItem } from "./menu-item.js"
-import type { MenuItemValue } from "./menu-item.js"
+import { Item } from "./item.js"
+import type { ItemValue, Item as IItem } from "./item.js"
 import "./menu.scss"
 
-interface MenuItem {
-  value: MenuItemValue
-  onClick?: (value: MenuItemValue) => void
-}
-
 interface MenuProps {
-  items: MenuItem[]
-  selectedItem?: MenuItemValue
+  items: IItem[]
+  selectedItem?: ItemValue
   className?: string
 }
 
@@ -19,8 +14,8 @@ export function Menu ({ items, selectedItem, className }: MenuProps) {
 
   return (
     <ul className={menuClasses}>
-      {items.map(({ value, onClick }: MenuItem) => (
-        <MenuItem
+      {items.map(({ value, onClick }: IItem) => (
+        <Item
           key={value}
           value={value}
           selected={value === selectedItem}
