@@ -1,0 +1,7 @@
+@use "/src/styles/helpers.scss" as h;
+
+.stepper {
+  @extend %flex-row-between;
+
+  gap: 1em;
+}
