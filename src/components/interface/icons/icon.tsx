@@ -1,4 +1,24 @@
-export function IconSun({ className }) {
+type IconSize = "sm" | "md" | "lg"
+
+export interface IconProps {
+  size?: IconSize
+  className?: string
+}
+
+export function getSizeInPx(size: IconSize): number {
+  switch (size) {
+    case "sm":
+      return 8
+    case "md":
+      return 16
+    case "lg":
+      return 24
+    default:
+      return size as never
+  }
+}
+
+export function IconSun({ className } : IconProps) {
   return (
     <svg viewBox='0 0 24 24' fill='none' className={className}>
       <path
@@ -15,7 +35,7 @@ export function IconSun({ className }) {
   )
 }
 
-export function IconMoon({ className }) {
+export function IconMoon({ className } : IconProps) {
   return (
     <svg viewBox='0 0 24 24' fill='none' className={className}>
       <path
@@ -34,7 +54,7 @@ export function IconMoon({ className }) {
   )
 }
 
-export function IconDarkMode({ className }) {
+export function IconDarkMode({ className } : IconProps) {
   return (
     <svg viewBox='0 0 24 24' className={className}>
       <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -46,20 +66,7 @@ export function IconDarkMode({ className }) {
   )
 }
 
-export function IconSlide({ className }) {
-  return (
-    <svg viewBox='0 0 16 16' className={className}>
-      <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
-        <g fill='currentColor'>
-          <rect x='7' y='0' width='1.906' height='2.219' />
-          <path d='M15.993,2.621 C15.993,2.287 15.674,2.016 15.281,2.016 L0.781,2.016 C0.387,2.016 0.069,2.287 0.069,2.621 L0.069,3.937 L1.031,3.937 L1.031,11.986 L5.465,11.986 L3.17,14.724 C3.009,14.886 3.069,15.209 3.306,15.446 L3.736,15.875 L7.063,12.105 L7.063,15.968 L8.914,15.968 L8.914,12.002 L12.333,15.874 L12.762,15.445 C12.999,15.209 13.06,14.885 12.898,14.723 L10.533,11.985 L14.939,11.985 L14.939,3.936 L15.995,3.936 L15.995,2.621 L15.993,2.621 Z M14.031,11.106 L1.959,11.106 L1.959,3.937 L14.031,3.937 L14.031,11.106 L14.031,11.106 Z' />
-        </g>
-      </g>
-    </svg>
-  )
-}
-
-export function IconLinkedIn({ className }) {
+export function IconLinkedIn({ className } : IconProps) {
   return (
     <svg fill='currentColor' viewBox='-143 145 512 512' className={className}>
       <path
@@ -73,7 +80,7 @@ export function IconLinkedIn({ className }) {
   )
 }
 
-export function IconGitHub({ className }) {
+export function IconGitHub({ className } : IconProps) {
   return (
     <svg viewBox='0 0 20 20' className={className}>
       <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -90,7 +97,7 @@ export function IconGitHub({ className }) {
   )
 }
 
-export function IconEye({ className }) {
+export function IconEye({ className } : IconProps) {
   return (
     <svg className={className} viewBox='0 0 24 24' fill='none'>
       <path
@@ -113,7 +120,7 @@ export function IconEye({ className }) {
   )
 }
 
-export function IconPlay({ className }) {
+export function IconPlay({ className } : IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className}>
       <path d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
@@ -121,7 +128,7 @@ export function IconPlay({ className }) {
   )
 }
 
-export function IconDownload({ className }) {
+export function IconDownload({ className } : IconProps) {
   return (
     <svg className={className} viewBox='0 0 24 24' fill='none'>
       <path
