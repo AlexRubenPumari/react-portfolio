@@ -2,26 +2,24 @@ import { Flap } from "../flap/flap.js"
 import type { FlapValue } from "../flap/flap.js"
 import "./flaps.scss"
 
-interface Flap {
-  value: FlapValue
-  onClick?: (value: FlapValue) => void
-}
-
 interface FlapsProps {
-  flaps: Flap[]
+  flaps: FlapValue[]
   selectedFlap: FlapValue
+  onChange?: (newFlap: FlapValue) => void
 }
 
-export function Flaps({ flaps, selectedFlap } : FlapsProps) {
+export function Flaps({ flaps, selectedFlap, onChange } : FlapsProps) {
   return (
     <>
       <ul className="flaps">
-        {flaps.map(({ value, onClick }: Flap) => (
+        {flaps.map((flap: FlapValue) => (
           <Flap
-            key={value}
-            value={value}
-            selected={value === selectedFlap}
-            {...(onClick ? { onClick } : {})}
+            key={flap}
+            value={flap}
+            selected={flap === selectedFlap}
+            onClick={() => {
+              if (onChange && flap !== selectedFlap) onChange?.(flap)
+            }}
           />
         ))}
       </ul>

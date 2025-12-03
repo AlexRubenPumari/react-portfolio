@@ -16,9 +16,9 @@ type Story = StoryObj<typeof meta>
 export const regular: Story = {
   args: {
     flaps: [
-      { value: "File" },
-      { value: "Edit" },
-      { value: "View" },
+      "File",
+      "Edit",
+      "View",
     ],
     selectedFlap: "File",
   }
