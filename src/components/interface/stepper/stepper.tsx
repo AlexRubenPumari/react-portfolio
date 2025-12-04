@@ -52,7 +52,7 @@ export function Stepper ({
           ◀
         </Button>
 
-      <span className="stepper-label">
+      <span className="stepper__label">
         {labelContent}
       </span>
 

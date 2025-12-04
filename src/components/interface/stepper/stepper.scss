@@ -4,4 +4,9 @@
   @extend %flex-row-between;
 
   gap: 1em;
+
+  &__label {
+    font-family: h.$font-stack;
+    font-size: 13px;
+  }
 }
