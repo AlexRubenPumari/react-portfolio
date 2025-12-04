@@ -1,0 +1,80 @@
+@use "/src/styles/helpers.scss" as h;
+
+%trackbar-thumb {
+  width: 1em;
+  height: 2.5em;
+
+  border-radius: 0;
+  background: h.$color-bg;
+  cursor: pointer;
+
+  @extend %border-3d;
+  @extend %shadow-raised;
+}
+
+.trackbar {
+  @extend %flex-row-center;
+  gap: .5em;
+
+  font-family: h.$font-stack;
+  color: h.$color-text;
+
+  &__input {
+    -webkit-appearance: none;
+    appearance: none;
+
+    height: 10px;
+    background: h.$color-bg;
+    cursor: pointer;
+
+    @extend %border-3d;
+    @extend %shadow-sunken;
+
+    // Thumb in Chrome / Edge
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      
+      @extend %trackbar-thumb;
+    }
+
+    // Thumb in Firefox
+    &::-moz-range-thumb {
+      @extend %trackbar-thumb;
+    }
+
+    // Track in Firefox
+    &::-moz-range-track {
+      background: h.$color-bg;
+      @extend %border-3d;
+      @extend %shadow-sunken;
+
+      border-top-color: h.$color-border-dark;
+      border-left-color: h.$color-border-dark;
+      border-right-color: h.$color-border-light;
+      border-bottom-color: h.$color-border-light;
+    }
+
+    &:active {
+      &::-webkit-slider-thumb, &::-moz-range-thumb {
+        border-top-color: h.$color-border-dark;
+        border-left-color: h.$color-border-dark;
+        border-right-color: h.$color-border-light;
+        border-bottom-color: h.$color-border-light;
+      
+        background: h.$color-bg-active;
+      
+        @extend %shadow-sunken;
+      }
+    }
+
+    &:focus {
+      outline: none;
+
+      &::-webkit-slider-thumb, &::-moz-range-thumb {
+        outline: 1px dotted h.$black-900;
+        outline-offset: 0;
+      }
+    }
+  }
+}
