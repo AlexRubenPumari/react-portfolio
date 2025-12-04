@@ -2,19 +2,19 @@ import { useState } from "react"
 import { getChevronIcon, joinClasses } from "../../../logic/index.js"
 import { Menu, Button } from "../index.js"
 import type { Direction } from "../../../types/direction.js"
-import type { ItemValue, Item } from "../menu/item.js"
 import "./menu-button.scss"
 
-interface MenuButtonProps {
+interface MenuButtonProps<ItemType> {
   label: string
-  items: Item[]
+  items: readonly ItemType[]
   direction?: Direction
   initialIsOpen?: boolean
-  selectedItem?: ItemValue
+  selectedItem?: ItemType
+  onChange?: (newItem: ItemType) => void
 }
 
-export function MenuButton(
-   { label, items, selectedItem, direction = "bottom", initialIsOpen }: MenuButtonProps
+export function MenuButton<const ItemType extends string | number> (
+   { label, items, selectedItem, direction = "bottom", initialIsOpen, onChange }: MenuButtonProps<ItemType>
 ) {
   const [isOpen, setIsOpen] = useState<boolean>(!!initialIsOpen)
   const chevronIcon: string = getChevronIcon(isOpen, direction)
@@ -33,6 +33,7 @@ export function MenuButton(
           className={menuClasses}
           items={items}
           {...(selectedItem && { selectedItem })}
+          {...(onChange && { onChange })}
         />
       )}
     </div>
