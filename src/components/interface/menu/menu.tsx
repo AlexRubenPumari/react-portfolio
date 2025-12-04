@@ -1,25 +1,27 @@
 import { joinClasses } from "../../../logic/index.js"
 import { Item } from "./item.js"
-import type { ItemValue, Item as IItem } from "./item.js"
 import "./menu.scss"
 
-interface MenuProps {
-  items: IItem[]
-  selectedItem?: ItemValue
+interface MenuProps<ItemType> {
+  items: readonly ItemType[]
+  selectedItem?: ItemType
   className?: string
+  onChange?: (newItem: ItemType) => void
 }
 
-export function Menu ({ items, selectedItem, className }: MenuProps) {
+export function Menu<const ItemType extends string | number> ({ items, selectedItem, className, onChange }: MenuProps<ItemType>) {
   const menuClasses: string = joinClasses("menu", className)
 
   return (
     <ul className={menuClasses}>
-      {items.map(({ value, onClick }: IItem) => (
+      {items.map((item) => (
         <Item
-          key={value}
-          value={value}
-          selected={value === selectedItem}
-          {...(onClick ? { onClick } : {})}
+          key={item}
+          value={item}
+          selected={item === selectedItem}
+          onClick={() => {
+            if (onChange && item !== selectedItem) onChange?.(item)
+          }}
         />
       ))}
     </ul>
