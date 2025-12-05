@@ -1,0 +1,16 @@
+@use "/src/styles/helpers.scss" as h;
+
+.footer {
+  @extend %flex-row-between;
+  padding: .4em 1em;
+  position: relative;
+  z-index: 1;
+
+  @extend %border-3d;
+  background-color: h.$color-bg;
+
+  &__controls-group {
+    @extend %flex-row-between;
+    gap: 1em;
+  }
+}
