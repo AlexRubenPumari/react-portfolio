@@ -1,20 +1,7 @@
-@use './root';
-@use './base';
-@use './scrollbar';
-
-// Mixins
-@mixin emphasized-thumb-styles {
-  background-color: var(--yellow-70);
-  border: 1px solid var(--yellow-40);
-}
-@mixin highlight-styles {
-  background-color: var(--yellow-70);
-  outline: 1px solid var(--yellow-40);
-  color: var(--black-90);
-}
-
-// SCSS Variables
-$border: 1px solid var(--c-secondary-03);
+@use "./root";
+@use "./base";
+@use "./scrollbar";
+@use "./helpers" as h;
 
 //Placeholders classes
 %base-page {
@@ -23,94 +10,34 @@ $border: 1px solid var(--c-secondary-03);
   height: 100%;
 }
 
-%flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-%flex-center-all {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// .dUnresponsive {
+//   display: none;
+// }
+// @media (max-width: 630px) {
+//   .dResponsive {
+//     display: none;
+//   }
+//   .dUnresponsive {
+//     display: flex;
+//   }
+// }
+
+#root {
+  @extend %flex-column-center;
 }
 
-.dUnresponsive {
-  display: none;
-}
-@media (max-width: 630px) {
-  .dResponsive {
-    display: none;
-  }
-  .dUnresponsive {
-    display: flex;
-  }
+.viewport {
+  width: 100%;
+  flex-grow: 1;
+
+  background-color: h.$gray-600;
 }
 
-@media (orientation: portrait) {
-  .Page {
-    width: 23.5rem;
-    height: 38rem;
-  }
-  .IndexPage {
-    &__content {
-      flex-direction: column;
-      align-items: center;
-    }
-    &__column {
-      align-items: center;
-      text-align: center;
-    }
-    &__blob--1 {
-      width: 33% !important;
-    }
-  }
-  .ContactsPage {
-    text-align: center;
-    &__buttons {
-      flex-direction: column;
-    }
-  }
-}
-@media (hover: hover) {
-  :root {
-    --p-xs: 0.13em;
-    --p-sm: 0.3em;
-    --p-m: 0.8em;
-    --p-l: 1.2em;
-  }
-  // Interface
-  .IButton {
-    &:hover {
-      @include highlight-styles;
-    }
-  }
-  .CloseButton {
-    &:hover {
-      color: var(--c-primary-01-o);
-    }
-  }
-  .Flap {
-    &:hover {
-      background-color: var(--c-secondary-03);
-    }
-  }
-  .Trackbar {
-    &__input {
-      &::-webkit-slider-thumb:hover {
-        @include emphasized-thumb-styles();
-      }
-      &::-moz-range-thumb:hover {
-        @include emphasized-thumb-styles();
-      }
-    }
-  }
-  .DropMenu {
-    &__item:hover {
-      background-color: var(--c-secondary-02);
-    }
-  }
-  // Pages
-  .PrimaryButton:hover {
-    background-color: var(--violet-40);
+.icon {
+  object-fit: contain;
+
+  &--md {
+    width: 1.9em;
+    height: 1.9em;
   }
 }
