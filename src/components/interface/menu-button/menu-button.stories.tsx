@@ -10,9 +10,9 @@ const meta = {
   args: {
     label: "Favorite",
     items: [
-      { value: "Milk" },
-      { value: "Bread" },
-      { value: "Pizza" },
+      "Milk",
+      "Bread",
+      "Pizza",
     ]
   },
 } satisfies Meta<typeof MenuButton>
@@ -46,4 +46,11 @@ export const closed: Story = {
       <MenuButton {...{...args, direction: "top"}}/>
     </div>
   )
+}
+
+export const withFormat: Story = {
+  args: {
+    renderItem: item => `1Kg - ${item}`,
+    initialIsOpen: true,
+  }
 }

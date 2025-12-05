@@ -7,9 +7,12 @@ interface MenuProps<ItemType> {
   selectedItem?: ItemType
   className?: string
   onChange?: (newItem: ItemType) => void
+  renderItem?: (item: ItemType) => string
 }
 
-export function Menu<const ItemType extends string | number> ({ items, selectedItem, className, onChange }: MenuProps<ItemType>) {
+export function Menu<const ItemType extends string | number> ({
+  items, selectedItem, className, onChange, renderItem
+}: MenuProps<ItemType>) {
   const menuClasses: string = joinClasses("menu", className)
 
   return (
@@ -17,7 +20,7 @@ export function Menu<const ItemType extends string | number> ({ items, selectedI
       {items.map((item) => (
         <Item
           key={item}
-          value={item}
+          value={renderItem ? renderItem(item) : item}
           selected={item === selectedItem}
           onClick={() => {
             if (onChange && item !== selectedItem) onChange?.(item)
