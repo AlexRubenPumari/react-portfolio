@@ -68,7 +68,7 @@ export function Header () {
             direction="column"
             key={label}
           >
-            <img height={28} src={imgPath} alt="icon" />
+            <img className="icon icon--md" src={imgPath} alt="icon" />
             <span>{label}</span>
           </Button>
         ))}
