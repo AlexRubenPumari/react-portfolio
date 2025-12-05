@@ -1,6 +1,7 @@
 @use "/src/styles/helpers.scss" as h;
 
 .header {
+  width: 100%;
   background-color: h.$color-bg;
   position: relative;
 
