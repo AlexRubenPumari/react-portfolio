@@ -1,0 +1,1 @@
+export const pageNames = ["Inicio", "Sobre mi", "Proyectos", "Contacto"] as const
