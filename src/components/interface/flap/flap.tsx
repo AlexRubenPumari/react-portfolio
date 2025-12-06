@@ -1,16 +1,14 @@
 import { joinClasses } from "../../../logic/index.js"
 import "./flap.scss"
 
-export type FlapValue = string | number
-
-interface FlapProps {
-  value: FlapValue
+interface FlapProps<Value> {
+  value: Value
   selected: boolean
-  onClick?: (value: FlapValue) => void
+  onClick?: (value: Value) => void
 }
 
-export function Flap (
-  { value, selected, onClick }: FlapProps
+export function Flap<Value extends string | number> (
+  { value, selected, onClick }: FlapProps<Value>
 ) {
   const flapClasses: string = joinClasses(
     "flap",

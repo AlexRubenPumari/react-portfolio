@@ -1,18 +1,16 @@
 import { Flap } from "../flap/flap.js"
-import type { FlapValue } from "../flap/flap.js"
 import "./flaps.scss"
 
-interface FlapsProps {
-  flaps: FlapValue[]
-  selectedFlap: FlapValue
-  onChange?: (newFlap: FlapValue) => void
+interface FlapsProps<Value> {
+  flaps: readonly Value[]
+  selectedFlap: Value
+  onChange?: (newFlap: Value) => void
 }
-
-export function Flaps({ flaps, selectedFlap, onChange } : FlapsProps) {
+export function Flaps<Value extends string | number>({ flaps, selectedFlap, onChange } : FlapsProps<Value>) {
   return (
     <>
       <ul className="flaps">
-        {flaps.map((flap: FlapValue) => (
+        {flaps.map((flap: Value) => (
           <Flap
             key={flap}
             value={flap}
