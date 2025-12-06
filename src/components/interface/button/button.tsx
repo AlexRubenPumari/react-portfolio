@@ -1,10 +1,11 @@
 import type { ReactNode } from "react"
+import type { Size } from "../../../types/index.js"
 import { joinClasses } from "../../../logic/index.js"
 import "./button.scss"
 
 interface ButtonProps {
   children: ReactNode
-  size?: "sm" | "md" | "lg"
+  size?: Size
   direction?: "row" | "column"
   onClick?: () => void
   disabled?: boolean
