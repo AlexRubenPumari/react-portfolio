@@ -1,2 +1,4 @@
 export * from "./join-classes.js"
 export * from "./get-chevron-icon.js"
+export * from "./get-page-name.js"
+export * from "./get-page.js"
