@@ -1,12 +1,14 @@
-@use '../../../styles/index.scss';
+@use "../../../styles/index.scss" as i;
+@use "../../../styles/helpers.scss" as h;
 
-.IndexPage {
-  @extend %base-page;
-  @extend %flex-center-all;
+.index-page {
+  @extend %page;
+  @extend %flex-center;
 
   &__content {
     display: flex;
-    gap: var(--u-m);
+    gap: 2em;
+
     position: relative;
   }
 
@@ -18,20 +20,26 @@
   }
 
   &__profile {
-    width: 18.75em;
+    width: 17em;
     aspect-ratio: 1/1;
-    border: .5em solid var(--c-secondary-01);
+    border: .5em solid h.$color-bg;
     border-radius: 50%;
-    user-drag: none;
-    -webkit-user-drag: none;
   }
 
   &__subtitle {
-    margin-bottom: 0;
-    color: var(--violet-50);
+    color: h.$violet-800;
+    font-weight: bold;
+  }
+
+  &__title {
+    margin-bottom: .6em;
   }
 
   &__blob {
+    &--1, &--2 {
+      position: absolute;
+    }
+
     &--1 {
       width: 55%;
       bottom: 0;
@@ -39,7 +47,8 @@
     }
 
     &--2 {
-      width: 40%;
+      transform: scale(-1, -1);
+      width: 36%;
       top: 0;
       right: 0;
     }
