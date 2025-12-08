@@ -1,0 +1,37 @@
+@use "../../../styles/index.scss";
+@use "../../../styles/helpers.scss" as h;
+
+.contact-page {
+  @extend %page;
+  @extend %flex-column-center;
+
+  gap: 1.5em;
+
+  &__title {
+    font-size: 1.2em;
+  }
+
+  &__buttons {
+    @extend %flex-row-center;
+
+    gap: 2em;
+  }
+
+  &__pattern, &__blob {
+    position: absolute;
+  }
+  
+  &__pattern {
+    top: 6em;
+    right: 8%;
+    transform: translateY(-50%);
+    color: h.$violet-800;
+  }
+  &__blob {
+    width: 65%;
+    bottom: 0;
+    left: 0;
+    transform: scale(-1, -1);
+    pointer-events: none;
+  }
+}
