@@ -1,6 +1,8 @@
 import { useState } from "react"
-import { SlideIcon } from "../icons/index.js"
+import type { Page } from "../../../types/page.js"
 import { Button, Stepper, Trackbar, MenuButton } from "../index.js"
+import { usePageContext } from "../../../contexts/page.js"
+import { SlideIcon } from "../../icons/index.js"
 import "./footer.scss"
 
 const zoomValues = [60, 80, 100, 120, 140] as const
@@ -11,16 +13,17 @@ function renderItem<ItemType> (item: ItemType): string {
 }
 
 export function Footer() {
-  const [page, setPage] = useState<number>(1)
+  const { page, setPage } = usePageContext()
   const [pageZoom, setPageZoom] = useState<ZoomValue>(100)
 
   return (
     <footer className="footer">
       <Stepper
-        label={`Página ${page} de 5`}
+        label={`Página ${page} de 4`}
         value={page}
-        max={5}
-        onChange={newValue => setPage(newValue)}
+        min={1}
+        max={4}
+        onChange={newPage => setPage(newPage as Page)}
       />
       <div className="footer__controls-group">
         <MenuButton
@@ -28,6 +31,7 @@ export function Footer() {
           label={renderItem(pageZoom)}
           onChange={value => setPageZoom(value)}
           renderItem={renderItem}
+          direction="top"
         />
         <Trackbar
           value={pageZoom}
