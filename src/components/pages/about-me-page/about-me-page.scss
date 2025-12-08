@@ -1,0 +1,36 @@
+@use "../../../styles/index.scss";
+@use "../../../styles/helpers.scss";
+
+.about-me-page {
+  @extend %page;
+  @extend %flex-center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+
+    width: 90%;
+    position: relative;
+  }
+
+  &__text {
+    font-size: 13px;
+  }
+
+  &__blob {
+    transform: scaleX(-1);
+    position: absolute;
+
+    &--1 {
+      bottom: 0;
+      right: -1px;
+      width: 35%;
+    }
+    &--2 {
+      top: 0;
+      left: 0;
+      width: 50%;
+    }
+  }
+}
