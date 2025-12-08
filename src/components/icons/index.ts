@@ -1,2 +1,4 @@
 export * from "./slide-icon.js"
 export * from "./download-icon.js"
+export * from "./github-icon.js"
+export * from "./linkedin-icon.js"
