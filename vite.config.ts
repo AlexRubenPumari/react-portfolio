@@ -40,7 +40,7 @@ export default defineConfig({
       {
         test: {
           name: "unit",
-          environment: "node",
+          environment: "jsdom",
           include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
         }
       },
