@@ -1,4 +1,7 @@
-.Scrollbar {
+/* ======================================================
+   Scrollbar styles
+   ====================================================== */
+.scrollbar {
   overflow-y: auto;
 
   &::-webkit-scrollbar-track {
@@ -16,21 +19,6 @@
     -webkit-box-shadow: inset 0 0 6px var(--c-secondary-01-o);
     background-color: var(--c-primary-01);
   }
-
-  // &::-webkit-scrollbar {
-  //   width: 7px;
-  // }
-
-  // &::-webkit-scrollbar-track {
-  //   // background: var(--c-secondary-01);
-  // }
-
-
-  // &::-webkit-scrollbar-thumb {
-  //   background: var(--c-primary-01-o);
-  //   border-left: 4px solid var(--c-secondary-01);
-  // }
-
 
   &::-webkit-scrollbar-thumb:hover {
     background: var(--yellow-70);

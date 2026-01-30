@@ -1,8 +1,8 @@
-@use "/src/styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 .header {
   width: 100%;
-  background-color: h.$color-bg;
+  background-color: var(--color-surface-base);
   position: relative;
 
   &__nav {
@@ -10,7 +10,7 @@
     justify-content: space-between;
     padding: 0 1em;
     
-    background: h.$gray-600;
+    background-color: var(--color-secondary);
   }
   &__panel {
     position: relative;

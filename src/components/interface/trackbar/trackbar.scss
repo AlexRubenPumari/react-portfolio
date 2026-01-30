@@ -1,11 +1,11 @@
-@use "/src/styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 %trackbar-thumb {
   width: 1em;
   height: 2.5em;
 
   border-radius: 0;
-  background: h.$color-bg;
+  background: var(--color-surface-base);
   cursor: pointer;
 
   @extend %border-3d;
@@ -13,19 +13,18 @@
 }
 
 .trackbar {
-  @extend %flex-row-center;
+  @extend %layout-row;
   gap: .5em;
 
   font-size: 13px;
-  font-family: h.$font-stack;
-  color: h.$color-text;
+  color: var(--color-text-primary);
 
   &__input {
     -webkit-appearance: none;
     appearance: none;
 
     height: 10px;
-    background: h.$color-bg;
+    background: var(--color-surface-base);
     cursor: pointer;
 
     @extend %border-3d;
@@ -46,24 +45,25 @@
 
     // Track in Firefox
     &::-moz-range-track {
-      background: h.$color-bg;
+      background: var(--color-surface-base);
       @extend %border-3d;
       @extend %shadow-sunken;
 
-      border-top-color: h.$color-border-dark;
-      border-left-color: h.$color-border-dark;
-      border-right-color: h.$color-border-light;
-      border-bottom-color: h.$color-border-light;
+      border-top-color: var(--color-border-dark);
+      border-left-color: var(--color-border-dark);
+      border-right-color: var(--color-border-light);
+      border-bottom-color: var(--color-border-light);
     }
 
     &:active {
-      &::-webkit-slider-thumb, &::-moz-range-thumb {
-        border-top-color: h.$color-border-dark;
-        border-left-color: h.$color-border-dark;
-        border-right-color: h.$color-border-light;
-        border-bottom-color: h.$color-border-light;
-      
-        background: h.$color-bg-active;
+      &::-webkit-slider-thumb,
+      &::-moz-range-thumb {
+        border-top-color: var(--color-border-dark);
+        border-left-color: var(--color-border-dark);
+        border-right-color: var(--color-border-light);
+        border-bottom-color: var(--color-border-light);
+
+        background: var(--color-surface-active);
       
         @extend %shadow-sunken;
       }
@@ -73,7 +73,7 @@
       outline: none;
 
       &::-webkit-slider-thumb, &::-moz-range-thumb {
-        outline: 1px dotted h.$black-900;
+        outline: 1px dotted var(--color-text-primary);
         outline-offset: 0;
       }
     }

@@ -1,4 +1,4 @@
-@use "/src/styles/helpers.scss" as h;
+@use "../../../styles/index.scss" as i;
 
 $size-xs: 2.8em;
 $size-sm: 5em;
@@ -6,20 +6,14 @@ $size-md: 6em;
 $size-lg: 7.5em;
 $size-xl: 9em;
 
-@mixin size($width, $height) {
-  width: $width;
-  height: $height;
-}
-
 .button {
-  font-family: h.$font-stack;
   font-size: 13px;
 
   padding: .4em;
   gap: .7em;
 
-  color: h.$color-text;
-  background: h.$color-bg;
+  color: var(--color-text-primary);
+  background: var(--color-surface-base);
 
   @extend %border-3d;
   @extend %shadow-raised;
@@ -28,80 +22,77 @@ $size-xl: 9em;
   user-select: none;
   
   &:hover {
-    background: h.$color-bg-hover;
+    background: var(--color-surface-hover);
   }
 
   &:active {
-    border-top-color: h.$color-border-dark;
-    border-left-color: h.$color-border-dark;
-    border-right-color: h.$color-border-light;
-    border-bottom-color: h.$color-border-light;
+    border-top-color: var(--color-border-dark);
+    border-left-color: var(--color-border-dark);
+    border-right-color: var(--color-border-light);
+    border-bottom-color: var(--color-border-light);
   
-    background: h.$color-bg-active;
+    background: var(--color-surface-active);
   
     @extend %shadow-sunken;
   }
   
   &:focus {
-    outline: 1px dotted h.$black-900;
+    outline: 1px dotted var(--color-text-primary);
     outline-offset: 0;
   }
 
   &:disabled {
-    color: h.$color-disabled-text;
-    background: h.$color-bg;
+    color: var(--color-text-disabled);
+    background: var(--color-surface-base);
     cursor: default;
     opacity: 1;
   
-    border-top-color: h.$color-border-light;
-    border-left-color: h.$color-border-light;
-    border-right-color: h.$color-border-dark;
-    border-bottom-color: h.$color-border-dark;
+    border-top-color: var(--color-border-light);
+    border-left-color: var(--color-border-light);
+    border-right-color: var(--color-border-dark);
+    border-bottom-color: var(--color-border-dark);
   
-    box-shadow: inset -1px -1px 0 h.$color-disabled-shadow-light,
-                  inset 1px 1px 0 h.$color-disabled-shadow-dark;
-  
-    box-shadow: inset -1px -1px 0 h.$white-800,
-                inset 1px 1px 0 h.$gray-200;
+    box-shadow: inset -1px -1px 0 var(--color-shadow-disabled-light),
+                inset 1px 1px 0 var(--color-shadow-disabled-dark);
 
     &:active,
     &:hover {
-      background: h.$color-bg;
-      box-shadow: inset -1px -1px 0 h.$color-disabled-shadow-light,
-                  inset 1px 1px 0 h.$color-disabled-shadow-dark;
+      background: var(--color-surface-base);
+      box-shadow: inset -1px -1px 0 var(--color-shadow-disabled-light),
+                  inset 1px 1px 0 var(--color-shadow-disabled-dark);
     }
   }
 
   &--column {
-    @extend %flex-column-center;
+    @extend %layout-stack;
     gap: .8em;
 
     &.button--sm {
-      @include size($size-md, $size-md)
+      @include i.box-size($size-md)
     }
 
     &.button--md {
-      @include size($size-md, $size-lg)
+      @include i.box-size($size-md, $size-lg)
     }
 
     &.button--lg {
-      @include size($size-md, $size-xl)
+      @include i.box-size($size-md, $size-xl)
     }
   }
 
   &--row {
-    @extend %flex-row-center;
+    @extend %layout-row;
 
     &.button--sm {
-      @include size($size-xs, $size-xs)
+      @include i.box-size($size-xs)
     }
 
     &.button--md {
-      @include size($size-md, $size-xs)
+      @include i.box-size($size-md, $size-xs)
     }
 
     &.button--lg {
-      @include size($size-xl, $size-xs)
+      @include i.box-size($size-xl, $size-xs)
     }
   }
 }

@@ -1,7 +1,7 @@
-@use "/src/styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 .footer {
-  @extend %flex-row-between;
+  @extend %layout-row-spread;
 
   width: 100%;
   padding: .4em 1em;
@@ -9,10 +9,10 @@
   z-index: 1;
 
   @extend %border-3d;
-  background-color: h.$color-bg;
+  background-color: var(--color-surface-base);
 
   &__controls-group {
-    @extend %flex-row-between;
+    @extend %layout-row-spread;
     gap: 1em;
   }
 }

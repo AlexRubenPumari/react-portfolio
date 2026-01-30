@@ -1,7 +1,7 @@
-@use "../../../styles/helpers.scss";
+@use "../../../styles/index.scss";
 
 .pattern {
-  @extend %flex-row-center;
+  @extend %layout-row;
 
   &--gap {
     &-sm {

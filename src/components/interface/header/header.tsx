@@ -1,18 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { usePageContext } from "../../../contexts/page.js"
 import { cvIcon, githubIcon, linkedinIcon, portfolioIcon } from "../../../assets/img/index.js"
 import { Button, Flaps, MenuButton } from "../index.js"
-import { pageNames } from "../../../config/constants.js"
-import { getPage, getPageName } from "../../../logic/index.js"
+import { pageNames, themes } from "../../../config/constants.js"
+import { changeTheme, getPage, getPageName } from "../../../logic/index.js"
+import type { Theme } from "../../../types/index.js"
 import cv from "../../../assets/pdf/cv.pdf"
 import "./header.scss"
-
-const themes = ["Light", "Dark"] as const
-type Theme = typeof themes[number]
 
 export function Header () {
   const { page, setPage } = usePageContext()
   const [theme, setTheme] = useState<Theme>("Light")
+  useEffect(() => {
+    changeTheme(theme)
+  }, [theme])
 
   const buttons = [
     {

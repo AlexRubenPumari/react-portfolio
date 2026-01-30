@@ -1,9 +1,8 @@
-@use "../../../styles/index.scss";
-@use "../../../styles/helpers.scss" as h;
+@use "../../../styles/index.scss" as i;
 
 .contact-page {
   @extend %page;
-  @extend %flex-column-center;
+  @extend %layout-stack;
 
   gap: 1.5em;
 
@@ -12,7 +11,7 @@
   }
 
   &__buttons {
-    @extend %flex-row-center;
+    @extend %layout-row;
 
     gap: 2em;
   }
@@ -25,7 +24,7 @@
     top: 6em;
     right: 8%;
     transform: translateY(-50%);
-    color: h.$violet-800;
+    color: i.$violet-800;
   }
   &__blob {
     width: 65%;

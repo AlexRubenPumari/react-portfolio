@@ -1,0 +1,60 @@
+@use "../abstracts/placeholders";
+
+/* ======================================================
+   Global Styles
+   ====================================================== */
+.only-desktop {
+  display: flex;
+}
+
+.only-mobile {
+  display: none;
+}
+
+@media (max-width: 630px) {
+  .only-desktop {
+    display: none;
+  }
+
+  .only-mobile {
+    display: flex;
+  }
+}
+
+
+//Placeholders classes
+%page {
+  width: 40em;
+  height: 25em;
+  padding: 1em 3em;
+  position: relative;
+
+  background-color: white;
+  cursor: default;
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+
+#root {
+  @extend %layout-stack;
+}
+
+.viewport {
+  @extend %layout-center;
+
+  width: 100%;
+  flex-grow: 1;
+
+  background-color: red;
+}
+
+.icon {
+  object-fit: contain;
+
+  &--md {
+    width: 1.9em;
+    height: 1.9em;
+  }
+}

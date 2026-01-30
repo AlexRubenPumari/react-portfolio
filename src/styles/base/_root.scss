@@ -1,0 +1,58 @@
+@use "../abstracts/variables";
+
+/* ======================================================
+   Light theme tokens
+   ====================================================== */
+:root {
+  --color-primary: #{variables.$violet-700};
+  --color-primary-hover: #{variables.$violet-800};
+  --color-secondary: #{variables.$gray-600};
+  --color-tertiary: #{variables.$gray-400};
+
+  --color-surface-base: #{variables.$gray-100};
+  --color-surface-raised: #{variables.$white-900};
+  --color-surface-hover: #{variables.$white-700};
+  --color-surface-active: #{variables.$gray-300};
+  --color-surface-disabled: #{variables.$gray-200};
+
+  --color-text-primary: #{variables.$black-900};
+  --color-text-secondary: #{variables.$gray-600};
+  --color-text-disabled: #{variables.$gray-500};
+  --color-text-inverse: #{variables.$white-900};
+
+  --color-border-light: #{variables.$white-900};
+  --color-border-medium: #{variables.$gray-300};
+  --color-border-dark: #{variables.$gray-400};
+
+  --color-shadow-light: #{variables.$white-900};
+  --color-shadow-dark: #{variables.$gray-300};
+  --color-shadow-disabled-light: #{variables.$white-800};
+  --color-shadow-disabled-dark: #{variables.$gray-200};
+}
+
+
+/* ======================================================
+   Dark theme tokens
+   ====================================================== */
+
+// :root[data-scheme="light"] {
+//   --c-primary-01: var(--black-90);
+//   --c-primary-02: var(--black-70);
+//   --c-primary-03: var(--black-50);
+//   --c-primary-01-o: var(--black-90-6o);
+//   --c-secondary-01: var(--white-90);
+//   --c-secondary-02: var(--white-70);
+//   --c-secondary-03: var(--white-50);
+//   --c-secondary-01-o: var(--white-90-6o);
+// }
+
+// :root[data-scheme="dark"] {
+//   --c-primary-01: var(--white-90);
+//   --c-primary-02: var(--white-70);
+//   --c-primary-03: var(--white-50);
+//   --c-primary-01-o: var(--white-90-6o);
+//   --c-secondary-01: var(--black-90);
+//   --c-secondary-02: var(--black-70);
+//   --c-secondary-03: var(--black-50);
+//   --c-secondary-01-o: var(--black-90-6o);
+// }

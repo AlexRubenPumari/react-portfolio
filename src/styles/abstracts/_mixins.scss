@@ -1,0 +1,7 @@
+/* ======================================================
+   Mixins
+   ====================================================== */
+@mixin box-size($width, $height: null) {
+  width: $width;
+  height: if($height != null, $height, $width);
+}

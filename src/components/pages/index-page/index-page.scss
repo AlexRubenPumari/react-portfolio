@@ -1,9 +1,8 @@
-@use "../../../styles/index.scss" as i;
-@use "../../../styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 .index-page {
   @extend %page;
-  @extend %flex-center;
+  @extend %layout-center;
 
   &__content {
     display: flex;
@@ -22,12 +21,12 @@
   &__profile {
     width: 17em;
     aspect-ratio: 1/1;
-    border: .5em solid h.$color-bg;
+    border: .5em solid var(--color-surface-base);
     border-radius: 50%;
   }
 
   &__subtitle {
-    color: h.$violet-800;
+    color: var(--color-primary-hover);
     font-weight: bold;
   }
 

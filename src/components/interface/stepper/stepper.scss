@@ -1,12 +1,11 @@
-@use "/src/styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 .stepper {
-  @extend %flex-row-between;
+  @extend %layout-row-spread;
 
   gap: 1em;
 
   &__label {
-    font-family: h.$font-stack;
     font-size: 13px;
   }
 }

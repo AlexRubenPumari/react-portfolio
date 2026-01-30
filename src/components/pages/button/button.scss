@@ -1,8 +1,8 @@
-@use "../../../styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 .viewport {
   .button {
-    @extend %flex-center;
+    @extend %layout-center;
     gap: 1em;
 
     width: 12em;
@@ -10,15 +10,15 @@
     padding: .8em .5em;
     border-radius: 1em;
     
-    background-color: h.$violet-800;
+    background-color: var(--color-primary-hover);
     box-shadow: none !important;
-    color: h.$white-900;
+    color: var(--color-text-inverse);
     font-weight: bold;
     cursor: pointer;
     transition: background-color 200ms ease-in-out;
 
     &:hover {
-      background-color: h.$violet-700;
+      background-color: var(--color-primary);
     }
 
     &:active, &:focus {

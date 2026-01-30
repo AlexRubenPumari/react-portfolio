@@ -1,52 +1,11 @@
-@use "./root";
-@use "./base";
-@use "./scrollbar";
-@use "./helpers" as h;
+/* ======================================================
+   Imports
+   ====================================================== */
+@forward "./abstracts/variables";
+@forward "./abstracts/placeholders";
+@forward "./abstracts/mixins";
 
-//Placeholders classes
-%page {
-  width: 40em;
-  height: 25em;
-  padding: 1em 3em;
-  position: relative;
-
-  background-color: h.$color-bg;
-  cursor: default;
-  user-select: none;
-  user-drag: none;
-  -webkit-user-drag: none;
-}
-
-// .dUnresponsive {
-//   display: none;
-// }
-// @media (max-width: 630px) {
-//   .dResponsive {
-//     display: none;
-//   }
-//   .dUnresponsive {
-//     display: flex;
-//   }
-// }
-
-#root {
-  @extend %flex-column-center;
-}
-
-.viewport {
-  @extend %flex-center;
-
-  width: 100%;
-  flex-grow: 1;
-
-  background-color: h.$gray-600;
-}
-
-.icon {
-  object-fit: contain;
-
-  &--md {
-    width: 1.9em;
-    height: 1.9em;
-  }
-}
+@forward "./base/reset";
+@forward "./base/root";
+@forward "./base/globals";
+@forward "./base/scrollbar";

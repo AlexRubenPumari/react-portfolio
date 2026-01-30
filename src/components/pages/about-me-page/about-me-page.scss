@@ -1,9 +1,8 @@
 @use "../../../styles/index.scss";
-@use "../../../styles/helpers.scss";
 
 .about-me-page {
   @extend %page;
-  @extend %flex-center;
+  @extend %layout-center;
 
   &__content {
     display: flex;

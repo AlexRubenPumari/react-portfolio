@@ -1,12 +1,12 @@
-@use "/src/styles/helpers.scss" as h;
+@use "../../../styles/index.scss";
 
 .menu {
   padding: .3em 0;
   margin: 0;
   list-style: none;
 
-  background: h.$white-900;
-  color: h.$black-900;
+  background: var(--color-surface-raised);
+  color: var(--color-text-primary);
 
   @extend %border-3d;
   @extend %shadow-raised;

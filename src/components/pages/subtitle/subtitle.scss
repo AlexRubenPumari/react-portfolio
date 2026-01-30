@@ -1,6 +1,4 @@
-@use "../../../styles/helpers.scss" as h;
-
 .subtitle {
-  color: h.$violet-800;
+  color: var(--color-primary-hover);
   font-weight: bold;
 }
