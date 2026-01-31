@@ -41,15 +41,6 @@
   @extend %layout-stack;
 }
 
-.viewport {
-  @extend %layout-center;
-
-  width: 100%;
-  flex-grow: 1;
-
-  background-color: red;
-}
-
 .icon {
   object-fit: contain;
 
