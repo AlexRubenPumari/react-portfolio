@@ -1,4 +1,4 @@
-@use "../../../styles/index.scss";
+@use "../../../styles/index.scss" as i;
 
 .about-me-page {
   @extend %page;
@@ -14,6 +14,7 @@
   }
 
   &__text {
+    color: i.$black-900;
     font-size: 13px;
   }
 

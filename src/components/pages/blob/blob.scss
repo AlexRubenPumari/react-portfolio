@@ -1,5 +1,7 @@
+@use "../../../styles/index.scss" as i;
+
 .blob {
-  color: var(--color-primary-hover);
+  color: i.$violet-800;
   width: 25em;
 
   &--sm {
