@@ -1,4 +1,4 @@
-@use '../../../styles/index.scss';
+@use "../../../styles/index.scss" as i;
 
 .viewport {
   @extend %layout-center;
@@ -7,5 +7,5 @@
   flex-grow: 1;
   overflow: hidden;
 
-  background-color: var(--color-secondary);
+  background-color: i.$gray-550;
 }

@@ -1,4 +1,4 @@
-@use "../../../styles/index.scss";
+@use "../../../styles/index.scss" as i;
 
 .header {
   width: 100%;
@@ -10,7 +10,7 @@
     justify-content: space-between;
     padding: 0 1em;
     
-    background-color: var(--color-secondary);
+    background-color: i.$gray-550;
   }
   &__panel {
     position: relative;
