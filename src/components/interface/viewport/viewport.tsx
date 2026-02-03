@@ -8,7 +8,7 @@ interface ViewportProps {
 
 export function Viewport({ page }: ViewportProps) {
   return (
-    <div className="viewport">
+    <div className="viewport" id="viewport">
       {page === 1 && <IndexPage />}
       {page === 2 && <AboutMePage />}
       {page === 4 && <ContactPage />}
