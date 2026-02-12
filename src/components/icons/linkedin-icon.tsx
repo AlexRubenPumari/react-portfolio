@@ -1,9 +1,9 @@
-import { getSizeInPx } from "./icon.js"
+import { getSizeInEm } from "./icon.js"
 import type { IconProps } from "./icon.js"
 
 export function LinkedinIcon({ className, size = "md" } : IconProps) {
   return (
-    <svg width={getSizeInPx(size)} fill="currentColor" viewBox="-143 145 512 512" className={className}>
+    <svg style={{ width: getSizeInEm(size) }} fill="currentColor" viewBox="-143 145 512 512" className={className}>
       <path
         d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z
         M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7

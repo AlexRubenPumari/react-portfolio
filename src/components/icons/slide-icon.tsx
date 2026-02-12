@@ -1,9 +1,9 @@
-import { getSizeInPx } from "./icon.js"
+import { getSizeInEm } from "./icon.js"
 import type { IconProps } from "./icon.js"
 
 export function SlideIcon({ className, size = "md" } : IconProps) {
   return (
-    <svg width={getSizeInPx(size)} viewBox='0 0 16 16' className={className}>
+    <svg style={{ width: getSizeInEm(size) }} viewBox='0 0 16 16' className={className}>
       <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
         <g fill='currentColor'>
           <rect x='7' y='0' width='1.906' height='2.219' />

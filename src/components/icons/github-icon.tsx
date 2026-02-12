@@ -1,9 +1,9 @@
-import { getSizeInPx } from "./icon.js"
+import { getSizeInEm } from "./icon.js"
 import type { IconProps } from "./icon.js"
 
 export function GithubIcon({ className, size = "md" } : IconProps) {
   return (
-    <svg width={getSizeInPx(size)} viewBox="0 0 20 20" className={className}>
+    <svg style={{ width: getSizeInEm(size) }} viewBox="0 0 20 20" className={className}>
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
           transform="translate(-140.000000, -7559.000000)"

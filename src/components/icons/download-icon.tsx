@@ -1,8 +1,8 @@
-import { getSizeInPx, type IconProps } from "./icon.js"
+import { getSizeInEm, type IconProps } from "./icon.js"
 
 export function DownloadIcon({ className, size = "md" } : IconProps) {
   return (
-    <svg width={getSizeInPx(size)} className={className} viewBox='0 0 24 24' fill='none'>
+    <svg style={{ width: getSizeInEm(size) }} className={className} viewBox='0 0 24 24' fill='none'>
       <path
         fillRule='evenodd'
         clipRule='evenodd'
