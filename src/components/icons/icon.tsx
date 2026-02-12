@@ -5,14 +5,15 @@ export interface IconProps {
   className?: string
 }
 
-export function getSizeInPx(size: Size): number {
+type EmValue = `${number}em`
+export function getSizeInEm(size: Size): EmValue {
   switch (size) {
     case "sm":
-      return 8
+      return "0.5em"
     case "md":
-      return 16
+      return "1em"
     case "lg":
-      return 24
+      return "1.5em"
     default:
       return size as never
   }
