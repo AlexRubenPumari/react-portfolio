@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react"
-import type { Page } from "../../../types/page.js"
+import { useEffect } from "react"
+import type { Page, ZoomValue } from "../../../types/index.js"
 import { Button, Stepper, Trackbar, MenuButton } from "../index.js"
 import { setElementZoom } from "../../../logic/index.js"
-import { usePageContext } from "../../../contexts/page.js"
+import { usePageContext, useZoomContext } from "../../../contexts/index.js"
 import { SlideIcon } from "../../icons/index.js"
+import { zoomValues } from "../../../config/constants.js"
 import "./footer.scss"
-
-const zoomValues = [60, 80, 100, 120, 140] as const
-type ZoomValue = typeof zoomValues[number]
 
 function renderItem<ItemType> (item: ItemType): string {
   return `${item} %`
@@ -15,12 +13,13 @@ function renderItem<ItemType> (item: ItemType): string {
 
 export function Footer() {
   const { page, setPage } = usePageContext()
-  const [viewportZoom, setViewportZoom] = useState<ZoomValue>(100)
+  const { zoom, setZoom } = useZoomContext()
+
   useEffect(() => {
     const viewport = document.querySelector<HTMLElement>("#viewport")
 
-    if(viewport) setElementZoom(viewport, viewportZoom)
-  }, [viewportZoom])
+    if(viewport) setElementZoom(viewport, zoom)
+  }, [zoom])
 
   return (
     <footer className="footer">
@@ -34,17 +33,17 @@ export function Footer() {
       <div className="footer__controls-group">
         <MenuButton
           items={zoomValues}
-          label={renderItem(viewportZoom)}
-          onChange={zoomValue => setViewportZoom(zoomValue)}
+          label={renderItem(zoom)}
+          onChange={zoomValue => setZoom(zoomValue)}
           renderItem={renderItem}
           direction="top"
         />
         <Trackbar
-          value={viewportZoom}
+          value={zoom}
           min={60}
           max={140}
           step={20}
-          onChange={(newValue: number) => setViewportZoom(newValue as ZoomValue)}
+          onChange={newValue => setZoom(newValue as ZoomValue)}
         />
         <Button size="sm">
           <SlideIcon />
