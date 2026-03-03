@@ -1,16 +1,17 @@
-import { getRepositories, getRepositoryReadmeContent } from "../services/index.js"
 import { parseRepositoryReadmeContent } from "./repository-readme-content/parse-repository-readme-content.js"
-import type { RepositoryDetails } from "../types/repository-details.js"
+import type { GithubService, RepositoryDetails, RepositoryReadme } from "../types/index.js"
 
-export async function getRepositoriesDetails(): Promise<RepositoryDetails[]> {
-  const repositories = await getRepositories()
+export async function getRepositoriesDetails(
+  { githubService } : {  githubService: GithubService }
+): Promise<RepositoryDetails[]> {
+  const repositories = await githubService.getRepositories()
 
   return Promise.all(
     repositories.map(async repository => {
-      const readmeContent = await getRepositoryReadmeContent(repository.fullName)
-      const parsedReadme = parseRepositoryReadmeContent(readmeContent)
+      const readmeContent = await githubService.getRepositoryReadmeContent(repository.fullName)
+      const repositoryReadme: RepositoryReadme = parseRepositoryReadmeContent(readmeContent)
 
-      return { ...repository, ...parsedReadme } satisfies RepositoryDetails
+      return { ...repository, ...repositoryReadme } satisfies RepositoryDetails
     })
   )
 }
