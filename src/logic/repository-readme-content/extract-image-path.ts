@@ -1,9 +1,9 @@
 const README_IMAGE_REGEX = /!\[.*?\]\((readme\/[^\)]+)\)/
 
-export function extractImagePath(markdownContent: string): string | null {
-  const regexMatch = markdownContent.match(README_IMAGE_REGEX)
+export function extractImagePath(content: string): string | null {
+  const match = content.match(README_IMAGE_REGEX)
 
-  const imagePath = regexMatch?.[1]
+  const imagePath = match?.[1]
 
   return imagePath ?? null
 }
