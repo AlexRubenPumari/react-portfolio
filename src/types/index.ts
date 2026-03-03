@@ -1,5 +1,6 @@
 export * from "./direction.js"
 export * from "./github-repository.js"
+export * from "./github-service.js"
 export * from "./page-name.js"
 export * from "./page.js"
 export * from "./repository.js"
