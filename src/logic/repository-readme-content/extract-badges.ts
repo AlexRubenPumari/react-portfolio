@@ -2,10 +2,10 @@ import type { Badge } from "../../types/badge.js"
 
 const BADGE_REGEX = /!\[(.*?)\]\((https:\/\/img\.shields\.io\/[^\)]+)\)/g
 
-export function extractBadges(markdown: string): Badge[] {
+export function extractBadges(content: string): Badge[] {
   const badges: Badge[] = []
 
-  let match: RegExpExecArray | null = BADGE_REGEX.exec(markdown)
+  let match: RegExpExecArray | null = BADGE_REGEX.exec(content)
   let hasMatches: boolean = match !== null
 
   while (hasMatches) {
@@ -14,7 +14,7 @@ export function extractBadges(markdown: string): Badge[] {
 
     badges.push({ name: normalizedName, url: url! })
 
-    match = BADGE_REGEX.exec(markdown)
+    match = BADGE_REGEX.exec(content)
     hasMatches = match !== null
   }
 

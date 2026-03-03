@@ -10,12 +10,10 @@ describe("extract-badges", () => {
 
     const result = extractBadges(markdown)
 
-    expect(result).toHaveLength(2)
-
-    expect(result[0]!.name).toBe("React")
-    expect(result[1]!.name).toBe("Sass")
-    expect(result[0]!.url).toBe("https://img.shields.io/badge/React-19.0.0-blue")
-    expect(result[1]!.url).toBe("https://img.shields.io/badge/Sass-1.89.2-cc6699")
+    expect(result).toStrictEqual([
+      { name: "React", url: "https://img.shields.io/badge/React-19.0.0-blue" },
+      { name: "Sass", url: "https://img.shields.io/badge/Sass-1.89.2-cc6699" },
+    ])
   })
 
   test("should extract multiple badges written on the same line", () => {
@@ -25,8 +23,10 @@ describe("extract-badges", () => {
 
     const result = extractBadges(markdown)
 
-    expect(result).toHaveLength(2)
-    expect(result.map(badge => badge.name)).toEqual(["React", "Sass"])
+    expect(result).toStrictEqual([
+      { name: "React", url: "https://img.shields.io/badge/React-19.0.0-blue" },
+      { name: "Sass", url: "https://img.shields.io/badge/Sass-1.89.2-cc6699" },
+    ])
   })
 
   test("should keep extracting even if there is text between badges", () => {
@@ -38,7 +38,9 @@ describe("extract-badges", () => {
 
     const result = extractBadges(markdown)
 
-    expect(result).toHaveLength(2)
-    expect(result.map(badge => badge.name)).toEqual(["React", "Sass"])
+    expect(result).toStrictEqual([
+      { name: "React", url: "https://img.shields.io/badge/React-19.0.0-blue" },
+      { name: "Sass", url: "https://img.shields.io/badge/Sass-1.89.2-cc6699" },
+    ])
   })
 })
