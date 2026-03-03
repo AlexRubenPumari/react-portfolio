@@ -1,2 +1,2 @@
 export * from "./fetch-json.js"
-export * from "./repository.js"
+export * from "./github-service.js"
