@@ -4,7 +4,7 @@ import { Button, Stepper, Trackbar, MenuButton } from "../index.js"
 import { setElementZoom } from "../../../logic/index.js"
 import { usePageContext, useZoomContext } from "../../../contexts/index.js"
 import { SlideIcon } from "../../icons/index.js"
-import { zoomValues } from "../../../config/constants.js"
+import { ZOOM_VALUES } from "../../../config/constants.js"
 import "./footer.scss"
 
 function renderItem<ItemType> (item: ItemType): string {
@@ -32,7 +32,7 @@ export function Footer() {
       />
       <div className="footer__controls-group">
         <MenuButton
-          items={zoomValues}
+          items={ZOOM_VALUES}
           label={renderItem(zoom)}
           onChange={zoomValue => setZoom(zoomValue)}
           renderItem={renderItem}

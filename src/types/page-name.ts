@@ -1,3 +1,3 @@
-import { pageNames } from "../config/constants.js"
+import { PAGE_NAMES } from "../config/constants.js"
 
-export type PageName = typeof pageNames[number]
+export type PageName = typeof PAGE_NAMES[number]

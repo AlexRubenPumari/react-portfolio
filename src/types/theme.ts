@@ -1,3 +1,3 @@
-import type { themes } from "../config/constants.js"
+import type { THEMES } from "../config/constants.js"
 
-export type Theme = typeof themes[number]
+export type Theme = typeof THEMES[number]

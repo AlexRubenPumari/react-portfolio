@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { usePageContext } from "../../../contexts/page.js"
 import { cvIcon, githubIcon, linkedinIcon, portfolioIcon } from "../../../assets/img/index.js"
 import { Button, Flaps, MenuButton } from "../index.js"
-import { pageNames, themes } from "../../../config/constants.js"
+import { PAGE_NAMES, THEMES } from "../../../config/constants.js"
 import { changeTheme, getPage, getPageName } from "../../../logic/index.js"
 import type { Theme } from "../../../types/index.js"
 import cv from "../../../assets/pdf/cv.pdf"
@@ -42,13 +42,13 @@ export function Header () {
     <header className="header">
       <nav className="header__nav">
         <Flaps
-          flaps={pageNames}
+          flaps={PAGE_NAMES}
           selectedFlap={getPageName(page)}
           onChange={pageName => setPage(getPage(pageName))}
         />
         <MenuButton
           label="Theme"
-          items={themes}
+          items={THEMES}
           direction="bottom-right"
           selectedItem={theme}
           onChange={theme => setTheme(theme)}
