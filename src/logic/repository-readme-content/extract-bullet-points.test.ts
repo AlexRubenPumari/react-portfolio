@@ -4,21 +4,20 @@ import { extractBulletPoints } from "./extract-bullet-points.js"
 describe("extract-bullet-points", () => {
   test("should extract only lines starting with '-'", () => {
     const section = `
-      Intro
-      - First
-      Random
-      - Second
+      Introducción
+      - Título
+      Algo más
+      - Descripcion
     `
-
     const result = extractBulletPoints(section)
 
-    expect(result).toEqual(["First", "Second"])
+    expect(result).toEqual(["Título", "Descripcion"])
   })
 
   test("should return empty array if no bullet points exist", () => {
     const section = `
-      Just text
-      Another line
+      Solo texto
+      Otra línea
     `
 
     expect(extractBulletPoints(section)).toEqual([])
@@ -26,9 +25,9 @@ describe("extract-bullet-points", () => {
 
   test("should trim whitespace before processing", () => {
     const section = `
-          -   Spaced
+          -   Espaciado
     `
 
-    expect(extractBulletPoints(section)).toEqual(["Spaced"])
+    expect(extractBulletPoints(section)).toEqual(["Espaciado"])
   })
 })
