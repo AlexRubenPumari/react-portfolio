@@ -51,17 +51,17 @@ describe("extract-title", () => {
     expect(result).toBe("Main Title")
   })
 
-  test("should throw an error if no level-1 title is found", () => {
+  test("should return null if no level-1 title is found", () => {
     const markdown = `
       ## Subtitle only
 
       No h1 here.
     `
 
-    expect(() => extractTitle(markdown)).toThrow()
+    expect(extractTitle(markdown)).toBeNull()
   })
 
-  test("should throw an error if markdown is empty", () => {
-    expect(() => extractTitle("")).toThrow()
+  test("should return null if markdown is empty", () => {
+    expect(extractTitle("")).toBeNull()
   })
 })
