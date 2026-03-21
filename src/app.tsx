@@ -7,11 +7,12 @@ import "./styles/index.scss"
 export default function App() {
   const [page, setPage] = useState<Page>(1)
   const [zoom, setZoom] = useState<ZoomValue>(100)
+  const isRepositoriesPage = page === 3
 
   return (
     <PageContext.Provider value={{ page, setPage }}>
       <ZoomContext.Provider value={{ zoom, setZoom }}>
-        <Header />
+        <Header isCompact={isRepositoriesPage} />
         <Viewport page={page} />
         <Footer />
       </ZoomContext.Provider>

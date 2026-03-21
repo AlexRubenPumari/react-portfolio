@@ -3,12 +3,16 @@ import { usePageContext } from "../../../contexts/page.js"
 import { cvIcon, githubIcon, linkedinIcon, portfolioIcon } from "../../../assets/img/index.js"
 import { Button, Flaps, MenuButton } from "../index.js"
 import { PAGE_NAMES, THEMES } from "../../../config/constants.js"
-import { changeTheme, getPage, getPageName } from "../../../logic/index.js"
+import { changeTheme, getPage, getPageName, joinClasses } from "../../../logic/index.js"
 import type { Theme } from "../../../types/index.js"
 import cv from "../../../assets/pdf/cv.pdf"
 import "./header.scss"
 
-export function Header () {
+interface HeaderProps {
+  isCompact?: boolean
+}
+
+export function Header ({ isCompact = false }: HeaderProps) {
   const { page, setPage } = usePageContext()
   const [theme, setTheme] = useState<Theme>("Light")
   useEffect(() => {
@@ -54,7 +58,7 @@ export function Header () {
           onChange={theme => setTheme(theme)}
         />
       </nav>
-      <div className="header__panel">
+      <div className={joinClasses("header__panel", isCompact && "header__panel--compact")}>
         <div className="header__actions">
         {buttons.map(({ label, imgPath, onClick }) => (
           <Button

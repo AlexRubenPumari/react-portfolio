@@ -13,9 +13,18 @@
     background-color: i.$gray-550;
   }
   &__panel {
+    $header-approx-height: 500px;
+    max-height: $header-approx-height;
     position: relative;
-
+    
     @extend %border-3d;
+
+    overflow-y: hidden;
+    transition: max-height 0.3s ease-out;
+
+    &--compact {
+      max-height: 0;
+    }
   }
   &__actions {
     display: flex;
