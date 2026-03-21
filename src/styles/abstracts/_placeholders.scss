@@ -21,6 +21,19 @@
     inset -1px -1px 0 var(--color-shadow-dark);
 }
 
+%page {
+  width: 40em;
+  height: 25em;
+  padding: 1em 3em;
+  position: relative;
+
+  background-color: white;
+  cursor: default;
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
 
 /* ======================================================
    Layouts
