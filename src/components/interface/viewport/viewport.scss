@@ -5,7 +5,11 @@
 
   width: 100%;
   flex-grow: 1;
-  overflow: hidden;
+  overflow-y: hidden;
 
   background-color: i.$gray-550;
+
+  &--with-scroll {
+    overflow-y: auto;
+  }
 }
