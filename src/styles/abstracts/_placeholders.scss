@@ -50,15 +50,3 @@
   @extend %layout-stack;
   justify-content: space-between;
 }
-
-
-// %layout-row { 3
-//   @extend %layout-center;
-//   flex-direction: row;
-// }
-
-
-// %flex-column-between { 5
-//   @extend %layout-stack;
-//   justify-content: space-between;
-// }
