@@ -14,7 +14,7 @@ export default function App() {
       <ZoomContext.Provider value={{ zoom, setZoom }}>
         <Header isCompact={isRepositoriesPage} />
         <Viewport page={page} />
-        <Footer />
+        <Footer isHidden={isRepositoriesPage} />
       </ZoomContext.Provider>
     </PageContext.Provider>
   )

@@ -1,17 +1,21 @@
 import { useEffect } from "react"
 import type { Page, ZoomValue } from "../../../types/index.js"
 import { Button, Stepper, Trackbar, MenuButton } from "../index.js"
-import { setElementZoom } from "../../../logic/index.js"
+import { joinClasses, setElementZoom } from "../../../logic/index.js"
 import { usePageContext, useZoomContext } from "../../../contexts/index.js"
 import { SlideIcon } from "../../icons/index.js"
 import { ZOOM_VALUES } from "../../../config/constants.js"
 import "./footer.scss"
 
+interface FooterProps {
+  isHidden?: boolean
+}
+
 function renderItem<ItemType> (item: ItemType): string {
   return `${item} %`
 }
 
-export function Footer() {
+export function Footer({ isHidden = false }: FooterProps) {
   const { page, setPage } = usePageContext()
   const { zoom, setZoom } = useZoomContext()
 
@@ -22,7 +26,7 @@ export function Footer() {
   }, [zoom])
 
   return (
-    <footer className="footer">
+    <footer className={joinClasses("footer", isHidden && "footer--hidden")}>
       <Stepper
         label={`Página ${page} de 4`}
         value={page}
