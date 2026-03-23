@@ -1,12 +1,17 @@
-@use '../../../styles/index.scss';
+@use '../../../styles/index.scss' as i;
 
-.RepositoryPage {
-  @extend %base-page;
+.repositories-page {
+  @extend %page;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1em;
+
+  height: auto;
+
+  color: i.$black-900;
 
   &__blob {
     bottom: 0;
