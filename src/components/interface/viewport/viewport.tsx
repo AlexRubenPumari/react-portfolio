@@ -8,12 +8,12 @@ import "./viewport.scss"
 
 interface ViewportProps {
   page: Page
+  isFullScreen?: Boolean
 }
 
-export function Viewport({ page }: ViewportProps) {
+export function Viewport({ page, isFullScreen = false }: ViewportProps) {
   const { setZoom } = useZoomContext()
   const viewportRef = useRef<HTMLDivElement>(null)
-  const isRepositoriesPage = page === 3
 
   useZoomable({
     ref: viewportRef,
@@ -28,7 +28,7 @@ export function Viewport({ page }: ViewportProps) {
 
   return (
     <div
-      className={joinClasses("viewport", isRepositoriesPage && "viewport--with-scroll" )}
+      className={joinClasses("viewport", isFullScreen && "viewport--full-screen" )}
       id="viewport"
       ref={viewportRef}
     >

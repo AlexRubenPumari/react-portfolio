@@ -5,11 +5,15 @@
 
   width: 100%;
   flex-grow: 1;
-  overflow-y: hidden;
+  overflow: hidden;
 
   background-color: i.$gray-550;
 
-  &--with-scroll {
+  &--full-screen {
+    position: relative;
     overflow-y: auto;
+
+    @extend %border-3d;
+    @extend %shadow-raised;
   }
 }

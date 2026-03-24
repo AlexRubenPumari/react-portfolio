@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import type { Page, ZoomValue } from "../../../types/index.js"
 import { Button, Stepper, Trackbar, MenuButton } from "../index.js"
 import { joinClasses, setElementZoom } from "../../../logic/index.js"
-import { usePageContext, useZoomContext } from "../../../contexts/index.js"
+import { useFullScreenContext, usePageContext, useZoomContext } from "../../../contexts/index.js"
 import { SlideIcon } from "../../icons/index.js"
 import { ZOOM_VALUES } from "../../../config/constants.js"
 import "./footer.scss"
@@ -18,6 +18,7 @@ function renderItem<ItemType> (item: ItemType): string {
 export function Footer({ isHidden = false }: FooterProps) {
   const { page, setPage } = usePageContext()
   const { zoom, setZoom } = useZoomContext()
+  const { toggleFullScreen } = useFullScreenContext()
 
   useEffect(() => {
     const viewport = document.querySelector<HTMLElement>("#viewport")
@@ -49,7 +50,7 @@ export function Footer({ isHidden = false }: FooterProps) {
           step={20}
           onChange={newValue => setZoom(newValue as ZoomValue)}
         />
-        <Button size="sm">
+        <Button size="sm" onClick={toggleFullScreen}>
           <SlideIcon />
         </Button>
       </div>
