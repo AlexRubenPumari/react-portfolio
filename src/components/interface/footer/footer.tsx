@@ -34,6 +34,7 @@ export function Footer({ isHidden = false }: FooterProps) {
         min={1}
         max={4}
         onChange={newPage => setPage(newPage as Page)}
+        infinite
       />
       <div className="footer__controls-group">
         <MenuButton
