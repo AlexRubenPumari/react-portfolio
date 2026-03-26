@@ -1,4 +1,4 @@
-import { joinClasses } from "../../../logic/index.js"
+import { joinClasses, getNextInRange } from "../../../logic/index.js"
 import { Button } from "../button/index.js"
 import "./stepper.scss"
 
@@ -10,6 +10,7 @@ export interface StepperProps {
   label?: string | ((value: number, max: number, min: number) => string)
   className?: string
   disabled?: boolean
+  infinite?: boolean
 }
 
 export function Stepper ({
@@ -19,27 +20,28 @@ export function Stepper ({
   label,
   className,
   onChange,
+  infinite = false,
   disabled,
 }: StepperProps) {
-  const canDecrease = !disabled && value > min
-  const canIncrease = !disabled && value < max
+  const canDecrease = !disabled && (infinite || value > min)
+  const canIncrease = !disabled && (infinite || value < max)
   const labelContent: string = isFunction(label)
     ? label(value, max, min)
     : label ?? `${value} / ${max}`
 
 
   const handleDecrease = () => {
-    if (canDecrease) {
-      const newValue = value - 1;
-      onChange?.(newValue);
-    }
+    if (disabled) return
+
+    const newValue = getNextInRange({ min, max, value, step: -1, wrap: infinite })
+    if(newValue !== value) onChange?.(newValue)
   }
 
   const handleIncrease = () => {
-    if (canIncrease) {
-      const newValue = value + 1;
-      onChange?.(newValue);
-    }
+    if (disabled) return
+
+    const newValue = getNextInRange({ min, max, value, step: 1, wrap: infinite })
+    if(newValue !== value) onChange?.(newValue)
   }
 
   return (
