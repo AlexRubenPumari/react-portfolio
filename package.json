@@ -1,17 +1,23 @@
 {
-  "name": "04-tiny-portfolio",
+  "name": "react-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "docker compose up",
+    "test": "docker compose exec frontend npm run test:container",
+    "lint": "docker compose exec frontend npm run lint:container",
+    "storybook": "docker compose exec frontend npm run storybook:container",
+
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
-    "test": "vitest --project unit --run",
     "deploy": "npm run build && gh-pages -d dist",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+
+    "test:container": "vitest --project unit --run",
+    "lint:container": "eslint .",
+    "storybook:container": "storybook dev -p 6006 --host",
+    "dev:container": "vite --host"
   },
   "dependencies": {
     "react": "^19.0.0",
