@@ -1,3 +1,4 @@
+export * from "./coordinates.js"
 export * from "./direction.js"
 export * from "./github-repository.js"
 export * from "./github-service.js"

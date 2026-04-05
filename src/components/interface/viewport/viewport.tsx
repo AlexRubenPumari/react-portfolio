@@ -8,7 +8,7 @@ import "./viewport.scss"
 
 interface ViewportProps {
   page: Page
-  isFullScreen?: Boolean
+  isFullScreen?: boolean
 }
 
 export function Viewport({ page, isFullScreen = false }: ViewportProps) {
