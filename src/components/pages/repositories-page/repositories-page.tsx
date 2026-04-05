@@ -4,6 +4,7 @@ import { RepositoryCard, Subtitle } from "../index.js"
 import "./repositories-page.scss"
 import { getRepositoriesDetails } from "../../../use-cases/get-repository-details.js";
 import { githubService } from "../../../services/github-service.js";
+import { useDraggable } from "../../../hooks/index.js";
 
 const repositories: RepositoryDetails[] = [
   {
@@ -105,7 +106,8 @@ const repositories: RepositoryDetails[] = [
 ]
 
 export function RepositoriesPage() {
-  const repositoriesPageRef = useRef<HTMLDivElement>(null)
+  const repositoriesPageRef = useDraggable<HTMLDivElement>({ isTouchDevice: false })
+  
   useEffect(() => {
     const repositoriesPage = repositoriesPageRef.current
     if (!repositoriesPage) return
@@ -130,5 +132,5 @@ export function RepositoriesPage() {
       </ul>
       {repositories.map(repository => <RepositoryCard repository={repository} />)}
     </div>
-  );
+  )
 }
